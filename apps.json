@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "name": "Contador",
+    "description": "Contador básico con botones de incremento y decremento.",
+    "path": "dia-001",
+    "tags": ["Básico", "Contador"],
+    "icon": "🔢",
+    "image": "./apps/dia-001/img/1.png"
+  }
+]
