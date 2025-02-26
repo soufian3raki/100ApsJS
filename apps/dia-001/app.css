@@ -1,0 +1,72 @@
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.counter button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counter button:hover {
+  background: var(--accent-hover);
+  transform: scale(1.05);
+}
+
+.counter #value {
+  font-size: 4rem;
+  font-weight: 700;
+  min-width: 6rem;
+  text-align: center;
+  color: var(--text);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .counter {
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+  
+  .counter button {
+    width: 3.5rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .counter #value {
+    font-size: 3rem;
+    min-width: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .counter {
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .counter button {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+  }
+  
+  .counter #value {
+    font-size: 2.5rem;
+    min-width: 3rem;
+  }
+}
