@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de Divisas | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Conversor de Divisas</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="app-content">
+        <div class="converter">
+          <div class="input-group">
+            <label for="amount">Cantidad</label>
+            <input type="number" id="amount" class="input" placeholder="0" min="0" step="0.01">
+          </div>
+          
+          <div class="currencies">
+            <div class="currency-select">
+              <label for="from">De</label>
+              <select id="from" class="input">
+                <option value="USD">USD - Dólar</option>
+                <option value="EUR">EUR - Euro</option>
+                <option value="GBP">GBP - Libra</option>
+                <option value="JPY">JPY - Yen</option>
+                <option value="CAD">CAD - Dólar Canadiense</option>
+                <option value="AUD">AUD - Dólar Australiano</option>
+                <option value="CHF">CHF - Franco Suizo</option>
+                <option value="CNY">CNY - Yuan</option>
+                <option value="MXN">MXN - Peso Mexicano</option>
+                <option value="BRL">BRL - Real Brasileño</option>
+              </select>
+            </div>
+            
+            <button id="swap" class="btn btn-secondary">⇄</button>
+            
+            <div class="currency-select">
+              <label for="to">A</label>
+              <select id="to" class="input">
+                <option value="EUR">EUR - Euro</option>
+                <option value="USD">USD - Dólar</option>
+                <option value="GBP">GBP - Libra</option>
+                <option value="JPY">JPY - Yen</option>
+                <option value="CAD">CAD - Dólar Canadiense</option>
+                <option value="AUD">AUD - Dólar Australiano</option>
+                <option value="CHF">CHF - Franco Suizo</option>
+                <option value="CNY">CNY - Yuan</option>
+                <option value="MXN">MXN - Peso Mexicano</option>
+                <option value="BRL">BRL - Real Brasileño</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="result">
+            <div class="result-amount" id="result">0.00</div>
+            <div class="result-rate" id="rate">Tasa: 1.00</div>
+          </div>
+          
+          <button id="convert" class="btn">Convertir</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
