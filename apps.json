@@ -1,5 +1,14 @@
 [
   {
+    "id": 2,
+    "name": "Conversor de Divisas",
+    "description": "Conversión entre monedas con tasas de cambio en tiempo real.",
+    "path": "dia-002",
+    "tags": ["Conversión", "Finanzas"],
+    "icon": "💱",
+    "image": "https://via.placeholder.com/300x200/06b6d4/fff?text=Currency+Converter"
+  },
+  {
     "id": 1,
     "name": "Contador",
     "description": "Contador básico con botones de incremento y decremento.",
