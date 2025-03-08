@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Día 4: Conversor de Divisas</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <main>
+    <div class="converter-container">
+      <div class="converter-header">
+        <input type="number" id="amount" value="100" />
+        <select id="from-currency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="JPY">JPY</option>
+          <option value="CAD">CAD</option>
+          <option value="AUD">AUD</option>
+          <option value="CHF">CHF</option>
+          <option value="CNY">CNY</option>
+          <option value="MXN">MXN</option>
+          <option value="BRL">BRL</option>
+          <option value="MAD" selected>MAD</option>
+        </select>
+      </div>
+
+      <div class="converter-actions">
+        <button id="swap-btn" title="Intercambiar monedas">⇅</button>
+        <button id="refresh-btn" title="Actualizar tasas">↻</button>
+      </div>
+
+      <div class="converter-result">
+        <div id="result-amount">...</div>
+        <select id="to-currency">
+          <option value="USD" selected>USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="JPY">JPY</option>
+          <option value="CAD">CAD</option>
+          <option value="AUD">AUD</option>
+          <option value="CHF">CHF</option>
+          <option value="CNY">CNY</option>
+          <option value="MXN">MXN</option>
+          <option value="BRL">BRL</option>
+          <option value="MAD">MAD</option>
+        </select>
+      </div>
+      
+      <div id="result-rate"></div>
+      <button id="convert-btn">Convertir</button>
+    </div>
+
+    <div class="popular-section">
+      <h2>Conversiones Populares</h2>
+      <div id="popular-conversions"></div>
+    </div>
+  </main>
+
+  <script src="../../components/loader.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
