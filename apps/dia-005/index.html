@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cronómetro | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="stopwatch">
+        <div class="time-display">
+          <div class="time-unit">
+            <span class="time-value" id="hours">00</span>
+            <span class="time-label">Horas</span>
+          </div>
+          <div class="time-separator">:</div>
+          <div class="time-unit">
+            <span class="time-value" id="minutes">00</span>
+            <span class="time-label">Minutos</span>
+          </div>
+          <div class="time-separator">:</div>
+          <div class="time-unit">
+            <span class="time-value" id="seconds">00</span>
+            <span class="time-label">Segundos</span>
+          </div>
+          <div class="time-separator">.</div>
+          <div class="time-unit">
+            <span class="time-value" id="milliseconds">00</span>
+            <span class="time-label">ms</span>
+          </div>
+        </div>
+        
+        <div class="controls">
+          <button id="start-btn" class="control-btn start">▶️ Iniciar</button>
+          <button id="pause-btn" class="control-btn pause" disabled>⏸️ Pausar</button>
+          <button id="reset-btn" class="control-btn reset">🔄 Reiniciar</button>
+        </div>
+        
+        <div class="laps-section">
+          <div class="laps-header">
+            <h3>Vueltas</h3>
+            <button id="clear-laps-btn" class="clear-laps-btn">Limpiar</button>
+          </div>
+          <div class="laps-list" id="laps-list">
+            <!-- Las vueltas se agregarán aquí dinámicamente -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../components/loader.js"></script>
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html> 
