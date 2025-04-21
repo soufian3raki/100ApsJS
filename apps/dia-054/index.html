@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App de Votaciones | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>App de Votaciones</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="app-content">
+        <div class="voting-setup">
+          <h2>Configurar Votación</h2>
+          <div class="setup-form">
+            <div class="form-group">
+              <label for="pollTitle">Título de la votación:</label>
+              <input type="text" id="pollTitle" placeholder="¿Cuál es tu color favorito?">
+            </div>
+            
+            <div class="form-group">
+              <label for="pollDescription">Descripción (opcional):</label>
+              <textarea id="pollDescription" placeholder="Describe la votación..."></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="pollType">Tipo de votación:</label>
+              <select id="pollType">
+                <option value="single">Una sola opción</option>
+                <option value="multiple">Múltiples opciones</option>
+                <option value="ranking">Ranking (ordenar por preferencia)</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="maxChoices">Máximo de opciones (para múltiples):</label>
+              <input type="number" id="maxChoices" min="2" max="10" value="3">
+            </div>
+            
+            <div class="options-section">
+              <label>Opciones de votación:</label>
+              <div class="options-list" id="optionsList">
+                <div class="option-item">
+                  <input type="text" placeholder="Opción 1" class="option-input">
+                  <button class="remove-option" onclick="this.parentElement.remove()">×</button>
+                </div>
+                <div class="option-item">
+                  <input type="text" placeholder="Opción 2" class="option-input">
+                  <button class="remove-option" onclick="this.parentElement.remove()">×</button>
+                </div>
+              </div>
+              <button id="addOption" class="btn btn-secondary">+ Agregar Opción</button>
+            </div>
+            
+            <div class="form-group">
+              <label for="allowAnonymous">Permitir votos anónimos:</label>
+              <input type="checkbox" id="allowAnonymous" checked>
+            </div>
+            
+            <div class="form-group">
+              <label for="showResults">Mostrar resultados en tiempo real:</label>
+              <input type="checkbox" id="showResults" checked>
+            </div>
+            
+            <button id="createPoll" class="btn">Crear Votación</button>
+          </div>
+        </div>
+        
+        <div class="voting-interface" id="votingInterface" style="display: none;">
+          <h2 id="currentPollTitle">Título de la Votación</h2>
+          <p id="currentPollDescription" class="poll-description"></p>
+          
+          <div class="voting-options" id="votingOptions">
+            <!-- Las opciones se mostrarán aquí -->
+          </div>
+          
+          <div class="voting-controls">
+            <button id="submitVote" class="btn" disabled>Votar</button>
+            <button id="viewResults" class="btn btn-secondary">Ver Resultados</button>
+            <button id="resetPoll" class="btn btn-secondary">Nueva Votación</button>
+          </div>
+        </div>
+        
+        <div class="results-section" id="resultsSection" style="display: none;">
+          <h3>Resultados de la Votación</h3>
+          <div class="results-stats">
+            <div class="stat-item">
+              <span class="stat-label">Total de Votos:</span>
+              <span class="stat-value" id="totalVotes">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Opciones:</span>
+              <span class="stat-value" id="totalOptions">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Estado:</span>
+              <span class="stat-value" id="pollStatus">Activa</span>
+            </div>
+          </div>
+          
+          <div class="results-chart">
+            <canvas id="resultsChart" width="400" height="300"></canvas>
+          </div>
+          
+          <div class="results-table">
+            <table id="resultsTable">
+              <thead>
+                <tr>
+                  <th>Opción</th>
+                  <th>Votos</th>
+                  <th>Porcentaje</th>
+                  <th>Barra de Progreso</th>
+                </tr>
+              </thead>
+              <tbody id="resultsTableBody">
+                <!-- Los resultados se mostrarán aquí -->
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="results-actions">
+            <button id="exportResults" class="btn btn-secondary">Exportar Resultados</button>
+            <button id="sharePoll" class="btn btn-secondary">Compartir Votación</button>
+            <button id="closeResults" class="btn btn-secondary">Cerrar Resultados</button>
+          </div>
+        </div>
+        
+        <div class="poll-history">
+          <h3>Historial de Votaciones</h3>
+          <div class="history-controls">
+            <button id="clearHistory" class="btn btn-secondary">Limpiar Historial</button>
+            <button id="exportHistory" class="btn btn-secondary">Exportar Historial</button>
+          </div>
+          
+          <div class="history-list" id="historyList">
+            <p class="no-history">No hay votaciones guardadas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
