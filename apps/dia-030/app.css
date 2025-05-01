@@ -1,0 +1,280 @@
+.clock-app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.clock-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.mode-btn, .format-btn, .timezone-btn {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.mode-btn.active, .format-btn.active, .timezone-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.mode-btn:hover, .format-btn:hover, .timezone-btn:hover {
+  background: var(--accent-hover);
+  color: white;
+  border-color: var(--accent-hover);
+}
+
+.clock-display {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.digital-clock {
+  margin-bottom: 2rem;
+}
+
+.time {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: "Courier New", monospace;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.date {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.analog-clock {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto 2rem auto;
+}
+
+.clock-face {
+  width: 100%;
+  height: 100%;
+  border: 8px solid var(--border);
+  border-radius: 50%;
+  background: var(--bg);
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.clock-face::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.hand {
+  position: absolute;
+  background: var(--text);
+  border-radius: 4px;
+  transform-origin: bottom center;
+  transition: transform 0.1s ease;
+}
+
+.hour-hand {
+  width: 6px;
+  height: 80px;
+  top: 70px;
+  left: 147px;
+  background: var(--accent);
+  z-index: 3;
+}
+
+.minute-hand {
+  width: 4px;
+  height: 100px;
+  top: 50px;
+  left: 148px;
+  background: var(--text);
+  z-index: 2;
+}
+
+.second-hand {
+  width: 2px;
+  height: 110px;
+  top: 40px;
+  left: 149px;
+  background: #ff4444;
+  z-index: 1;
+}
+
+.center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.analog-time {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  font-family: "Courier New", monospace;
+}
+
+.world-clocks {
+  padding: 1.5rem;
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.world-clocks h3 {
+  margin: 0 0 1.5rem 0;
+  color: var(--text);
+  text-align: center;
+}
+
+.world-clocks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.world-clock {
+  padding: 1rem;
+  background: var(--bg);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.world-clock:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.world-clock-city {
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.world-clock-time {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: "Courier New", monospace;
+}
+
+.world-clock-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Marcas del reloj analógico */
+.clock-face::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.clock-face {
+  position: relative;
+}
+
+.clock-face::before {
+  content: "12";
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+.clock-face::after {
+  content: "3";
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-weight: bold;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+/* Marcas de las horas */
+.clock-face {
+  background-image: 
+    radial-gradient(circle at 50% 50%, transparent 140px, var(--border) 140px, var(--border) 142px, transparent 142px),
+    conic-gradient(from 0deg, var(--text) 0deg 30deg, transparent 30deg 30deg, var(--text) 30deg 60deg, transparent 60deg 60deg, var(--text) 60deg 90deg, transparent 90deg 90deg, var(--text) 90deg 120deg, transparent 120deg 120deg, var(--text) 120deg 150deg, transparent 150deg 150deg, var(--text) 150deg 180deg, transparent 180deg 180deg, var(--text) 180deg 210deg, transparent 210deg 210deg, var(--text) 210deg 240deg, transparent 240deg 240deg, var(--text) 240deg 270deg, transparent 270deg 270deg, var(--text) 270deg 300deg, transparent 300deg 300deg, var(--text) 300deg 330deg, transparent 330deg 330deg, var(--text) 330deg 360deg);
+}
+
+@media (max-width: 768px) {
+  .time {
+    font-size: 2.5rem;
+  }
+  
+  .analog-clock {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .hour-hand {
+    height: 60px;
+    top: 65px;
+    left: 122px;
+  }
+  
+  .minute-hand {
+    height: 80px;
+    top: 45px;
+    left: 123px;
+  }
+  
+  .second-hand {
+    height: 90px;
+    top: 35px;
+    left: 124px;
+  }
+  
+  .world-clocks-grid {
+    grid-template-columns: 1fr;
+  }
+}
