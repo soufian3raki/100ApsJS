@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Palette Generator | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Color Palette Generator</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="palette-app">
+        <div class="palette-display">
+          <div class="color-scheme" id="colorScheme">
+            <div class="color-item" data-index="0">
+              <div class="color-preview"></div>
+              <div class="color-info">
+                <span class="color-hex">#FFFFFF</span>
+                <span class="color-rgb">rgb(255, 255, 255)</span>
+              </div>
+            </div>
+            <div class="color-item" data-index="1">
+              <div class="color-preview"></div>
+              <div class="color-info">
+                <span class="color-hex">#FFFFFF</span>
+                <span class="color-rgb">rgb(255, 255, 255)</span>
+              </div>
+            </div>
+            <div class="color-item" data-index="2">
+              <div class="color-preview"></div>
+              <div class="color-info">
+                <span class="color-hex">#FFFFFF</span>
+                <span class="color-rgb">rgb(255, 255, 255)</span>
+              </div>
+            </div>
+            <div class="color-item" data-index="3">
+              <div class="color-preview"></div>
+              <div class="color-info">
+                <span class="color-hex">#FFFFFF</span>
+                <span class="color-rgb">rgb(255, 255, 255)</span>
+              </div>
+            </div>
+            <div class="color-item" data-index="4">
+              <div class="color-preview"></div>
+              <div class="color-info">
+                <span class="color-hex">#FFFFFF</span>
+                <span class="color-rgb">rgb(255, 255, 255)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="palette-controls">
+          <div class="control-group">
+            <label for="schemeType">Scheme Type:</label>
+            <select id="schemeType">
+              <option value="monochromatic">Monochromatic</option>
+              <option value="analogous">Analogous</option>
+              <option value="complementary">Complementary</option>
+              <option value="triadic">Triadic</option>
+              <option value="tetradic">Tetradic</option>
+              <option value="random">Random</option>
+            </select>
+          </div>
+          
+          <div class="control-group">
+            <label for="baseColor">Base Color:</label>
+            <input type="color" id="baseColor" value="#ff6b6b">
+          </div>
+          
+          <div class="control-group">
+            <label for="colorCount">Number of Colors:</label>
+            <input type="range" id="colorCount" min="3" max="8" value="5">
+            <span id="countValue">5</span>
+          </div>
+        </div>
+        
+        <div class="palette-actions">
+          <button id="generateBtn" class="action-btn">Generate Palette</button>
+          <button id="lockBtn" class="action-btn">🔒 Lock Colors</button>
+          <button id="saveBtn" class="action-btn">💾 Save Palette</button>
+          <button id="exportBtn" class="action-btn">📤 Export</button>
+        </div>
+        
+        <div class="palette-info">
+          <div class="saved-palettes">
+            <h4>Saved Palettes</h4>
+            <div class="saved-list" id="savedList">
+              <!-- Saved palettes will be added here -->
+            </div>
+            <button class="clear-saved-btn" id="clearSavedBtn">
+              Clear Saved
+            </button>
+          </div>
+          
+          <div class="palette-stats">
+            <h4>Palette Statistics</h4>
+            <div class="stats-content">
+              <p>Total generated: <span id="totalGenerated">0</span></p>
+              <p>Saved palettes: <span id="savedCount">0</span></p>
+              <p>Favorite scheme: <span id="favoriteScheme">-</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html> 
