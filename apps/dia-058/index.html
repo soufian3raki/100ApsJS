@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Código de Barras | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Generador de Código de Barras</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="app-content">
+        <div class="generator-section">
+          <h2>Generar Código de Barras</h2>
+          
+          <div class="input-section">
+            <div class="form-group">
+              <label for="barcodeType">Tipo de Código:</label>
+              <select id="barcodeType">
+                <option value="code128">Code 128</option>
+                <option value="code39">Code 39</option>
+                <option value="ean13">EAN-13</option>
+                <option value="ean8">EAN-8</option>
+                <option value="upc">UPC-A</option>
+                <option value="codabar">Codabar</option>
+                <option value="itf14">ITF-14</option>
+                <option value="msi">MSI Plessey</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="barcodeText">Texto/Datos:</label>
+              <input type="text" id="barcodeText" placeholder="Ingresa el texto para el código de barras" maxlength="50">
+            </div>
+            
+            <div class="form-group">
+              <label for="barcodeWidth">Ancho (px):</label>
+              <input type="number" id="barcodeWidth" value="300" min="100" max="800">
+            </div>
+            
+            <div class="form-group">
+              <label for="barcodeHeight">Alto (px):</label>
+              <input type="number" id="barcodeHeight" value="100" min="50" max="300">
+            </div>
+            
+            <div class="form-group">
+              <label for="barcodeFormat">Formato de Salida:</label>
+              <select id="barcodeFormat">
+                <option value="svg">SVG (Vectorial)</option>
+                <option value="canvas">Canvas (Raster)</option>
+                <option value="table">Tabla HTML</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="showText">Mostrar Texto:</label>
+              <input type="checkbox" id="showText" checked>
+            </div>
+            
+            <div class="form-group">
+              <label for="textSize">Tamaño del Texto:</label>
+              <input type="range" id="textSize" min="8" max="24" value="12">
+              <span id="textSizeValue">12px</span>
+            </div>
+            
+            <div class="form-group">
+              <label for="barcodeColor">Color del Código:</label>
+              <input type="color" id="barcodeColor" value="#000000">
+            </div>
+            
+            <div class="form-group">
+              <label for="backgroundColor">Color de Fondo:</label>
+              <input type="color" id="backgroundColor" value="#ffffff">
+            </div>
+            
+            <button id="generateBarcode" class="btn">Generar Código de Barras</button>
+          </div>
+        </div>
+        
+        <div class="result-section">
+          <h3>Resultado</h3>
+          <div class="barcode-container" id="barcodeContainer">
+            <div class="placeholder">
+              <p>Ingresa datos y haz clic en "Generar Código de Barras"</p>
+            </div>
+          </div>
+          
+          <div class="barcode-info" id="barcodeInfo" style="display: none;">
+            <div class="info-item">
+              <span class="label">Tipo:</span>
+              <span id="infoType">-</span>
+            </div>
+            <div class="info-item">
+              <span class="label">Datos:</span>
+              <span id="infoData">-</span>
+            </div>
+            <div class="info-item">
+              <span class="label">Dimensiones:</span>
+              <span id="infoDimensions">-</span>
+            </div>
+            <div class="info-item">
+              <span class="label">Formato:</span>
+              <span id="infoFormat">-</span>
+            </div>
+          </div>
+          
+          <div class="barcode-actions" id="barcodeActions" style="display: none;">
+            <button id="downloadSVG" class="btn btn-secondary">Descargar SVG</button>
+            <button id="downloadPNG" class="btn btn-secondary">Descargar PNG</button>
+            <button id="copyToClipboard" class="btn btn-secondary">Copiar</button>
+            <button id="printBarcode" class="btn btn-secondary">Imprimir</button>
+          </div>
+        </div>
+        
+        <div class="examples-section">
+          <h3>Ejemplos de Códigos</h3>
+          <div class="examples-grid">
+            <div class="example-item">
+              <h4>Code 128</h4>
+              <p>Alfanumérico, hasta 80 caracteres</p>
+              <button class="example-btn" data-type="code128" data-text="HELLO WORLD">Probar</button>
+            </div>
+            <div class="example-item">
+              <h4>Code 39</h4>
+              <p>Alfanumérico, hasta 43 caracteres</p>
+              <button class="example-btn" data-type="code39" data-text="123456789">Probar</button>
+            </div>
+            <div class="example-item">
+              <h4>EAN-13</h4>
+              <p>13 dígitos numéricos</p>
+              <button class="example-btn" data-type="ean13" data-text="1234567890123">Probar</button>
+            </div>
+            <div class="example-item">
+              <h4>EAN-8</h4>
+              <p>8 dígitos numéricos</p>
+              <button class="example-btn" data-type="ean8" data-text="12345678">Probar</button>
+            </div>
+            <div class="example-item">
+              <h4>UPC-A</h4>
+              <p>12 dígitos numéricos</p>
+              <button class="example-btn" data-type="upc" data-text="123456789012">Probar</button>
+            </div>
+            <div class="example-item">
+              <h4>Codabar</h4>
+              <p>Alfanumérico, hasta 20 caracteres</p>
+              <button class="example-btn" data-type="codabar" data-text="A123456789A">Probar</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="history-section">
+          <h3>Historial de Códigos</h3>
+          <div class="history-controls">
+            <button id="clearHistory" class="btn btn-secondary">Limpiar Historial</button>
+            <button id="exportHistory" class="btn btn-secondary">Exportar Historial</button>
+          </div>
+          <div class="history-list" id="historyList">
+            <!-- El historial se mostrará aquí -->
+          </div>
+        </div>
+        
+        <div class="help-section">
+          <h3>Información de Tipos de Código</h3>
+          <div class="help-content">
+            <div class="help-item">
+              <h4>Code 128</h4>
+              <p>Soporta todos los caracteres ASCII (0-127). Ideal para aplicaciones generales.</p>
+            </div>
+            <div class="help-item">
+              <h4>Code 39</h4>
+              <p>Soporta 43 caracteres (A-Z, 0-9, y algunos símbolos). Ampliamente usado en retail.</p>
+            </div>
+            <div class="help-item">
+              <h4>EAN-13</h4>
+              <p>Estándar internacional para productos de consumo. 13 dígitos numéricos.</p>
+            </div>
+            <div class="help-item">
+              <h4>EAN-8</h4>
+              <p>Versión compacta de EAN-13. 8 dígitos numéricos para productos pequeños.</p>
+            </div>
+            <div class="help-item">
+              <h4>UPC-A</h4>
+              <p>Estándar norteamericano. 12 dígitos numéricos para productos de consumo.</p>
+            </div>
+            <div class="help-item">
+              <h4>Codabar</h4>
+              <p>Usado en bibliotecas, bancos de sangre y aplicaciones postales.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
