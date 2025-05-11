@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reproductor de Video | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Reproductor de Video</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="app-content">
+        <div class="video-upload">
+          <h2>Subir Video</h2>
+          <input type="file" id="videoFile" accept="video/*" multiple>
+          <div class="file-info" id="fileInfo"></div>
+        </div>
+        
+        <div class="video-player-container">
+          <div class="video-wrapper">
+            <video id="videoPlayer" controls>
+              <source src="" type="video/mp4">
+              Tu navegador no soporta el elemento video.
+            </video>
+          </div>
+          
+          <div class="video-controls">
+            <button id="playPause" class="control-btn">▶️</button>
+            <div class="progress-container">
+              <div class="progress-bar" id="progressBar">
+                <div class="progress-fill" id="progressFill"></div>
+                <div class="progress-handle" id="progressHandle"></div>
+              </div>
+            </div>
+            <div class="time-display">
+              <span id="currentTime">0:00</span>
+              <span>/</span>
+              <span id="duration">0:00</span>
+            </div>
+            <button id="mute" class="control-btn">🔊</button>
+            <div class="volume-container">
+              <input type="range" id="volumeSlider" min="0" max="100" value="100">
+            </div>
+            <button id="fullscreen" class="control-btn">⛶</button>
+          </div>
+        </div>
+        
+        <div class="video-playlist" id="videoPlaylist">
+          <h3>Lista de Reproducción</h3>
+          <div class="playlist-items" id="playlistItems">
+            <p class="no-videos">No hay videos cargados</p>
+          </div>
+        </div>
+        
+        <div class="video-settings">
+          <h3>Configuración</h3>
+          <div class="settings-grid">
+            <div class="setting-item">
+              <label for="playbackSpeed">Velocidad:</label>
+              <select id="playbackSpeed">
+                <option value="0.5">0.5x</option>
+                <option value="0.75">0.75x</option>
+                <option value="1" selected>1x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
+                <option value="2">2x</option>
+              </select>
+            </div>
+            <div class="setting-item">
+              <label for="quality">Calidad:</label>
+              <select id="quality">
+                <option value="auto">Automática</option>
+                <option value="high">Alta</option>
+                <option value="medium">Media</option>
+                <option value="low">Baja</option>
+              </select>
+            </div>
+            <div class="setting-item">
+              <label for="autoplay">Autoplay:</label>
+              <input type="checkbox" id="autoplay">
+            </div>
+            <div class="setting-item">
+              <label for="loop">Repetir:</label>
+              <input type="checkbox" id="loop">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
