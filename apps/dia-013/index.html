@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Music Player</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="music-player">
+        <div class="album-art">
+          <div class="album-cover" id="albumCover">
+            <span>🎵</span>
+          </div>
+        </div>
+        
+        <div class="track-info">
+          <h2 id="trackTitle">Selecciona una canción</h2>
+          <p id="trackArtist">Artista</p>
+        </div>
+        
+        <div class="progress-container">
+          <span id="currentTime">0:00</span>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+          <span id="totalTime">0:00</span>
+        </div>
+        
+        <div class="controls">
+          <button id="prevBtn">⏮</button>
+          <button id="playPauseBtn">▶</button>
+          <button id="nextBtn">⏭</button>
+        </div>
+        
+        <div class="volume-container">
+          <span>🔊</span>
+          <input type="range" id="volumeSlider" min="0" max="100" value="50">
+        </div>
+        
+        <div class="playlist" id="playlist">
+          <!-- Playlist will be generated here -->
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html> 
