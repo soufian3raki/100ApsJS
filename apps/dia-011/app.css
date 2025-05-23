@@ -1,0 +1,513 @@
+.clock-app {
+  max-width: 1000px;
+  margin: 2rem auto;
+  background: var(--card);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.clock-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  align-items: center;
+}
+
+.digital-clock {
+  text-align: center;
+}
+
+.time-display {
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: var(--text);
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.date-display {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.timezone-display {
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.analog-clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-face {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 8px solid var(--clock-color, #3b82f6);
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: 
+    0 0 0 4px var(--card),
+    0 4px 20px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 3px var(--border);
+}
+
+.hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  background: var(--clock-color, #3b82f6);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hour-hand {
+  width: 6px;
+  height: 75px;
+  margin-left: -3px;
+  background: var(--clock-color, #3b82f6);
+}
+
+.minute-hand {
+  width: 4px;
+  height: 105px;
+  margin-left: -2px;
+  background: var(--clock-color, #3b82f6);
+}
+
+.second-hand {
+  width: 2px;
+  height: 120px;
+  margin-left: -1px;
+  background: #ef4444;
+  box-shadow: 0 0 6px rgba(239, 68, 68, 0.5);
+}
+
+.center-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--clock-color, #3b82f6);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.marker {
+  position: absolute;
+  width: 4px;
+  height: 20px;
+  background: var(--clock-color, #3b82f6);
+  border-radius: 2px;
+  transform-origin: 50% 150px;
+}
+
+.marker-12 { transform: rotate(0deg) translateY(-130px); }
+.marker-1 { transform: rotate(30deg) translateY(-130px); }
+.marker-2 { transform: rotate(60deg) translateY(-130px); }
+.marker-3 { transform: rotate(90deg) translateY(-130px); }
+.marker-4 { transform: rotate(120deg) translateY(-130px); }
+.marker-5 { transform: rotate(150deg) translateY(-130px); }
+.marker-6 { transform: rotate(180deg) translateY(-130px); }
+.marker-7 { transform: rotate(210deg) translateY(-130px); }
+.marker-8 { transform: rotate(240deg) translateY(-130px); }
+.marker-9 { transform: rotate(270deg) translateY(-130px); }
+.marker-10 { transform: rotate(300deg) translateY(-130px); }
+.marker-11 { transform: rotate(330deg) translateY(-130px); }
+
+.clock-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.control-section {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.control-section h3 {
+  margin: 0 0 1rem 0;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+.format-controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.radio-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.radio-btn:hover {
+  background: var(--card);
+  border-color: var(--border);
+}
+
+.radio-btn input[type="radio"] {
+  display: none;
+}
+
+.radio-custom {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.radio-btn input[type="radio"]:checked + .radio-custom {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+.radio-btn input[type="radio"]:checked + .radio-custom::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.timezone-controls select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.timezone-controls select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.customization-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.control-group label {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.9rem;
+  min-width: 120px;
+}
+
+.control-group input[type="range"] {
+  flex: 1;
+  min-width: 100px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--border);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.control-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.control-group input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.control-group input[type="color"] {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  background: none;
+}
+
+.control-group input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.control-group input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
+
+.control-group span {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  min-width: 50px;
+  text-align: right;
+}
+
+.control-group .checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.control-group .checkbox:hover {
+  background: var(--card);
+  border-color: var(--border);
+}
+
+.control-group .checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.control-group .checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-radius: 4px;
+  position: relative;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.control-group .checkbox input[type="checkbox"]:checked + .checkmark {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.control-group .checkbox input[type="checkbox"]:checked + .checkmark::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.clock-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.info-card {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.info-card h3 {
+  margin: 0 0 1rem 0;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+.info-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.info-value {
+  color: var(--text);
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}
+
+.stopwatch-display {
+  text-align: center;
+}
+
+.stopwatch-time {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: var(--text);
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stopwatch-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.control-btn {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.control-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.clock-tips {
+  background: var(--bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+}
+
+.clock-tips h3 {
+  margin: 0 0 1rem 0;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+.clock-tips ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.clock-tips li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .clock-app {
+    margin: 1rem;
+    padding: 2rem 1.5rem;
+  }
+  
+  .clock-display {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .time-display {
+    font-size: 3rem;
+  }
+  
+  .clock-face {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .clock-controls {
+    grid-template-columns: 1fr;
+  }
+  
+  .control-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .control-group label {
+    min-width: auto;
+  }
+  
+  .clock-info {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .clock-app {
+    padding: 1.5rem 1rem;
+  }
+  
+  .time-display {
+    font-size: 2.5rem;
+  }
+  
+  .clock-face {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .stopwatch-time {
+    font-size: 2rem;
+  }
+  
+  .stopwatch-controls {
+    flex-direction: column;
+  }
+} 
