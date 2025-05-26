@@ -1,0 +1,261 @@
+.quote-app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.quote-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.quote-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.quote-author {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.quote-category {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quote-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.action-btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.2s;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-btn:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: scale(1.05);
+}
+
+.quote-controls {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.category-selector {
+  margin-bottom: 2rem;
+}
+
+.category-selector h3 {
+  margin-bottom: 1rem;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+.category-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem;
+}
+
+.category-btn {
+  padding: 0.75rem 1rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.category-btn:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.category-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.generation-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.generate-btn, .auto-btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+.generate-btn {
+  background: var(--accent);
+  color: white;
+}
+
+.generate-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.auto-btn {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.auto-btn:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.auto-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.quote-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.stat-card, .favorites-card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.stat-card h4, .favorites-card h4 {
+  margin-bottom: 1rem;
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.stats-content p {
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.stats-content span {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.favorites-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.favorite-item {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  background: var(--bg);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.favorite-item:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.favorite-item .quote-text {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.favorite-item .quote-author {
+  font-size: 0.8rem;
+  margin-bottom: 0.25rem;
+}
+
+.favorite-item .quote-category {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .quote-app {
+    padding: 1rem;
+  }
+  
+  .quote-card {
+    padding: 2rem;
+  }
+  
+  .quote-text {
+    font-size: 1.2rem;
+  }
+  
+  .generation-controls {
+    flex-direction: column;
+  }
+  
+  .quote-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .category-buttons {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+} 
