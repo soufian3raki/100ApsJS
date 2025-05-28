@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día 43: Calculadora Científica</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🧮 Calculadora Científica</h1>
+        
+        <div class="calculator">
+            <div class="display">
+                <div class="expression" id="expression">0</div>
+                <div class="result" id="result">0</div>
+            </div>
+            
+            <div class="buttons">
+                <!-- Fila 1: Funciones científicas -->
+                <button class="btn function" data-action="sin">sin</button>
+                <button class="btn function" data-action="cos">cos</button>
+                <button class="btn function" data-action="tan">tan</button>
+                <button class="btn function" data-action="log">log</button>
+                <button class="btn function" data-action="ln">ln</button>
+                
+                <!-- Fila 2: Potencias y raíces -->
+                <button class="btn function" data-action="pow">x²</button>
+                <button class="btn function" data-action="sqrt">√</button>
+                <button class="btn function" data-action="cbrt">∛</button>
+                <button class="btn function" data-action="factorial">x!</button>
+                <button class="btn function" data-action="pi">π</button>
+                
+                <!-- Fila 3: Operadores básicos -->
+                <button class="btn operator" data-action="clear">C</button>
+                <button class="btn operator" data-action="backspace">⌫</button>
+                <button class="btn operator" data-action="parentheses">(</button>
+                <button class="btn operator" data-action="parentheses">)</button>
+                <button class="btn operator" data-action="divide">÷</button>
+                
+                <!-- Fila 4: Números -->
+                <button class="btn number" data-number="7">7</button>
+                <button class="btn number" data-number="8">8</button>
+                <button class="btn number" data-number="9">9</button>
+                <button class="btn operator" data-action="multiply">×</button>
+                <button class="btn function" data-action="exp">eˣ</button>
+                
+                <!-- Fila 5: Números -->
+                <button class="btn number" data-number="4">4</button>
+                <button class="btn number" data-number="5">5</button>
+                <button class="btn number" data-number="6">6</button>
+                <button class="btn operator" data-action="subtract">-</button>
+                <button class="btn function" data-action="pow10">10ˣ</button>
+                
+                <!-- Fila 6: Números -->
+                <button class="btn number" data-number="1">1</button>
+                <button class="btn number" data-number="2">2</button>
+                <button class="btn number" data-number="3">3</button>
+                <button class="btn operator" data-action="add">+</button>
+                <button class="btn function" data-action="abs">|x|</button>
+                
+                <!-- Fila 7: Números y operadores -->
+                <button class="btn number" data-number="0">0</button>
+                <button class="btn number" data-number=".">.</button>
+                <button class="btn function" data-action="negate">±</button>
+                <button class="btn operator" data-action="equals">=</button>
+                <button class="btn function" data-action="random">Rand</button>
+            </div>
+            
+            <div class="memory-section">
+                <h3>Memoria</h3>
+                <div class="memory-buttons">
+                    <button class="btn memory" data-action="memory-clear">MC</button>
+                    <button class="btn memory" data-action="memory-recall">MR</button>
+                    <button class="btn memory" data-action="memory-add">M+</button>
+                    <button class="btn memory" data-action="memory-subtract">M-</button>
+                    <button class="btn memory" data-action="memory-store">MS</button>
+                </div>
+                <div class="memory-display" id="memoryDisplay">0</div>
+            </div>
+            
+            <div class="history-section">
+                <h3>Historial</h3>
+                <div class="history" id="history"></div>
+                <button class="btn history" data-action="clear-history">Limpiar Historial</button>
+            </div>
+        </div>
+        
+        <div class="info">
+            <h3>Funciones Disponibles</h3>
+            <div class="functions-grid">
+                <div class="function-item">
+                    <strong>Trigonométricas:</strong> sin, cos, tan
+                </div>
+                <div class="function-item">
+                    <strong>Logarítmicas:</strong> log, ln
+                </div>
+                <div class="function-item">
+                    <strong>Potencias:</strong> x², √, ∛, eˣ, 10ˣ
+                </div>
+                <div class="function-item">
+                    <strong>Especiales:</strong> π, x!, |x|, ±, Rand
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
