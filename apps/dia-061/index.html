@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día 61 - Sistema de Gestión de Inventario</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../app-styles.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>📦 Sistema de Gestión de Inventario</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="inventory-dashboard">
+                <!-- Filtros y búsqueda -->
+                <div class="filters-section">
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Buscar productos..." class="search-input">
+                        <button id="searchBtn" class="search-btn">🔍</button>
+                    </div>
+                    <div class="filter-controls">
+                        <select id="categoryFilter" class="filter-select" title="Filtrar por categoría">
+                            <option value="">Todas las categorías</option>
+                            <option value="Electrónicos">Electrónicos</option>
+                            <option value="Ropa">Ropa</option>
+                            <option value="Hogar">Hogar</option>
+                            <option value="Deportes">Deportes</option>
+                            <option value="Libros">Libros</option>
+                        </select>
+                        <select id="statusFilter" class="filter-select" title="Filtrar por estado de stock">
+                            <option value="">Todos los estados</option>
+                            <option value="En Stock">En Stock</option>
+                            <option value="Bajo Stock">Bajo Stock</option>
+                            <option value="Agotado">Agotado</option>
+                        </select>
+                        <button id="clearFilters" class="btn btn-outline">Limpiar</button>
+                    </div>
+                </div>
+
+                <!-- Estadísticas -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-content">
+                            <h3 id="totalProducts">0</h3>
+                            <p>Total Productos</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-content">
+                            <h3 id="totalValue">$0</h3>
+                            <p>Valor Total</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚠️</div>
+                        <div class="stat-content">
+                            <h3 id="lowStock">0</h3>
+                            <p>Bajo Stock</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">❌</div>
+                        <div class="stat-content">
+                            <h3 id="outOfStock">0</h3>
+                            <p>Agotados</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista de productos -->
+                <div class="products-section">
+                    <div class="section-header">
+                        <h2>Productos</h2>
+                        <div class="view-controls">
+                            <button id="gridView" class="view-btn active">⊞</button>
+                            <button id="listView" class="view-btn">☰</button>
+                        </div>
+                    </div>
+                    <div id="productsContainer" class="products-container">
+                        <!-- Los productos se cargarán aquí -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para agregar/editar producto -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Agregar Producto</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="productForm" class="product-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productName">Nombre del Producto *</label>
+                        <input type="text" id="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productSku">SKU *</label>
+                        <input type="text" id="productSku" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCategory">Categoría *</label>
+                        <select id="productCategory" required>
+                            <option value="">Seleccionar categoría</option>
+                            <option value="Electrónicos">Electrónicos</option>
+                            <option value="Ropa">Ropa</option>
+                            <option value="Hogar">Hogar</option>
+                            <option value="Deportes">Deportes</option>
+                            <option value="Libros">Libros</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Precio *</label>
+                        <input type="number" id="productPrice" step="0.01" min="0" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productStock">Stock *</label>
+                        <input type="number" id="productStock" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="minStock">Stock Mínimo *</label>
+                        <input type="number" id="minStock" min="0" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Descripción</label>
+                    <textarea id="productDescription" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancelBtn" class="btn btn-outline">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
