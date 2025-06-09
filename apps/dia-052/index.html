@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lector CSV con Gráficos | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Lector CSV con Gráficos</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="app-content">
+        <div class="csv-upload">
+          <h2>Cargar Archivo CSV</h2>
+          <div class="upload-area">
+            <input type="file" id="csvFile" accept=".csv" multiple>
+            <div class="upload-info">
+              <p>Arrastra archivos CSV aquí o haz clic para seleccionar</p>
+              <p class="file-types">Formatos soportados: .csv</p>
+            </div>
+          </div>
+          <div class="file-info" id="fileInfo"></div>
+        </div>
+        
+        <div class="csv-controls" id="csvControls" style="display: none;">
+          <h3>Configuración del CSV</h3>
+          <div class="control-group">
+            <label for="delimiter">Delimitador:</label>
+            <select id="delimiter">
+              <option value=",">Coma (,)</option>
+              <option value=";">Punto y coma (;)</option>
+              <option value="\t">Tabulación</option>
+              <option value="|">Pipe (|)</option>
+            </select>
+          </div>
+          <div class="control-group">
+            <label for="hasHeaders">Primera fila como encabezados:</label>
+            <input type="checkbox" id="hasHeaders" checked>
+          </div>
+          <div class="control-group">
+            <label for="encoding">Codificación:</label>
+            <select id="encoding">
+              <option value="utf-8">UTF-8</option>
+              <option value="latin1">Latin-1</option>
+              <option value="windows-1252">Windows-1252</option>
+            </select>
+          </div>
+          <button id="parseCsv" class="btn">Procesar CSV</button>
+        </div>
+        
+        <div class="csv-preview" id="csvPreview" style="display: none;">
+          <h3>Vista Previa de Datos</h3>
+          <div class="preview-controls">
+            <button id="showAllData" class="btn btn-secondary">Mostrar Todos</button>
+            <button id="exportData" class="btn btn-secondary">Exportar JSON</button>
+            <button id="clearData" class="btn btn-secondary">Limpiar</button>
+          </div>
+          <div class="data-table-container">
+            <table class="data-table" id="dataTable">
+              <!-- Los datos se mostrarán aquí -->
+            </table>
+          </div>
+        </div>
+        
+        <div class="chart-section" id="chartSection" style="display: none;">
+          <h3>Visualización de Datos</h3>
+          <div class="chart-controls">
+            <div class="control-group">
+              <label for="chartType">Tipo de Gráfico:</label>
+              <select id="chartType">
+                <option value="line">Línea</option>
+                <option value="bar">Barras</option>
+                <option value="pie">Circular</option>
+                <option value="scatter">Dispersión</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="xAxis">Eje X:</label>
+              <select id="xAxis">
+                <!-- Se llenará dinámicamente -->
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="yAxis">Eje Y:</label>
+              <select id="yAxis">
+                <!-- Se llenará dinámicamente -->
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="groupBy">Agrupar por:</label>
+              <select id="groupBy">
+                <option value="">Sin agrupación</option>
+                <!-- Se llenará dinámicamente -->
+              </select>
+            </div>
+            <button id="generateChart" class="btn">Generar Gráfico</button>
+          </div>
+          
+          <div class="chart-container">
+            <canvas id="dataChart" width="800" height="400"></canvas>
+          </div>
+          
+          <div class="chart-actions">
+            <button id="downloadChart" class="btn btn-secondary">Descargar Imagen</button>
+            <button id="fullscreenChart" class="btn btn-secondary">Pantalla Completa</button>
+          </div>
+        </div>
+        
+        <div class="statistics" id="statistics" style="display: none;">
+          <h3>Estadísticas de los Datos</h3>
+          <div class="stats-grid" id="statsGrid">
+            <!-- Las estadísticas se mostrarán aquí -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
