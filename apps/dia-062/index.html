@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día 62 - Sistema de Reservas de Hotel</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../app-styles.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>🏨 Sistema de Reservas de Hotel</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="hotel-dashboard">
+                <!-- Filtros y búsqueda -->
+                <div class="filters-section">
+                    <div class="search-controls">
+                        <div class="search-box">
+                            <input type="text" id="searchInput" placeholder="Buscar por huésped, habitación..." class="search-input">
+                            <button id="searchBtn" class="search-btn">🔍</button>
+                        </div>
+                        <div class="date-filters">
+                            <input type="date" id="checkInFilter" class="date-input" title="Filtrar por fecha de entrada">
+                            <input type="date" id="checkOutFilter" class="date-input" title="Filtrar por fecha de salida">
+                        </div>
+                    </div>
+                    <div class="filter-controls">
+                        <select id="statusFilter" class="filter-select" title="Filtrar por estado de reserva">
+                            <option value="">Todos los estados</option>
+                            <option value="Confirmada">Confirmada</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="Cancelada">Cancelada</option>
+                            <option value="Completada">Completada</option>
+                        </select>
+                        <select id="roomTypeFilter" class="filter-select" title="Filtrar por tipo de habitación">
+                            <option value="">Todos los tipos</option>
+                            <option value="Individual">Individual</option>
+                            <option value="Doble">Doble</option>
+                            <option value="Suite">Suite</option>
+                            <option value="Familiar">Familiar</option>
+                        </select>
+                        <button id="clearFilters" class="btn btn-outline">Limpiar</button>
+                    </div>
+                </div>
+
+                <!-- Estadísticas -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🏨</div>
+                        <div class="stat-content">
+                            <h3 id="totalReservations">0</h3>
+                            <p>Total Reservas</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-content">
+                            <h3 id="totalRevenue">$0</h3>
+                            <p>Ingresos Totales</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <h3 id="confirmedReservations">0</h3>
+                            <p>Confirmadas</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⏳</div>
+                        <div class="stat-content">
+                            <h3 id="pendingReservations">0</h3>
+                            <p>Pendientes</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lista de reservas -->
+                <div class="reservations-section">
+                    <div class="section-header">
+                        <h2>Reservas</h2>
+                        <div class="view-controls">
+                            <button id="listView" class="view-btn active">☰</button>
+                            <button id="cardView" class="view-btn">⊞</button>
+                        </div>
+                    </div>
+                    <div id="reservationsContainer" class="reservations-container">
+                        <!-- Las reservas se cargarán aquí -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para nueva/editar reserva -->
+    <div id="reservationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Nueva Reserva</h2>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="reservationForm" class="reservation-form">
+                <div class="form-section">
+                    <h3>Información del Huésped</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="guestName">Nombre Completo *</label>
+                            <input type="text" id="guestName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guestEmail">Email *</label>
+                            <input type="email" id="guestEmail" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="guestPhone">Teléfono *</label>
+                            <input type="tel" id="guestPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guestId">Documento de Identidad</label>
+                            <input type="text" id="guestId">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Detalles de la Reserva</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="roomType">Tipo de Habitación *</label>
+                            <select id="roomType" required>
+                                <option value="">Seleccionar tipo</option>
+                                <option value="Individual">Individual - $80/noche</option>
+                                <option value="Doble">Doble - $120/noche</option>
+                                <option value="Suite">Suite - $200/noche</option>
+                                <option value="Familiar">Familiar - $150/noche</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="roomNumber">Número de Habitación</label>
+                            <input type="text" id="roomNumber" placeholder="Auto-asignar">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="checkInDate">Fecha de Entrada *</label>
+                            <input type="date" id="checkInDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="checkOutDate">Fecha de Salida *</label>
+                            <input type="date" id="checkOutDate" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="adults">Adultos *</label>
+                            <input type="number" id="adults" min="1" max="6" value="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="children">Niños</label>
+                            <input type="number" id="children" min="0" max="4" value="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Servicios Adicionales</h3>
+                    <div class="services-grid">
+                        <label class="service-item">
+                            <input type="checkbox" id="breakfast">
+                            <span class="service-name">Desayuno</span>
+                            <span class="service-price">+$15/día</span>
+                        </label>
+                        <label class="service-item">
+                            <input type="checkbox" id="wifi">
+                            <span class="service-name">WiFi Premium</span>
+                            <span class="service-price">+$5/día</span>
+                        </label>
+                        <label class="service-item">
+                            <input type="checkbox" id="parking">
+                            <span class="service-name">Estacionamiento</span>
+                            <span class="service-price">+$10/día</span>
+                        </label>
+                        <label class="service-item">
+                            <input type="checkbox" id="spa">
+                            <span class="service-name">Acceso al Spa</span>
+                            <span class="service-price">+$25/día</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Resumen de Costos</h3>
+                    <div class="cost-summary">
+                        <div class="cost-item">
+                            <span>Habitación:</span>
+                            <span id="roomCost">$0</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>Servicios:</span>
+                            <span id="servicesCost">$0</span>
+                        </div>
+                        <div class="cost-item total">
+                            <span>Total:</span>
+                            <span id="totalCost">$0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="cancelBtn" class="btn btn-outline">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Reserva</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </main>  <script src="../../common.js"></script>`
+
+  <script src="app.js"></script>
+</body>
+</html>
+
