@@ -1,0 +1,1121 @@
+.toolbar {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+.toolbar-section {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.toolbar-section .btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.main-workspace {
+  display: grid;
+  grid-template-columns: 250px 1fr 300px;
+  gap: 1rem;
+  height: 70vh;
+  margin-bottom: 1rem;
+  min-height: 500px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.sidebar-left,
+.sidebar-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.panel h3 {
+  color: var(--text);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.canvas-container {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.canvas-wrapper {
+  flex: 1;
+  position: relative;
+  overflow: auto;
+  background: #f8f9fa;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+#mainCanvas {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: crosshair;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+.canvas-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.canvas-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.zoom-controls button {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.zoom-controls button:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.canvas-info {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.tool-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tool-option {
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tool-option:hover {
+  background: var(--accent-hover);
+  color: white;
+}
+
+.tool-option.active {
+  background: var(--accent);
+  color: white;
+}
+
+.layers-panel {
+  margin-bottom: 1rem;
+}
+
+.layer-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.layer-item:hover {
+  background: var(--accent-hover);
+  color: white;
+}
+
+.layer-item.active {
+  background: var(--accent);
+  color: white;
+}
+
+.layer-name {
+  font-weight: 500;
+}
+
+.layer-controls {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.layer-controls button {
+  padding: 0.25rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.layer-controls button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.history-panel {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.history-item {
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.history-item:hover {
+  background: var(--accent-hover);
+  color: white;
+}
+
+.history-item.active {
+  background: var(--accent);
+  color: white;
+}
+
+.property-group,
+.filter-group,
+.transform-group {
+  margin-bottom: 1rem;
+}
+
+.property-group label,
+.filter-group label,
+.transform-group label {
+  display: block;
+  color: var(--text);
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+.property-group input,
+.filter-group input,
+.transform-group input {
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.property-group span,
+.filter-group span,
+.transform-group span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.filter-actions,
+.transform-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.effects-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.effect-btn {
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.effect-btn:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.effect-btn.active {
+  background: var(--accent);
+  color: white;
+}
+
+.bottom-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.color-picker,
+.brush-settings,
+.text-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.color-picker h4,
+.brush-settings h4,
+.text-settings h4 {
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.color-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.color-primary,
+.color-secondary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.color-primary label,
+.color-secondary label {
+  font-size: 0.8rem;
+  color: var(--text);
+  min-width: 60px;
+}
+
+.color-primary input,
+.color-secondary input {
+  width: 40px;
+  height: 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.brush-controls,
+.text-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.brush-size,
+.brush-opacity,
+.brush-hardness {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brush-size label,
+.brush-opacity label,
+.brush-hardness label {
+  font-size: 0.8rem;
+  color: var(--text);
+  min-width: 60px;
+}
+
+.brush-size input,
+.brush-opacity input,
+.brush-hardness input {
+  flex: 1;
+}
+
+.brush-size span,
+.brush-opacity span,
+.brush-hardness span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  min-width: 40px;
+  text-align: right;
+}
+
+.text-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.text-controls input,
+.text-controls select {
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.text-controls input:focus,
+.text-controls select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.text-controls button {
+  padding: 0.5rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.text-controls button:hover {
+  background: var(--accent-hover);
+}
+
+/* Tool states */
+.tool-active {
+  background: var(--accent) !important;
+  color: white !important;
+}
+
+/* Canvas cursor states */
+.canvas-crop {
+  cursor: crosshair;
+}
+
+.canvas-select {
+  cursor: default;
+}
+
+.canvas-brush {
+  cursor: crosshair;
+}
+
+.canvas-text {
+  cursor: text;
+}
+
+.canvas-shapes {
+  cursor: crosshair;
+}
+
+/* Selection overlay */
+.selection-overlay {
+  position: absolute;
+  border: 2px dashed var(--accent);
+  background: rgba(59, 130, 246, 0.1);
+  pointer-events: none;
+}
+
+/* Brush preview */
+.brush-preview {
+  position: absolute;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* Text editing */
+.text-editing {
+  position: absolute;
+  border: 2px solid var(--accent);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.25rem;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  min-width: 100px;
+  min-height: 20px;
+}
+
+/* Loading states */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
+.loading::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border);
+  border-top: 2px solid var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: 0.5rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Hidden file input */
+.hidden-file-input {
+  display: none;
+}
+
+/* Global responsive fixes */
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.app-content {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Ensure all elements stay within bounds */
+.toolbar,
+.main-workspace,
+.bottom-panel,
+.panel,
+.canvas-container,
+.canvas-wrapper {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling for mobile */
+.sidebar-left,
+.sidebar-right {
+  overflow-y: auto;
+}
+
+/* Better touch targets */
+.btn {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent text selection on UI elements */
+.toolbar,
+.panel,
+.canvas-controls {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection in input fields */
+input,
+textarea,
+select {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Responsive Design */
+
+/* Large Desktop (1400px+) */
+@media (min-width: 1400px) {
+  .main-workspace {
+    grid-template-columns: 280px 1fr 320px;
+  }
+  
+  .toolbar {
+    padding: 1.5rem;
+    gap: 3rem;
+  }
+  
+  .panel {
+    padding: 1.5rem;
+  }
+}
+
+/* Desktop (1200px - 1399px) */
+@media (max-width: 1399px) and (min-width: 1200px) {
+  .main-workspace {
+    grid-template-columns: 250px 1fr 300px;
+  }
+  
+  .toolbar {
+    gap: 2rem;
+  }
+}
+
+/* Small Desktop (1000px - 1199px) */
+@media (max-width: 1199px) and (min-width: 1000px) {
+  .main-workspace {
+    grid-template-columns: 220px 1fr 280px;
+  }
+  
+  .toolbar {
+    gap: 1.5rem;
+  }
+  
+  .bottom-panel {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .effects-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tablet Landscape (768px - 999px) */
+@media (max-width: 999px) and (min-width: 768px) {
+  .main-workspace {
+    grid-template-columns: 200px 1fr 250px;
+    height: 65vh;
+  }
+  
+  .toolbar {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .toolbar-section {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .bottom-panel {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .effects-panel {
+    grid-template-columns: 1fr;
+  }
+  
+  .canvas-container {
+    height: 100%;
+    min-height: 400px;
+  }
+  
+  .panel h3 {
+    font-size: 0.9rem;
+  }
+  
+  .panel {
+    padding: 0.75rem;
+  }
+}
+
+/* Tablet Portrait (600px - 767px) */
+@media (max-width: 767px) and (min-width: 600px) {
+  .container {
+    padding: 0.25rem;
+  }
+  
+  .main-workspace {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 0.75rem;
+    min-height: 400px;
+  }
+  
+  .sidebar-left,
+  .sidebar-right {
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+  
+  .toolbar-section {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .bottom-panel {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .canvas-container {
+    height: 50vh;
+    min-height: 300px;
+  }
+  
+  .canvas-wrapper {
+    height: 100%;
+  }
+  
+  .panel {
+    padding: 0.5rem;
+  }
+  
+  .panel h3 {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .effects-panel {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .filter-group,
+  .transform-group,
+  .property-group {
+    margin-bottom: 0.75rem;
+  }
+}
+
+/* Mobile Landscape (480px - 599px) */
+@media (max-width: 599px) and (min-width: 480px) {
+  .container {
+    padding: 0.25rem;
+  }
+  
+  .main-workspace {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 0.5rem;
+    min-height: 350px;
+  }
+  
+  .sidebar-left,
+  .sidebar-right {
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .toolbar-section {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .toolbar-section .btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .bottom-panel {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .canvas-container {
+    height: 45vh;
+    min-height: 250px;
+  }
+  
+  .canvas-wrapper {
+    height: 100%;
+  }
+  
+  .panel {
+    padding: 0.5rem;
+  }
+  
+  .panel h3 {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .effects-panel {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-group,
+  .transform-group,
+  .property-group {
+    margin-bottom: 0.5rem;
+  }
+  
+  .filter-group label,
+  .transform-group label,
+  .property-group label {
+    font-size: 0.8rem;
+  }
+  
+  .filter-group span,
+  .transform-group span,
+  .property-group span {
+    font-size: 0.75rem;
+  }
+}
+
+/* Mobile Portrait (320px - 479px) */
+@media (max-width: 479px) {
+  .container {
+    padding: 0.25rem;
+  }
+  
+  .main-workspace {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 0.25rem;
+    min-height: 300px;
+  }
+  
+  .sidebar-left,
+  .sidebar-right {
+    order: -1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+  
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+    padding: 0.25rem;
+  }
+  
+  .toolbar-section {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .toolbar-section .btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .bottom-panel {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    padding: 0.25rem;
+  }
+  
+  .canvas-container {
+    height: 40vh;
+    min-height: 200px;
+  }
+  
+  .canvas-wrapper {
+    height: 100%;
+  }
+  
+  .panel {
+    padding: 0.25rem;
+  }
+  
+  .panel h3 {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .effects-panel {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-group,
+  .transform-group,
+  .property-group {
+    margin-bottom: 0.5rem;
+  }
+  
+  .filter-group label,
+  .transform-group label,
+  .property-group label {
+    font-size: 0.75rem;
+  }
+  
+  .filter-group span,
+  .transform-group span,
+  .property-group span {
+    font-size: 0.7rem;
+  }
+  
+  .brush-controls,
+  .text-controls {
+    gap: 0.25rem;
+  }
+  
+  .brush-size,
+  .brush-opacity,
+  .brush-hardness {
+    gap: 0.25rem;
+  }
+  
+  .brush-size label,
+  .brush-opacity label,
+  .brush-hardness label {
+    font-size: 0.75rem;
+    min-width: 50px;
+  }
+  
+  .brush-size span,
+  .brush-opacity span,
+  .brush-hardness span {
+    font-size: 0.7rem;
+    min-width: 30px;
+  }
+  
+  .text-controls input,
+  .text-controls select {
+    padding: 0.25rem;
+    font-size: 0.8rem;
+  }
+  
+  .text-controls button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  
+  .color-primary,
+  .color-secondary {
+    gap: 0.25rem;
+  }
+  
+  .color-primary label,
+  .color-secondary label {
+    font-size: 0.75rem;
+    min-width: 50px;
+  }
+  
+  .color-primary input,
+  .color-secondary input {
+    width: 30px;
+    height: 25px;
+  }
+  
+  .canvas-controls {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .zoom-controls {
+    gap: 0.25rem;
+  }
+  
+  .zoom-controls button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .canvas-info {
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+  }
+  
+  .canvas-info span {
+    font-size: 0.7rem;
+  }
+}
+
+/* Extra Small Mobile (max-width: 319px) */
+@media (max-width: 319px) {
+  .container {
+    padding: 0.25rem;
+  }
+  
+  .toolbar {
+    padding: 0.25rem;
+  }
+  
+  .toolbar-section .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .panel {
+    padding: 0.25rem;
+  }
+  
+  .bottom-panel {
+    padding: 0.25rem;
+  }
+  
+  .canvas-container {
+    height: 35vh;
+    min-height: 200px;
+  }
+  
+  .panel h3 {
+    font-size: 0.7rem;
+  }
+  
+  .filter-group label,
+  .transform-group label,
+  .property-group label {
+    font-size: 0.7rem;
+  }
+  
+  .filter-group span,
+  .transform-group span,
+  .property-group span {
+    font-size: 0.65rem;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .toolbar-section .btn {
+    min-height: 40px;
+  }
+  
+  .layer-controls button {
+    min-height: 32px;
+    min-width: 32px;
+  }
+  
+  .effect-btn {
+    min-height: 40px;
+  }
+  
+  .filter-group input,
+  .transform-group input,
+  .property-group input {
+    min-height: 32px;
+  }
+  
+  .text-controls input,
+  .text-controls select {
+    min-height: 36px;
+  }
+  
+  .color-primary input,
+  .color-secondary input {
+    min-height: 32px;
+    min-width: 32px;
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .canvas-wrapper {
+    image-rendering: -webkit-optimize-contrast;
+  }
+  
+  #mainCanvas {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .toolbar,
+  .sidebar-left,
+  .sidebar-right,
+  .bottom-panel {
+    display: none;
+  }
+  
+  .main-workspace {
+    grid-template-columns: 1fr;
+  }
+  
+  .canvas-container {
+    height: auto;
+  }
+  
+  #mainCanvas {
+    max-width: 100%;
+    height: auto;
+  }
+}
