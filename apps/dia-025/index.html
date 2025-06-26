@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Note Taking App | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Note Taking App</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="notes-app">
+        <div class="notes-sidebar">
+          <div class="sidebar-header">
+            <h3>My Notes</h3>
+            <button id="newNoteBtn" class="new-note-btn">+ New Note</button>
+          </div>
+          
+          <div class="notes-list" id="notesList">
+            <!-- Notes will be added here -->
+          </div>
+          
+          <div class="sidebar-footer">
+            <div class="search-box">
+              <input type="text" id="searchInput" placeholder="Search notes...">
+            </div>
+          </div>
+        </div>
+        
+        <div class="notes-main">
+          <div class="note-editor" id="noteEditor">
+            <div class="editor-header">
+              <input type="text" id="noteTitle" placeholder="Note title..." class="title-input">
+              <div class="editor-actions">
+                <button id="saveBtn" class="action-btn">💾 Save</button>
+                <button id="deleteBtn" class="action-btn">🗑️ Delete</button>
+                <button id="shareBtn" class="action-btn">📤 Share</button>
+              </div>
+            </div>
+            
+            <div class="editor-content">
+              <textarea id="noteContent" placeholder="Start writing your note here..." class="content-textarea"></textarea>
+            </div>
+            
+            <div class="editor-footer">
+              <div class="note-info">
+                <span id="wordCount">0 words</span>
+                <span id="charCount">0 characters</span>
+                <span id="lastModified">Last modified: Never</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="notes-stats">
+        <div class="stat-card">
+          <h4>Statistics</h4>
+          <div class="stats-content">
+            <p>Total notes: <span id="totalNotes">0</span></p>
+            <p>Total words: <span id="totalWords">0</span></p>
+            <p>Average words per note: <span id="avgWords">0</span></p>
+          </div>
+        </div>
+        
+        <div class="recent-notes">
+          <h4>Recent Notes</h4>
+          <div class="recent-list" id="recentList">
+            <!-- Recent notes will be added here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html> 
