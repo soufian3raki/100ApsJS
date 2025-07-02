@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App de Calendario | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>App de Calendario</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="calendar-app">
+        <div class="calendar-header">
+          <button id="prevMonth" class="nav-btn">‹</button>
+          <h2 id="currentMonth">Enero 2024</h2>
+          <button id="nextMonth" class="nav-btn">›</button>
+        </div>
+        
+        <div class="calendar-controls">
+          <button id="todayBtn" class="control-btn">Hoy</button>
+          <button id="addEventBtn" class="control-btn primary">+ Evento</button>
+        </div>
+        
+        <div class="calendar-grid">
+          <div class="calendar-weekdays">
+            <div class="weekday">Dom</div>
+            <div class="weekday">Lun</div>
+            <div class="weekday">Mar</div>
+            <div class="weekday">Mié</div>
+            <div class="weekday">Jue</div>
+            <div class="weekday">Vie</div>
+            <div class="weekday">Sáb</div>
+          </div>
+          <div class="calendar-days" id="calendarDays">
+            <!-- Los días se generarán dinámicamente -->
+          </div>
+        </div>
+        
+        <div class="event-sidebar">
+          <h3>Eventos de <span id="selectedDate">Hoy</span></h3>
+          <div class="events-list" id="eventsList">
+            <!-- Los eventos se cargarán aquí -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal para agregar/editar eventos -->
+  <div id="eventModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Agregar Evento</h3>
+        <button id="closeModal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="eventForm">
+          <div class="form-group">
+            <label for="eventTitle">Título:</label>
+            <input type="text" id="eventTitle" required>
+          </div>
+          <div class="form-group">
+            <label for="eventDate">Fecha:</label>
+            <input type="date" id="eventDate" required>
+          </div>
+          <div class="form-group">
+            <label for="eventTime">Hora:</label>
+            <input type="time" id="eventTime">
+          </div>
+          <div class="form-group">
+            <label for="eventDescription">Descripción:</label>
+            <textarea id="eventDescription" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="eventColor">Color:</label>
+            <select id="eventColor">
+              <option value="#3b82f6">Azul</option>
+              <option value="#ef4444">Rojo</option>
+              <option value="#10b981">Verde</option>
+              <option value="#f59e0b">Amarillo</option>
+              <option value="#8b5cf6">Púrpura</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="saveEvent" class="btn primary">Guardar</button>
+        <button id="deleteEvent" class="btn danger" style="display: none;">Eliminar</button>
+        <button id="cancelEvent" class="btn secondary">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
