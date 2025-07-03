@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App de Recetas con Buscador | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>App de Recetas con Buscador</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="app-content">
+        <div class="search-section">
+          <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Buscar recetas por nombre, ingrediente o categoría...">
+            <button id="searchBtn">🔍</button>
+          </div>
+          
+          <div class="filters">
+            <select id="categoryFilter">
+              <option value="">Todas las categorías</option>
+              <option value="desayuno">Desayuno</option>
+              <option value="almuerzo">Almuerzo</option>
+              <option value="cena">Cena</option>
+              <option value="postre">Postre</option>
+              <option value="bebida">Bebida</option>
+              <option value="snack">Snack</option>
+            </select>
+            
+            <select id="difficultyFilter">
+              <option value="">Todas las dificultades</option>
+              <option value="facil">Fácil</option>
+              <option value="medio">Medio</option>
+              <option value="dificil">Difícil</option>
+            </select>
+            
+            <select id="timeFilter">
+              <option value="">Cualquier tiempo</option>
+              <option value="15">Menos de 15 min</option>
+              <option value="30">Menos de 30 min</option>
+              <option value="60">Menos de 1 hora</option>
+              <option value="120">Menos de 2 horas</option>
+            </select>
+            
+            <button id="clearFilters" class="btn btn-secondary">Limpiar Filtros</button>
+          </div>
+        </div>
+        
+        <div class="main-content">
+          <div class="recipes-section">
+            <div class="section-header">
+              <h2>Recetas</h2>
+              <div class="view-controls">
+                <button id="gridView" class="view-btn active">⊞</button>
+                <button id="listView" class="view-btn">☰</button>
+              </div>
+            </div>
+            
+            <div class="recipes-container" id="recipesContainer">
+              <!-- Las recetas se mostrarán aquí -->
+            </div>
+            
+            <div class="pagination" id="pagination">
+              <!-- La paginación se mostrará aquí -->
+            </div>
+          </div>
+          
+          <div class="sidebar">
+            <div class="favorites-section">
+              <h3>Favoritos</h3>
+              <div class="favorites-list" id="favoritesList">
+                <!-- Los favoritos se mostrarán aquí -->
+              </div>
+            </div>
+            
+            <div class="recent-section">
+              <h3>Recientes</h3>
+              <div class="recent-list" id="recentList">
+                <!-- Los recientes se mostrarán aquí -->
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="recipe-modal" id="recipeModal" style="display: none;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 id="modalRecipeTitle">Título de la Receta</h2>
+              <button id="closeModal" class="close-btn">×</button>
+            </div>
+            
+            <div class="modal-body">
+              <div class="recipe-image">
+                <img id="modalRecipeImage" src="" alt="Imagen de la receta">
+                <div class="recipe-badges">
+                  <span id="modalRecipeCategory" class="badge">Categoría</span>
+                  <span id="modalRecipeDifficulty" class="badge">Dificultad</span>
+                  <span id="modalRecipeTime" class="badge">Tiempo</span>
+                </div>
+              </div>
+              
+              <div class="recipe-details">
+                <div class="recipe-info">
+                  <div class="info-item">
+                    <span class="label">⏱️ Tiempo de Preparación:</span>
+                    <span id="modalPrepTime">-</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="label">👥 Porciones:</span>
+                    <span id="modalServings">-</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="label">🔥 Calorías:</span>
+                    <span id="modalCalories">-</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="label">⭐ Dificultad:</span>
+                    <span id="modalDifficulty">-</span>
+                  </div>
+                </div>
+                
+                <div class="recipe-actions">
+                  <button id="toggleFavorite" class="btn btn-secondary">❤️ Agregar a Favoritos</button>
+                  <button id="shareRecipe" class="btn btn-secondary">📤 Compartir</button>
+                  <button id="printRecipe" class="btn btn-secondary">🖨️ Imprimir</button>
+                </div>
+                
+                <div class="recipe-content">
+                  <div class="ingredients-section">
+                    <h3>Ingredientes</h3>
+                    <ul id="modalIngredients">
+                      <!-- Los ingredientes se mostrarán aquí -->
+                    </ul>
+                  </div>
+                  
+                  <div class="instructions-section">
+                    <h3>Instrucciones</h3>
+                    <ol id="modalInstructions">
+                      <!-- Las instrucciones se mostrarán aquí -->
+                    </ol>
+                  </div>
+                  
+                  <div class="nutrition-section">
+                    <h3>Información Nutricional</h3>
+                    <div class="nutrition-grid" id="modalNutrition">
+                      <!-- La información nutricional se mostrará aquí -->
+                    </div>
+                  </div>
+                  
+                  <div class="tips-section">
+                    <h3>Consejos</h3>
+                    <ul id="modalTips">
+                      <!-- Los consejos se mostrarán aquí -->
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="add-recipe-modal" id="addRecipeModal" style="display: none;">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2>Agregar Nueva Receta</h2>
+              <button id="closeAddModal" class="close-btn">×</button>
+            </div>
+            
+            <div class="modal-body">
+              <form id="addRecipeForm">
+                <div class="form-section">
+                  <h3>Información Básica</h3>
+                  <div class="form-row">
+                    <input type="text" id="recipeName" placeholder="Nombre de la receta" required>
+                    <select id="recipeCategory" required>
+                      <option value="">Seleccionar categoría</option>
+                      <option value="desayuno">Desayuno</option>
+                      <option value="almuerzo">Almuerzo</option>
+                      <option value="cena">Cena</option>
+                      <option value="postre">Postre</option>
+                      <option value="bebida">Bebida</option>
+                      <option value="snack">Snack</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-row">
+                    <input type="number" id="recipePrepTime" placeholder="Tiempo de preparación (min)" required>
+                    <input type="number" id="recipeServings" placeholder="Porciones" required>
+                  </div>
+                  
+                  <div class="form-row">
+                    <input type="number" id="recipeCalories" placeholder="Calorías por porción">
+                    <select id="recipeDifficulty" required>
+                      <option value="">Seleccionar dificultad</option>
+                      <option value="facil">Fácil</option>
+                      <option value="medio">Medio</option>
+                      <option value="dificil">Difícil</option>
+                    </select>
+                  </div>
+                  
+                  <textarea id="recipeDescription" placeholder="Descripción de la receta" rows="3"></textarea>
+                </div>
+                
+                <div class="form-section">
+                  <h3>Ingredientes</h3>
+                  <div class="ingredients-input">
+                    <div class="ingredient-item">
+                      <input type="text" placeholder="Ingrediente" class="ingredient-name">
+                      <input type="text" placeholder="Cantidad" class="ingredient-amount">
+                      <button type="button" class="remove-ingredient">×</button>
+                    </div>
+                  </div>
+                  <button type="button" id="addIngredient" class="btn btn-secondary">+ Agregar Ingrediente</button>
+                </div>
+                
+                <div class="form-section">
+                  <h3>Instrucciones</h3>
+                  <div class="instructions-input">
+                    <div class="instruction-item">
+                      <textarea placeholder="Paso 1" class="instruction-text" rows="2"></textarea>
+                      <button type="button" class="remove-instruction">×</button>
+                    </div>
+                  </div>
+                  <button type="button" id="addInstruction" class="btn btn-secondary">+ Agregar Paso</button>
+                </div>
+                
+                <div class="form-section">
+                  <h3>Consejos (Opcional)</h3>
+                  <textarea id="recipeTips" placeholder="Consejos para la receta" rows="3"></textarea>
+                </div>
+                
+                <div class="form-actions">
+                  <button type="button" id="cancelAddRecipe" class="btn btn-secondary">Cancelar</button>
+                  <button type="submit" class="btn">Agregar Receta</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
