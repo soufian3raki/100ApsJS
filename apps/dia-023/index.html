@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Password Generator</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="password-app">
+        <div class="password-display">
+          <div class="password-field" id="passwordField">
+            <span id="generatedPassword">Click "Generate" to create a password</span>
+            <button id="copyBtn" class="copy-btn">📋</button>
+          </div>
+          <div class="password-strength" id="passwordStrength">
+            <div class="strength-bar">
+              <div class="strength-fill" id="strengthFill"></div>
+            </div>
+            <span class="strength-text" id="strengthText">Strength: Weak</span>
+          </div>
+        </div>
+        
+        <div class="password-settings">
+          <div class="setting-group">
+            <label for="passwordLength">Length:</label>
+            <input type="range" id="passwordLength" min="8" max="64" value="16">
+            <span id="lengthValue">16</span>
+          </div>
+          
+          <div class="setting-group">
+            <label>
+              <input type="checkbox" id="uppercase" checked>
+              Uppercase letters (A-Z)
+            </label>
+          </div>
+          
+          <div class="setting-group">
+            <label>
+              <input type="checkbox" id="lowercase" checked>
+              Lowercase letters (a-z)
+            </label>
+          </div>
+          
+          <div class="setting-group">
+            <label>
+              <input type="checkbox" id="numbers" checked>
+              Numbers (0-9)
+            </label>
+          </div>
+          
+          <div class="setting-group">
+            <label>
+              <input type="checkbox" id="symbols">
+              Symbols (!@#$%^&*)
+            </label>
+          </div>
+          
+          <div class="setting-group">
+            <label>
+              <input type="checkbox" id="excludeSimilar">
+              Exclude similar characters (l, 1, I, O, 0)
+            </label>
+          </div>
+        </div>
+        
+        <div class="password-controls">
+          <button id="generateBtn" class="generate-btn">Generate Password</button>
+          <button id="generateMultipleBtn" class="generate-btn">Generate Multiple</button>
+        </div>
+        
+        <div class="password-info">
+          <div class="saved-passwords">
+            <h4>Saved Passwords</h4>
+            <div class="saved-list" id="savedList">
+              <!-- Saved passwords will be added here -->
+            </div>
+            <button class="clear-saved-btn" id="clearSavedBtn">
+              Clear Saved
+            </button>
+          </div>
+          
+          <div class="password-stats">
+            <h4>Password Statistics</h4>
+            <div class="stats-content">
+              <p>Total generated: <span id="totalGenerated">0</span></p>
+              <p>Average strength: <span id="avgStrength">-</span></p>
+              <p>Strongest password: <span id="strongestPassword">-</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html> 
