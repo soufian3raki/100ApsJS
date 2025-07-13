@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Sudoku | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Juego de Sudoku</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="sudoku-game">
+        <div class="game-header">
+          <h2>Sudoku</h2>
+          <div class="game-controls">
+            <button id="newGameBtn" class="btn primary">🎮 Nuevo Juego</button>
+            <button id="solveBtn" class="btn secondary">💡 Resolver</button>
+            <button id="checkBtn" class="btn secondary">✅ Verificar</button>
+            <button id="hintBtn" class="btn secondary">💡 Pista</button>
+          </div>
+        </div>
+        
+        <div class="game-info">
+          <div class="info-item">
+            <span class="info-label">Dificultad:</span>
+            <select id="difficultySelect">
+              <option value="easy">Fácil</option>
+              <option value="medium">Medio</option>
+              <option value="hard">Difícil</option>
+            </select>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Tiempo:</span>
+            <span class="info-value" id="gameTime">00:00</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Errores:</span>
+            <span class="info-value" id="errorCount">0</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Pistas:</span>
+            <span class="info-value" id="hintCount">3</span>
+          </div>
+        </div>
+        
+        <div class="game-board">
+          <div class="sudoku-grid" id="sudokuGrid">
+            <!-- El tablero se generará dinámicamente -->
+          </div>
+        </div>
+        
+        <div class="number-pad">
+          <div class="number-pad-title">Selecciona un número:</div>
+          <div class="number-buttons">
+            <button class="number-btn" data-number="1">1</button>
+            <button class="number-btn" data-number="2">2</button>
+            <button class="number-btn" data-number="3">3</button>
+            <button class="number-btn" data-number="4">4</button>
+            <button class="number-btn" data-number="5">5</button>
+            <button class="number-btn" data-number="6">6</button>
+            <button class="number-btn" data-number="7">7</button>
+            <button class="number-btn" data-number="8">8</button>
+            <button class="number-btn" data-number="9">9</button>
+            <button class="number-btn" data-number="0">🗑️</button>
+          </div>
+        </div>
+        
+        <div class="game-status" id="gameStatus">
+          ¡Bienvenido! Selecciona una dificultad y comienza a jugar.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
