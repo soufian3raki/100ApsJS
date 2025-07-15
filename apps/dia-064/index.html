@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día 64 - Sistema de Gestión de Restaurante</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../app-styles.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>🍽️ Sistema de Gestión de Restaurante</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="restaurant-dashboard">
+                <!-- Navegación por pestañas -->
+                <div class="tabs-navigation">
+                    <button class="tab-btn active" data-tab="orders">📋 Órdenes</button>
+                    <button class="tab-btn" data-tab="menu">🍽️ Menú</button>
+                    <button class="tab-btn" data-tab="tables">🪑 Mesas</button>
+                    <button class="tab-btn" data-tab="reports">📊 Reportes</button>
+                </div>
+
+                <!-- Pestaña de Órdenes -->
+                <div id="orders-tab" class="tab-content active">
+                    <div class="filters-section">
+                        <div class="search-controls">
+                            <div class="search-box">
+                                <input type="text" id="orderSearch" placeholder="Buscar órdenes..." class="search-input">
+                                <button id="orderSearchBtn" class="search-btn">🔍</button>
+                            </div>
+                            <div class="filter-controls">
+                        <select id="statusFilter" class="filter-select" title="Filtrar por estado de orden">
+                            <option value="">Todos los estados</option>
+                                    <option value="Pendiente">Pendiente</option>
+                                    <option value="En Proceso">En Proceso</option>
+                                    <option value="Listo">Listo</option>
+                                    <option value="Entregado">Entregado</option>
+                                    <option value="Cancelado">Cancelado</option>
+                                </select>
+                        <select id="tableFilter" class="filter-select" title="Filtrar por mesa">
+                            <option value="">Todas las mesas</option>
+                                </select>
+                                <button id="clearOrderFilters" class="btn btn-outline">Limpiar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="orders-section">
+                        <div class="section-header">
+                            <h2>Órdenes Activas</h2>
+                            <div class="order-stats">
+                                <span class="stat-item">Pendientes: <strong id="pendingCount">0</strong></span>
+                                <span class="stat-item">En Proceso: <strong id="processingCount">0</strong></span>
+                                <span class="stat-item">Listas: <strong id="readyCount">0</strong></span>
+                            </div>
+                        </div>
+                        <div id="ordersContainer" class="orders-container">
+                            <!-- Las órdenes se cargarán aquí -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pestaña de Menú -->
+                <div id="menu-tab" class="tab-content">
+                    <div class="filters-section">
+                        <div class="search-controls">
+                            <div class="search-box">
+                                <input type="text" id="menuSearch" placeholder="Buscar en el menú..." class="search-input">
+                                <button id="menuSearchBtn" class="search-btn">🔍</button>
+                            </div>
+                            <div class="filter-controls">
+                        <select id="categoryFilter" class="filter-select" title="Filtrar por categoría de menú">
+                            <option value="">Todas las categorías</option>
+                                    <option value="Entradas">Entradas</option>
+                                    <option value="Platos Principales">Platos Principales</option>
+                                    <option value="Postres">Postres</option>
+                                    <option value="Bebidas">Bebidas</option>
+                                </select>
+                                <button id="addMenuItem" class="btn btn-primary">+ Agregar Item</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-section">
+                        <div class="section-header">
+                            <h2>Menú del Restaurante</h2>
+                        </div>
+                        <div id="menuContainer" class="menu-container">
+                            <!-- El menú se cargará aquí -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pestaña de Mesas -->
+                <div id="tables-tab" class="tab-content">
+                    <div class="tables-section">
+                        <div class="section-header">
+                            <h2>Estado de las Mesas</h2>
+                            <div class="table-stats">
+                                <span class="stat-item">Disponibles: <strong id="availableTables">0</strong></span>
+                                <span class="stat-item">Ocupadas: <strong id="occupiedTables">0</strong></span>
+                                <span class="stat-item">Reservadas: <strong id="reservedTables">0</strong></span>
+                            </div>
+                        </div>
+                        <div id="tablesContainer" class="tables-container">
+                            <!-- Las mesas se cargarán aquí -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pestaña de Reportes -->
+                <div id="reports-tab" class="tab-content">
+                    <div class="reports-section">
+                        <div class="section-header">
+                            <h2>Reportes del Restaurante</h2>
+                        </div>
+                        <div class="reports-grid">
+                            <div class="report-card">
+                                <h3>Ventas del Día</h3>
+                                <div class="report-value" id="dailySales">$0</div>
+                            </div>
+                            <div class="report-card">
+                                <h3>Órdenes Completadas</h3>
+                                <div class="report-value" id="completedOrders">0</div>
+                            </div>
+                            <div class="report-card">
+                                <h3>Plato Más Vendido</h3>
+                                <div class="report-value" id="topDish">-</div>
+                            </div>
+                            <div class="report-card">
+                                <h3>Promedio por Mesa</h3>
+                                <div class="report-value" id="avgPerTable">$0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para nueva orden -->
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nueva Orden</h2>
+                <button class="close-btn" id="closeOrderModal">&times;</button>
+            </div>
+            <form id="orderForm" class="order-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="orderTable">Mesa *</label>
+                        <select id="orderTable" required>
+                            <option value="">Seleccionar mesa</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="orderCustomer">Cliente</label>
+                        <input type="text" id="orderCustomer" placeholder="Nombre del cliente">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Items del Menú</label>
+                    <div id="menuItemsList" class="menu-items-list">
+                        <!-- Los items del menú se cargarán aquí -->
+                    </div>
+                </div>
+                <div class="order-summary">
+                    <h3>Resumen de la Orden</h3>
+                    <div id="orderItems" class="order-items">
+                        <!-- Los items seleccionados se mostrarán aquí -->
+                    </div>
+                    <div class="order-total">
+                        <strong>Total: $<span id="orderTotal">0.00</span></strong>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancelOrderBtn" class="btn btn-outline">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Crear Orden</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para agregar/editar item del menú -->
+    <div id="menuItemModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="menuItemModalTitle">Agregar Item al Menú</h2>
+                <button class="close-btn" id="closeMenuItemModal">&times;</button>
+            </div>
+            <form id="menuItemForm" class="menu-item-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="itemName">Nombre del Item *</label>
+                        <input type="text" id="itemName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemCategory">Categoría *</label>
+                        <select id="itemCategory" required>
+                            <option value="">Seleccionar categoría</option>
+                            <option value="Entradas">Entradas</option>
+                            <option value="Platos Principales">Platos Principales</option>
+                            <option value="Postres">Postres</option>
+                            <option value="Bebidas">Bebidas</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="itemPrice">Precio *</label>
+                        <input type="number" id="itemPrice" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemPrepTime">Tiempo de Preparación (min)</label>
+                        <input type="number" id="itemPrepTime" min="0" value="15">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="itemDescription">Descripción</label>
+                    <textarea id="itemDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="itemIngredients">Ingredientes</label>
+                    <textarea id="itemIngredients" rows="2" placeholder="Ingredientes separados por comas"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancelMenuItemBtn" class="btn btn-outline">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </main>  <script src="../../common.js"></script>`
+
+  <script src="app.js"></script>
+</body>
+</html>
+
