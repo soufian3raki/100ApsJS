@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día 44: Generador de CV en PDF</title>
+    <link rel="stylesheet" href="app.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>📄 Generador de CV en PDF</h1>
+        
+        <div class="cv-builder">
+            <div class="form-section">
+                <h2>Información Personal</h2>
+                <div class="form-group">
+                    <label for="fullName">Nombre Completo</label>
+                    <input type="text" id="fullName" placeholder="Tu nombre completo">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="tu@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" id="phone" placeholder="+1 234 567 8900">
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Ubicación</label>
+                    <input type="text" id="location" placeholder="Ciudad, País">
+                </div>
+                
+                <div class="form-group">
+                    <label for="linkedin">LinkedIn</label>
+                    <input type="url" id="linkedin" placeholder="https://linkedin.com/in/tu-perfil">
+                </div>
+                
+                <div class="form-group">
+                    <label for="github">GitHub</label>
+                    <input type="url" id="github" placeholder="https://github.com/tu-usuario">
+                </div>
+                
+                <div class="form-group">
+                    <label for="summary">Resumen Profesional</label>
+                    <textarea id="summary" rows="4" placeholder="Breve descripción de tu perfil profesional..."></textarea>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2>Experiencia Laboral</h2>
+                <div id="experienceContainer">
+                    <div class="experience-item">
+                        <div class="form-group">
+                            <label>Puesto</label>
+                            <input type="text" class="job-title" placeholder="Desarrollador Frontend">
+                        </div>
+                        <div class="form-group">
+                            <label>Empresa</label>
+                            <input type="text" class="company" placeholder="Nombre de la empresa">
+                        </div>
+                        <div class="form-group">
+                            <label>Ubicación</label>
+                            <input type="text" class="job-location" placeholder="Ciudad, País">
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha de Inicio</label>
+                            <input type="month" class="start-date">
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha de Fin</label>
+                            <input type="month" class="end-date">
+                            <label class="checkbox-label">
+                                <input type="checkbox" class="current-job"> Trabajo actual
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <textarea class="job-description" rows="3" placeholder="Describe tus responsabilidades y logros..."></textarea>
+                        </div>
+                        <button class="btn btn-danger remove-experience">Eliminar</button>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="addExperience">+ Agregar Experiencia</button>
+            </div>
+            
+            <div class="form-section">
+                <h2>Educación</h2>
+                <div id="educationContainer">
+                    <div class="education-item">
+                        <div class="form-group">
+                            <label>Título</label>
+                            <input type="text" class="degree" placeholder="Licenciatura en Ciencias de la Computación">
+                        </div>
+                        <div class="form-group">
+                            <label>Institución</label>
+                            <input type="text" class="institution" placeholder="Nombre de la universidad">
+                        </div>
+                        <div class="form-group">
+                            <label>Ubicación</label>
+                            <input type="text" class="edu-location" placeholder="Ciudad, País">
+                        </div>
+                        <div class="form-group">
+                            <label>Fecha de Graduación</label>
+                            <input type="month" class="graduation-date">
+                        </div>
+                        <div class="form-group">
+                            <label>GPA (opcional)</label>
+                            <input type="text" class="gpa" placeholder="3.8/4.0">
+                        </div>
+                        <button class="btn btn-danger remove-education">Eliminar</button>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="addEducation">+ Agregar Educación</button>
+            </div>
+            
+            <div class="form-section">
+                <h2>Habilidades</h2>
+                <div class="form-group">
+                    <label for="skills">Habilidades (separadas por comas)</label>
+                    <textarea id="skills" rows="3" placeholder="JavaScript, React, Node.js, Python, SQL..."></textarea>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2>Proyectos</h2>
+                <div id="projectsContainer">
+                    <div class="project-item">
+                        <div class="form-group">
+                            <label>Nombre del Proyecto</label>
+                            <input type="text" class="project-name" placeholder="Mi Proyecto Web">
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <textarea class="project-description" rows="2" placeholder="Breve descripción del proyecto..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>URL (opcional)</label>
+                            <input type="url" class="project-url" placeholder="https://mi-proyecto.com">
+                        </div>
+                        <div class="form-group">
+                            <label>Tecnologías</label>
+                            <input type="text" class="project-tech" placeholder="React, Node.js, MongoDB">
+                        </div>
+                        <button class="btn btn-danger remove-project">Eliminar</button>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="addProject">+ Agregar Proyecto</button>
+            </div>
+            
+            <div class="form-section">
+                <h2>Idiomas</h2>
+                <div id="languagesContainer">
+                    <div class="language-item">
+                        <div class="form-group">
+                            <label>Idioma</label>
+                            <input type="text" class="language-name" placeholder="Español">
+                        </div>
+                        <div class="form-group">
+                            <label>Nivel</label>
+                            <select class="language-level">
+                                <option value="Nativo">Nativo</option>
+                                <option value="Avanzado">Avanzado</option>
+                                <option value="Intermedio">Intermedio</option>
+                                <option value="Básico">Básico</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-danger remove-language">Eliminar</button>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" id="addLanguage">+ Agregar Idioma</button>
+            </div>
+            
+            <div class="actions">
+                <button class="btn btn-primary" id="previewCV">Vista Previa</button>
+                <button class="btn btn-success" id="downloadPDF">Descargar PDF</button>
+                <button class="btn btn-info" id="loadTemplate">Cargar Plantilla</button>
+                <button class="btn btn-warning" id="clearForm">Limpiar Formulario</button>
+            </div>
+        </div>
+        
+        <div class="preview-section" id="previewSection" style="display: none;">
+            <h2>Vista Previa del CV</h2>
+            <div class="cv-preview" id="cvPreview">
+                <!-- El CV se generará aquí -->
+            </div>
+        </div>
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
