@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App de Recetas | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>App de Recetas</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="recipes-app">
+        <div class="search-section">
+          <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Buscar recetas...">
+            <button id="search-btn">🔍</button>
+          </div>
+          
+          <div class="filters">
+            <select id="category-filter">
+              <option value="">Todas las categorías</option>
+              <option value="desayuno">Desayuno</option>
+              <option value="almuerzo">Almuerzo</option>
+              <option value="cena">Cena</option>
+              <option value="postre">Postre</option>
+              <option value="bebida">Bebida</option>
+            </select>
+            
+            <select id="difficulty-filter">
+              <option value="">Todas las dificultades</option>
+              <option value="fácil">Fácil</option>
+              <option value="medio">Medio</option>
+              <option value="difícil">Difícil</option>
+            </select>
+            
+            <select id="time-filter">
+              <option value="">Cualquier tiempo</option>
+              <option value="15">Menos de 15 min</option>
+              <option value="30">Menos de 30 min</option>
+              <option value="60">Menos de 1 hora</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="recipes-grid" id="recipes-grid">
+          <!-- Las recetas se cargarán dinámicamente -->
+        </div>
+        
+        <div class="no-results" id="no-results" style="display: none;">
+          <p>No se encontraron recetas con esos criterios</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Modal para mostrar detalles de la receta -->
+  <div class="modal" id="recipe-modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div class="modal-body" id="modal-body">
+        <!-- Contenido de la receta se cargará aquí -->
+      </div>
+    </div>
+  </div>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
