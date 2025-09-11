@@ -1,0 +1,7 @@
+d8ef915 2025-02-19 Release: Version 1.0.0 - Proyecto completo y funcional
+1ee5ada 2025-02-12 Add: Sistema de carga de apps desde JSON
+b989d59 2025-02-12 Add: Funciones comunes y utilidades
+cec52d4 2025-02-11 Add: Logica principal de navegacion y carga de apps
+f6afdf0 2025-02-10 Add: Estructura HTML principal con header y footer
+1ba5526 2025-02-10 Add: Variables CSS y estilos base
+8689130 2025-02-10 Initial commit: Estructura base del proyecto 100 Apps JS
