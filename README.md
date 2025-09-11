@@ -107,8 +107,8 @@ gh api repos/soufian3raki/100JsApp/pages --method POST --field source[branch]=ma
 ## 📱 Apps Incluidas (Día 1-60)
 
 ### 🟢 Apps Básicas (1-25)
-   [x] Contador - Contador básico con botones + y -
-
+- [x] Contador - Contador básico con botones + y -
+- [x] Conversor de divisas - Conversión entre monedas
 
 ## 📋 Lista Completa de 100 Apps
 
