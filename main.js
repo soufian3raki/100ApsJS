@@ -72,12 +72,12 @@ if (window.location.pathname.endsWith("index.html") || window.location.pathname.
 
     // Función para abrir el código fuente
     window.openCode = function(path) {
-      window.open(`https://github.com/soufian3raki/100JsApp/tree/main/src/apps/${path}`, '_blank');
+      window.open(`https://github.com/soufian3raki/100ApsJS/tree/main/apps/${path}`, '_blank');
     };
 
     // Función para abrir el README
     window.openReadme = function(path) {
-      window.open(`https://github.com/soufian3raki/100JsApp/blob/main/src/apps/${path}/README.md`, '_blank');
+      window.open(`https://github.com/soufian3raki/100ApsJS/blob/main/apps/${path}/README.md`, '_blank');
     };
 
     // Event listener para el botón de modo oscuro
