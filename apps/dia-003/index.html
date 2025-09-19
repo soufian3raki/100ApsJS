@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reloj Digital/Analógico | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Reloj Digital/Analógico</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="app-content">
+        <div class="clock-container">
+          <div class="clock-controls">
+            <button id="mode-toggle" class="btn btn-secondary">Modo Analógico</button>
+            <button id="format-toggle" class="btn btn-secondary">24h</button>
+          </div>
+          
+          <div class="clock-display">
+            <div id="digital-clock" class="digital-clock">
+              <div class="time">00:00:00</div>
+              <div class="date">Lunes, 1 de Enero</div>
+            </div>
+            
+            <div id="analog-clock" class="analog-clock" style="display: none;">
+              <div class="clock-face">
+                <div class="hand hour-hand"></div>
+                <div class="hand minute-hand"></div>
+                <div class="hand second-hand"></div>
+                <div class="center-dot"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
