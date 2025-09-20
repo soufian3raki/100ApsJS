@@ -8,7 +8,7 @@ function loadHeader() {
   headerPlaceholder.id = 'header-placeholder';
   document.body.prepend(headerPlaceholder);
 
-  fetch('/components/header.html')
+  fetch('/100ApsJS/components/header.html')
     .then(response => response.text())
     .then(data => {
       headerPlaceholder.innerHTML = data;
