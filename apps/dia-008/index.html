@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notas | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="notes-app">
+        <div class="notes-header">
+          <div class="search-bar">
+            <input type="text" id="search-input" placeholder="🔍 Buscar notas..." maxlength="50">
+          </div>
+          
+          <div class="notes-actions">
+            <button id="new-note" class="primary-btn">📝 Nueva Nota</button>
+            <button id="sort-notes" class="secondary-btn">📊 Ordenar</button>
+          </div>
+        </div>
+        
+        <div class="notes-container">
+          <div class="notes-sidebar">
+            <div class="notes-list" id="notes-list">
+              <!-- Lista de notas -->
+            </div>
+          </div>
+          
+          <div class="note-editor">
+            <div class="editor-header">
+              <input type="text" id="note-title" placeholder="Título de la nota" maxlength="100">
+              <div class="editor-actions">
+                <button id="save-note" class="primary-btn">💾 Guardar</button>
+                <button id="delete-note" class="secondary-btn">🗑️ Eliminar</button>
+              </div>
+            </div>
+            
+            <div class="editor-content">
+              <textarea id="note-content" placeholder="Escribe tu nota aquí..."></textarea>
+            </div>
+            
+            <div class="note-info">
+              <span id="note-date">Sin fecha</span>
+              <span id="note-length">0 caracteres</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="notes-stats">
+          <div class="stat">
+            <span class="stat-number" id="total-notes">0</span>
+            <span class="stat-label">Notas</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" id="total-words">0</span>
+            <span class="stat-label">Palabras</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" id="total-chars">0</span>
+            <span class="stat-label">Caracteres</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../components/loader.js"></script>
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html> 
