@@ -52,7 +52,7 @@ function loadFooter() {
   footerPlaceholder.id = 'footer-placeholder';
   document.body.append(footerPlaceholder);
 
-  fetch('/components/footer.html')
+  fetch('/100ApsJS/components/footer.html')
     .then(response => response.text())
     .then(data => {
       footerPlaceholder.innerHTML = data;
