@@ -1,0 +1,587 @@
+[
+  {
+    "id": 65,
+    "name": "Sistema de Gestión de Proyectos",
+    "description": "Sistema completo de gestión de proyectos con seguimiento de tareas, equipo, reportes y planificación de recursos.",
+    "path": "dia-065",
+    "tags": ["Proyectos", "Gestión"],
+    "icon": "📋",
+    "image": "https://via.placeholder.com/300x200/3b82f6/fff?text=Project+Management"
+  },
+  {
+    "id": 64,
+    "name": "Sistema de Gestión de Restaurante",
+    "description": "Sistema completo de gestión de restaurante con órdenes, menú, mesas, cocina y reportes de ventas.",
+    "path": "dia-064",
+    "tags": ["Restaurante", "Gestión"],
+    "icon": "🍽️",
+    "image": "https://via.placeholder.com/300x200/f59e0b/fff?text=Restaurant+Management"
+  },
+  {
+    "id": 63,
+    "name": "Sistema de Gestión de Biblioteca",
+    "description": "Sistema completo de gestión de biblioteca con catálogo de libros, miembros, préstamos y reportes.",
+    "path": "dia-063",
+    "tags": ["Biblioteca", "Gestión"],
+    "icon": "📚",
+    "image": "https://via.placeholder.com/300x200/10b981/fff?text=Library+Management"
+  },
+  {
+    "id": 62,
+    "name": "Sistema de Reservas de Hotel",
+    "description": "Sistema completo de reservas de hotel con gestión de habitaciones, huéspedes, servicios y reportes.",
+    "path": "dia-062",
+    "tags": ["Hotel", "Reservas"],
+    "icon": "🏨",
+    "image": "https://via.placeholder.com/300x200/8b5cf6/fff?text=Hotel+Reservations"
+  },
+  {
+    "id": 61,
+    "name": "Sistema de Gestión de Inventario",
+    "description": "Sistema completo de gestión de inventario con control de stock, productos, categorías y reportes de ventas.",
+    "path": "dia-061",
+    "tags": ["Inventario", "Gestión"],
+    "icon": "📦",
+    "image": "https://via.placeholder.com/300x200/ef4444/fff?text=Inventory+Management"
+  },
+  {
+    "id": 60,
+    "name": "Cronograma de Estudio",
+    "description": "Sistema completo de planificación de estudios con gestión de materias, programación de tareas y cronograma semanal visual.",
+    "path": "dia-060",
+    "tags": ["Estudio", "Planificación"],
+    "icon": "📚",
+    "image": "https://via.placeholder.com/300x200/8b5cf6/fff?text=Study+Scheduler"
+  },
+  {
+    "id": 59,
+    "name": "App de Recetas con Buscador",
+    "description": "Aplicación completa de recetas con sistema de búsqueda avanzado, filtros, favoritos y formulario para agregar nuevas recetas.",
+    "path": "dia-059",
+    "tags": ["Recetas", "Cocina"],
+    "icon": "🍽️",
+    "image": "https://via.placeholder.com/300x200/f59e0b/fff?text=Recipe+App"
+  },
+  {
+    "id": 58,
+    "name": "Generador de Código de Barras",
+    "description": "Generador completo de códigos de barras con múltiples formatos, personalización visual y exportación en diferentes formatos.",
+    "path": "dia-058",
+    "tags": ["Códigos", "Generación"],
+    "icon": "📊",
+    "image": "https://via.placeholder.com/300x200/06b6d4/fff?text=Barcode+Generator"
+  },
+  {
+    "id": 57,
+    "name": "Simulador de Carrito de Compras",
+    "description": "Sistema completo de e-commerce con carrito de compras, búsqueda de productos, filtros, cupones y proceso de checkout.",
+    "path": "dia-057",
+    "tags": ["E-commerce", "Compras"],
+    "icon": "🛒",
+    "image": "https://via.placeholder.com/300x200/22c55e/fff?text=Shopping+Cart"
+  },
+  {
+    "id": 56,
+    "name": "Juego de Preguntas con Niveles",
+    "description": "Sistema completo de quiz con múltiples niveles de dificultad, categorías temáticas, temporizador y ranking de jugadores.",
+    "path": "dia-056",
+    "tags": ["Quiz", "Educación"],
+    "icon": "🎯",
+    "image": "https://via.placeholder.com/300x200/ef4444/fff?text=Quiz+Game"
+  },
+  {
+    "id": 55,
+    "name": "Visor de Imágenes con Zoom",
+    "description": "Visor de imágenes completo con zoom, rotación, filtros y efectos en tiempo real.",
+    "path": "dia-055",
+    "tags": ["Imágenes", "Zoom"],
+    "icon": "🔍",
+    "image": "https://via.placeholder.com/300x200/ef4444/fff?text=Image+Viewer"
+  },
+  {
+    "id": 54,
+    "name": "App de Votaciones",
+    "description": "Sistema completo de votaciones con resultados en tiempo real y gráficos interactivos.",
+    "path": "dia-054",
+    "tags": ["Votaciones", "Encuestas"],
+    "icon": "🗳️",
+    "image": "https://via.placeholder.com/300x200/10b981/fff?text=Voting+App"
+  },
+  {
+    "id": 53,
+    "name": "Convertidor de Voz a Texto",
+    "description": "Aplicación de reconocimiento de voz que convierte audio a texto en tiempo real.",
+    "path": "dia-053",
+    "tags": ["Voz", "Texto"],
+    "icon": "🎤",
+    "image": "https://via.placeholder.com/300x200/f59e0b/fff?text=Voice+to+Text"
+  },
+  {
+    "id": 52,
+    "name": "Lector CSV con Gráficos",
+    "description": "Lector de archivos CSV con visualización de datos y gráficos interactivos.",
+    "path": "dia-052",
+    "tags": ["CSV", "Datos"],
+    "icon": "📊",
+    "image": "https://via.placeholder.com/300x200/06b6d4/fff?text=CSV+Reader"
+  },
+  {
+    "id": 51,
+    "name": "Simulador de Préstamos",
+    "description": "Calculadora completa de préstamos con tabla de amortización y comparación de escenarios.",
+    "path": "dia-051",
+    "tags": ["Finanzas", "Préstamos"],
+    "icon": "💰",
+    "image": "https://via.placeholder.com/300x200/22c55e/fff?text=Loan+Simulator"
+  },
+  {
+    "id": 50,
+    "name": "Organizador de Contraseñas",
+    "description": "Gestor de contraseñas completo con generador de contraseñas seguras, categorización y búsqueda.",
+    "path": "dia-050",
+    "tags": ["Seguridad", "Contraseñas"],
+    "icon": "🔐",
+    "image": "https://via.placeholder.com/300x200/8b5cf6/fff?text=Password+Manager"
+  },
+  {
+    "id": 49,
+    "name": "App de Notas Avanzadas",
+    "description": "Aplicación de notas con etiquetas, búsqueda inteligente, favoritos y colores personalizados.",
+    "path": "dia-049",
+    "tags": ["Notas", "Productividad"],
+    "icon": "📝",
+    "image": "https://via.placeholder.com/300x200/f59e0b/fff?text=Advanced+Notes"
+  },
+  {
+    "id": 48,
+    "name": "Reproductor de Video",
+    "description": "Reproductor de video personalizado con controles avanzados, lista de reproducción y configuración.",
+    "path": "dia-048",
+    "tags": ["Video", "Multimedia"],
+    "icon": "🎬",
+    "image": "https://via.placeholder.com/300x200/ef4444/fff?text=Video+Player"
+  },
+  {
+    "id": 47,
+    "name": "Portafolio CMS",
+    "description": "Sistema de gestión de contenido para crear y editar portafolio personal con vista previa en tiempo real.",
+    "path": "dia-047",
+    "tags": ["CMS", "Portafolio"],
+    "icon": "💼",
+    "image": "https://via.placeholder.com/300x200/10b981/fff?text=Portfolio+CMS"
+  },
+  {
+    "id": 46,
+    "name": "Biblioteca Personal",
+    "description": "Gestión de biblioteca personal de libros con estados de lectura, calificaciones y notas.",
+    "path": "dia-046",
+    "tags": ["Libros", "Organización"],
+    "icon": "📚",
+    "image": "https://via.placeholder.com/300x200/22c55e/fff?text=Book+Library"
+  },
+  {
+    "id": 45,
+    "name": "Calculadora de IMC",
+    "description": "Calculadora de Índice de Masa Corporal con recomendaciones personalizadas y consejos de salud.",
+    "path": "dia-045",
+    "tags": ["Salud", "Calculadora"],
+    "icon": "⚖️",
+    "image": "https://via.placeholder.com/300x200/4ecdc4/fff?text=BMI+Calculator"
+  },
+  {
+    "id": 44,
+    "name": "Generador de CV en PDF",
+    "description": "Generador completo de CV profesional con vista previa en tiempo real y exportación a PDF.",
+    "path": "dia-044",
+    "tags": ["CV", "PDF", "Profesional"],
+    "icon": "📄",
+    "image": "https://via.placeholder.com/300x200/667eea/fff?text=CV+Generator"
+  },
+  {
+    "id": 43,
+    "name": "Calculadora Científica",
+    "description": "Calculadora científica completa con funciones trigonométricas, logarítmicas y memoria.",
+    "path": "dia-043",
+    "tags": ["Calculadora", "Matemáticas"],
+    "icon": "🧮",
+    "image": "https://via.placeholder.com/300x200/764ba2/fff?text=Scientific+Calculator"
+  },
+  {
+    "id": 42,
+    "name": "Juego de Blackjack",
+    "description": "Juego completo de Blackjack con baraja virtual, sistema de apuestas y estadísticas.",
+    "path": "dia-042",
+    "tags": ["Juego", "Cartas"],
+    "icon": "🃏",
+    "image": "https://via.placeholder.com/300x200/2c3e50/fff?text=Blackjack"
+  },
+  {
+    "id": 41,
+    "name": "App de Hábitos Diarios",
+    "description": "Seguimiento de hábitos diarios con estadísticas, rachas y motivación personalizada.",
+    "path": "dia-041",
+    "tags": ["Hábitos", "Productividad"],
+    "icon": "📈",
+    "image": "https://via.placeholder.com/300x200/10b981/fff?text=Habit+Tracker"
+  },
+  {
+    "id": 40,
+    "name": "Juego de Snake",
+    "description": "Juego clásico de Snake con controles de teclado, puntuación y niveles de dificultad.",
+    "path": "dia-040",
+    "tags": ["Juego", "Arcade"],
+    "icon": "🐍",
+    "image": "https://via.placeholder.com/300x200/22c55e/fff?text=Snake+Game"
+  },
+  {
+    "id": 39,
+    "name": "Generador de Memes",
+    "description": "Creador de memes personalizados con plantillas, texto personalizable y descarga.",
+    "path": "dia-039",
+    "tags": ["Memes", "Creatividad"],
+    "icon": "😂",
+    "image": "https://via.placeholder.com/300x200/f59e0b/fff?text=Meme+Generator"
+  },
+  {
+    "id": 38,
+    "name": "App de Lector de QR",
+    "description": "Lector de códigos QR con cámara, historial de códigos escaneados y exportación de datos.",
+    "path": "dia-038",
+    "tags": ["QR", "Cámara"],
+    "icon": "📱",
+    "image": "https://via.placeholder.com/300x200/06b6d4/fff?text=QR+Reader"
+  },
+  {
+    "id": 37,
+    "name": "Juego de Sudoku",
+    "description": "Sudoku completo con generación automática, validación y niveles de dificultad.",
+    "path": "dia-037",
+    "tags": ["Juego", "Puzzle"],
+    "icon": "🔢",
+    "image": "https://via.placeholder.com/300x200/8b5cf6/fff?text=Sudoku"
+  },
+  {
+    "id": 36,
+    "name": "App de Música",
+    "description": "Reproductor de música completo con playlist, controles de reproducción y gestión de canciones.",
+    "path": "dia-036",
+    "tags": ["Música", "Entretenimiento"],
+    "icon": "🎵",
+    "image": "https://via.placeholder.com/300x200/8b5cf6/fff?text=Music+Player"
+  },
+  {
+    "id": 35,
+    "name": "App de Clima",
+    "description": "Aplicación de clima con datos en tiempo real, pronóstico de 5 días y geolocalización.",
+    "path": "dia-035",
+    "tags": ["Clima", "Utilidad"],
+    "icon": "🌤️",
+    "image": "https://via.placeholder.com/300x200/06b6d4/fff?text=Weather+App"
+  },
+  {
+    "id": 34,
+    "name": "App de Tareas",
+    "description": "Gestión de tareas con prioridades, filtros y persistencia de datos.",
+    "path": "dia-034",
+    "tags": ["Productividad", "Organización"],
+    "icon": "✅",
+    "image": "https://via.placeholder.com/300x200/10b981/fff?text=Todo+App"
+  },
+  {
+    "id": 33,
+    "name": "App de Notas",
+    "description": "Editor de notas con búsqueda, persistencia y interfaz moderna tipo Evernote.",
+    "path": "dia-033",
+    "tags": ["Notas", "Productividad"],
+    "icon": "📝",
+    "image": "https://via.placeholder.com/300x200/f59e0b/fff?text=Notes+App"
+  },
+  {
+    "id": 32,
+    "name": "App de Fitness Tracker",
+    "description": "Seguimiento de fitness con registro de actividades, objetivos y análisis de progreso.",
+    "path": "dia-032",
+    "tags": ["Fitness", "Salud"],
+    "icon": "💪",
+    "image": "https://via.placeholder.com/300x200/ef4444/fff?text=Fitness+Tracker"
+  },
+  {
+    "id": 31,
+    "name": "App de Presupuesto Personal",
+    "description": "Gestión de presupuesto personal con seguimiento de ingresos, gastos y análisis financiero.",
+    "path": "dia-031",
+    "tags": ["Finanzas", "Productividad"],
+    "icon": "💰",
+    "image": "https://via.placeholder.com/300x200/22c55e/fff?text=Budget+App"
+  },
+  {
+    "id": 30,
+    "name": "Reloj Digital/Analógico",
+    "description": "Reloj en tiempo real con vista digital y analógica, múltiples zonas horarias y configuraciones.",
+    "path": "dia-030",
+    "tags": ["Tiempo", "Utilidad"],
+    "icon": "🕐",
+    "image": "https://via.placeholder.com/300x200/667eea/fff?text=Digital+Clock"
+  },
+  {
+    "id": 29,
+    "name": "Sorteo Aleatorio",
+    "description": "Sorteador de nombres con historial, ejemplos y múltiples opciones de personalización.",
+    "path": "dia-029",
+    "tags": ["Utilidad", "Aleatorio"],
+    "icon": "🎲",
+    "image": "https://via.placeholder.com/300x200/f39c12/fff?text=Random+Picker"
+  },
+  {
+    "id": 28,
+    "name": "Conversor de Colores",
+    "description": "Convierte entre formatos HEX, RGB y HSL con preview en tiempo real y paleta de colores.",
+    "path": "dia-028",
+    "tags": ["Diseño", "Colores"],
+    "icon": "🎨",
+    "image": "https://via.placeholder.com/300x200/e17055/fff?text=Color+Converter"
+  },
+  {
+    "id": 27,
+    "name": "App de Recetas",
+    "description": "Recetas de cocina con búsqueda, filtros por categoría y dificultad, y vista detallada.",
+    "path": "dia-027",
+    "tags": ["Cocina", "Búsqueda"],
+    "icon": "🍳",
+    "image": "https://via.placeholder.com/300x200/ff6b6b/fff?text=Recipe+App"
+  },
+  {
+    "id": 26,
+    "name": "Juego de Dados",
+    "description": "Simulador de dados con estadísticas, historial y opciones de personalización.",
+    "path": "dia-026",
+    "tags": ["Juego", "Azar"],
+    "icon": "🎲",
+    "image": "https://via.placeholder.com/300x200/4ecdc4/fff?text=Dice+Game"
+  },
+  {
+    "id": 25,
+    "name": "Organizador de Contraseñas",
+    "description": "Gestor seguro de contraseñas con encriptación local y generador de contraseñas.",
+    "path": "dia-025",
+    "tags": ["Seguridad", "Productividad"],
+    "icon": "🔐",
+    "image": "https://via.placeholder.com/300x200/8b5cf6/fff?text=Password+Manager"
+  },
+  {
+    "id": 24,
+    "name": "Validador de Formularios",
+    "description": "Validador de formularios con validación en tiempo real y mensajes de error personalizados.",
+    "path": "dia-024",
+    "tags": ["Formularios", "Validación"],
+    "icon": "📋",
+    "image": "https://via.placeholder.com/300x200/10b981/fff?text=Form+Validator"
+  },
+  {
+    "id": 23,
+    "name": "Editor de Imágenes Básico",
+    "description": "Editor de imágenes con Canvas, filtros básicos y herramientas de dibujo.",
+    "path": "dia-023",
+    "tags": ["Imágenes", "Canvas"],
+    "icon": "🎨",
+    "image": "https://via.placeholder.com/300x200/f59e0b/fff?text=Image+Editor"
+  },
+  {
+    "id": 22,
+    "name": "Reproductor de Audio Simple",
+    "description": "Reproductor de audio con controles básicos, playlist y visualización de ondas.",
+    "path": "dia-022",
+    "tags": ["Audio", "Música"],
+    "icon": "🎵",
+    "image": "https://via.placeholder.com/300x200/ef4444/fff?text=Audio+Player"
+  },
+  {
+    "id": 21,
+    "name": "Juego de Tic-Tac-Toe",
+    "description": "Juego clásico de tres en línea con IA básica y estadísticas de partidas.",
+    "path": "dia-021",
+    "tags": ["Juego", "IA"],
+    "icon": "⭕",
+    "image": "https://via.placeholder.com/300x200/22c55e/fff?text=Tic+Tac+Toe"
+  },
+  {
+    "id": 20,
+    "name": "Controlador de Gastos Personales",
+    "description": "Gestión de gastos personales con categorías, gráficos y análisis de presupuesto.",
+    "path": "dia-020",
+    "tags": ["Finanzas", "Gastos"],
+    "icon": "💳",
+    "image": "https://via.placeholder.com/300x200/06b6d4/fff?text=Expense+Tracker"
+  },
+  {
+    "id": 19,
+    "name": "Editor de Texto Tipo Notepad",
+    "description": "Editor de texto básico con funciones de guardar, abrir y formateo de texto.",
+    "path": "dia-019",
+    "tags": ["Editor", "Texto"],
+    "icon": "📝",
+    "image": "https://via.placeholder.com/300x200/8b5cf6/fff?text=Text+Editor"
+  },
+  {
+    "id": 18,
+    "name": "Lector de Archivos JSON",
+    "description": "Visualizador de archivos JSON con formato, validación y búsqueda de datos.",
+    "path": "dia-018",
+    "tags": ["JSON", "Datos"],
+    "icon": "📄",
+    "image": "https://via.placeholder.com/300x200/10b981/fff?text=JSON+Viewer"
+  },
+  {
+    "id": 17,
+    "name": "Quiz de Preguntas",
+    "description": "Sistema de quiz con preguntas múltiples, puntuación y temporizador.",
+    "path": "dia-017",
+    "tags": ["Quiz", "Educación"],
+    "icon": "❓",
+    "image": "https://via.placeholder.com/300x200/f59e0b/fff?text=Quiz+App"
+  },
+  {
+    "id": 16,
+    "name": "Lector RSS Simple",
+    "description": "Lector de feeds RSS con parseo de XML y visualización de artículos.",
+    "path": "dia-016",
+    "tags": ["RSS", "Noticias"],
+    "icon": "📰",
+    "image": "https://via.placeholder.com/300x200/ef4444/fff?text=RSS+Reader"
+  },
+  {
+    "id": 15,
+    "name": "App de Citas Célebres",
+    "description": "Colección de citas célebres con categorías, búsqueda y favoritos.",
+    "path": "dia-015",
+    "tags": ["Citas", "Inspiración"],
+    "icon": "💬",
+    "image": "https://via.placeholder.com/300x200/22c55e/fff?text=Quotes+App"
+  },
+  {
+    "id": 14,
+    "name": "Generador de Frases Motivadoras",
+    "description": "Generador de frases motivadoras por categorías con animaciones y compartir.",
+    "path": "dia-014",
+    "tags": ["Motivación", "Frases"],
+    "icon": "💪",
+    "image": "https://via.placeholder.com/300x200/06b6d4/fff?text=Motivation+Generator"
+  },
+  {
+    "id": 13,
+    "name": "Conversor de Unidades",
+    "description": "Conversor completo de unidades de medida con múltiples categorías.",
+    "path": "dia-013",
+    "tags": ["Conversión", "Unidades"],
+    "icon": "📏",
+    "image": "https://via.placeholder.com/300x200/8b5cf6/fff?text=Unit+Converter"
+  },
+  {
+    "id": 12,
+    "name": "App de Clima Básica",
+    "description": "Aplicación de clima con API básica y geolocalización.",
+    "path": "dia-012",
+    "tags": ["Clima", "API"],
+    "icon": "🌤️",
+    "image": "https://via.placeholder.com/300x200/10b981/fff?text=Weather+App"
+  },
+  {
+    "id": 11,
+    "name": "Juego de Memoria",
+    "description": "Juego de memoria con cartas que se voltean y sistema de puntuación.",
+    "path": "dia-011",
+    "tags": ["Juego", "Memoria"],
+    "icon": "🧠",
+    "image": "https://via.placeholder.com/300x200/f59e0b/fff?text=Memory+Game"
+  },
+  {
+    "id": 10,
+    "name": "Piedra, Papel o Tijera",
+    "description": "Juego clásico con estadísticas y diferentes niveles de dificultad.",
+    "path": "dia-010",
+    "tags": ["Juego", "Clásico"],
+    "icon": "✂️",
+    "image": "https://via.placeholder.com/300x200/ef4444/fff?text=Rock+Paper+Scissors"
+  },
+  {
+    "id": 9,
+    "name": "Juego del Ahorcado",
+    "description": "Juego del ahorcado con categorías, pistas y sistema de vidas.",
+    "path": "dia-009",
+    "tags": ["Juego", "Palabras"],
+    "icon": "🎯",
+    "image": "https://via.placeholder.com/300x200/22c55e/fff?text=Hangman+Game"
+  },
+  {
+    "id": 8,
+    "name": "Lista de Tareas",
+    "description": "Gestión de tareas con filtros, prioridades y persistencia local.",
+    "path": "dia-008",
+    "tags": ["Tareas", "Productividad"],
+    "icon": "✅",
+    "image": "https://via.placeholder.com/300x200/06b6d4/fff?text=Todo+List"
+  },
+  {
+    "id": 7,
+    "name": "App de Notas",
+    "description": "Editor de notas con búsqueda y persistencia en localStorage.",
+    "path": "dia-007",
+    "tags": ["Notas", "Productividad"],
+    "icon": "📝",
+    "image": "https://via.placeholder.com/300x200/8b5cf6/fff?text=Notes+App"
+  },
+  {
+    "id": 6,
+    "name": "Generador de Contraseñas",
+    "description": "Generador de contraseñas seguras con opciones personalizables.",
+    "path": "dia-006",
+    "tags": ["Seguridad", "Generador"],
+    "icon": "🔑",
+    "image": "https://via.placeholder.com/300x200/10b981/fff?text=Password+Generator"
+  },
+  {
+    "id": 5,
+    "name": "Cronómetro",
+    "description": "Cronómetro con funciones de inicio, pausa, reinicio y lapsos.",
+    "path": "dia-005",
+    "tags": ["Tiempo", "Cronómetro"],
+    "icon": "⏱️",
+    "image": "https://via.placeholder.com/300x200/f59e0b/fff?text=Stopwatch"
+  },
+  {
+    "id": 4,
+    "name": "Temporizador",
+    "description": "Temporizador con cuenta regresiva y notificaciones.",
+    "path": "dia-004",
+    "tags": ["Tiempo", "Temporizador"],
+    "icon": "⏰",
+    "image": "https://via.placeholder.com/300x200/ef4444/fff?text=Timer"
+  },
+  {
+    "id": 3,
+    "name": "Reloj Digital/Analógico",
+    "description": "Reloj en tiempo real con vista digital y analógica.",
+    "path": "dia-003",
+    "tags": ["Tiempo", "Reloj"],
+    "icon": "🕐",
+    "image": "https://via.placeholder.com/300x200/22c55e/fff?text=Digital+Clock"
+  },
+  {
+    "id": 2,
+    "name": "Conversor de Divisas",
+    "description": "Conversión entre monedas con tasas de cambio en tiempo real.",
+    "path": "dia-002",
+    "tags": ["Conversión", "Finanzas"],
+    "icon": "💱",
+    "image": "https://via.placeholder.com/300x200/06b6d4/fff?text=Currency+Converter"
+  },
+  {
+    "id": 1,
+    "name": "Contador",
+    "description": "Contador básico con botones de incremento y decremento.",
+    "path": "dia-001",
+    "tags": ["Básico", "Contador"],
+    "icon": "🔢",
+    "image": "./apps/dia-001/img/1.png"
+  }
+]
