@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reloj Digital/Analógico | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Reloj Digital/Analógico</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="clock-app">
+        <div class="clock-display">
+          <div class="digital-clock">
+            <div class="time-display" id="digital-time">00:00:00</div>
+            <div class="date-display" id="date-display">Lunes, 1 de Enero</div>
+            <div class="timezone-display" id="timezone-display">UTC</div>
+          </div>
+          
+          <div class="analog-clock">
+            <div class="clock-face">
+              <div class="hand hour-hand" id="hour-hand"></div>
+              <div class="hand minute-hand" id="minute-hand"></div>
+              <div class="hand second-hand" id="second-hand"></div>
+              <div class="center-dot"></div>
+              
+              <!-- Marcadores de horas -->
+              <div class="marker marker-12"></div>
+              <div class="marker marker-1"></div>
+              <div class="marker marker-2"></div>
+              <div class="marker marker-3"></div>
+              <div class="marker marker-4"></div>
+              <div class="marker marker-5"></div>
+              <div class="marker marker-6"></div>
+              <div class="marker marker-7"></div>
+              <div class="marker marker-8"></div>
+              <div class="marker marker-9"></div>
+              <div class="marker marker-10"></div>
+              <div class="marker marker-11"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="clock-controls">
+          <div class="control-section">
+            <h3>⏰ Formato de Tiempo</h3>
+            <div class="format-controls">
+              <label class="radio-btn">
+                <input type="radio" name="time-format" value="12" checked>
+                <span class="radio-custom"></span>
+                12 horas
+              </label>
+              <label class="radio-btn">
+                <input type="radio" name="time-format" value="24">
+                <span class="radio-custom"></span>
+                24 horas
+              </label>
+            </div>
+          </div>
+          
+          <div class="control-section">
+            <h3>🌍 Zona Horaria</h3>
+            <div class="timezone-controls">
+              <select id="timezone-select" aria-label="Seleccionar zona horaria">
+                <option value="local">Hora Local</option>
+                <option value="UTC">UTC</option>
+                <option value="America/New_York">Nueva York (EST)</option>
+                <option value="America/Los_Angeles">Los Ángeles (PST)</option>
+                <option value="Europe/London">Londres (GMT)</option>
+                <option value="Europe/Paris">París (CET)</option>
+                <option value="Asia/Tokyo">Tokio (JST)</option>
+                <option value="Australia/Sydney">Sídney (AEST)</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="control-section">
+            <h3>🎨 Personalización</h3>
+            <div class="customization-controls">
+              <div class="control-group">
+                <label for="clock-size">Tamaño del reloj</label>
+                <input type="range" id="clock-size" min="200" max="400" value="300">
+                <span id="clock-size-value">300px</span>
+              </div>
+              
+              <div class="control-group">
+                <label for="clock-color">Color del reloj</label>
+                <input type="color" id="clock-color" value="#3b82f6">
+              </div>
+              
+              <div class="control-group">
+                <label class="checkbox">
+                  <input type="checkbox" id="show-seconds" checked>
+                  <span class="checkmark"></span>
+                  Mostrar segundos
+                </label>
+              </div>
+              
+              <div class="control-group">
+                <label class="checkbox">
+                  <input type="checkbox" id="smooth-animation" checked>
+                  <span class="checkmark"></span>
+                  Animación suave
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="clock-info">
+          <div class="info-card">
+            <h3>📅 Información de Fecha</h3>
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="info-label">Día de la semana</span>
+                <span class="info-value" id="weekday">Lunes</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Día del año</span>
+                <span class="info-value" id="day-of-year">1</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Semana del año</span>
+                <span class="info-value" id="week-of-year">1</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Tiempo Unix</span>
+                <span class="info-value" id="unix-time">0</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="info-card">
+            <h3>⏱️ Cronómetro</h3>
+            <div class="stopwatch-display">
+              <div class="stopwatch-time" id="stopwatch-time">00:00:00</div>
+              <div class="stopwatch-controls">
+                <button id="start-stopwatch" class="control-btn">▶️ Iniciar</button>
+                <button id="reset-stopwatch" class="control-btn">🔄 Reiniciar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="clock-tips">
+          <h3>💡 Información del Reloj</h3>
+          <ul>
+            <li>El reloj se actualiza en tiempo real cada segundo</li>
+            <li>Puedes cambiar entre formato 12 y 24 horas</li>
+            <li>Selecciona diferentes zonas horarias</li>
+            <li>Personaliza el tamaño y color del reloj</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html> 

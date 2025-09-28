@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reloj Pomodoro | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Reloj Pomodoro</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="pomodoro-app">
+        <div class="timer-display">
+          <div class="timer-circle">
+            <div class="timer-progress" id="timer-progress"></div>
+            <div class="timer-content">
+              <div class="timer-time" id="timer-time">25:00</div>
+              <div class="timer-phase" id="timer-phase">Trabajo</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="timer-controls">
+          <button id="start-btn" class="control-btn start">▶️ Iniciar</button>
+          <button id="pause-btn" class="control-btn pause" disabled>⏸️ Pausar</button>
+          <button id="reset-btn" class="control-btn reset">🔄 Reiniciar</button>
+          <button id="skip-btn" class="control-btn skip">⏭️ Saltar</button>
+        </div>
+        
+        <div class="pomodoro-settings">
+          <div class="settings-header">
+            <h3>⚙️ Configuración</h3>
+            <button id="toggle-settings" class="toggle-btn">▼</button>
+          </div>
+          
+          <div class="settings-content" id="settings-content">
+            <div class="setting-group">
+              <label for="work-time">Tiempo de trabajo (minutos)</label>
+              <input type="number" id="work-time" min="1" max="60" value="25">
+            </div>
+            
+            <div class="setting-group">
+              <label for="break-time">Tiempo de descanso (minutos)</label>
+              <input type="number" id="break-time" min="1" max="30" value="5">
+            </div>
+            
+            <div class="setting-group">
+              <label for="long-break-time">Descanso largo (minutos)</label>
+              <input type="number" id="long-break-time" min="5" max="60" value="15">
+            </div>
+            
+            <div class="setting-group">
+              <label for="pomodoros-before-long-break">Pomodoros antes del descanso largo</label>
+              <input type="number" id="pomodoros-before-long-break" min="1" max="10" value="4">
+            </div>
+            
+            <div class="setting-group">
+              <label class="checkbox">
+                <input type="checkbox" id="auto-start-breaks" checked>
+                <span class="checkmark"></span>
+                Iniciar descansos automáticamente
+              </label>
+            </div>
+            
+            <div class="setting-group">
+              <label class="checkbox">
+                <input type="checkbox" id="auto-start-pomodoros" checked>
+                <span class="checkmark"></span>
+                Iniciar pomodoros automáticamente
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="pomodoro-stats">
+          <div class="stat">
+            <span class="stat-number" id="completed-pomodoros">0</span>
+            <span class="stat-label">Pomodoros</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" id="total-work-time">0</span>
+            <span class="stat-label">Minutos</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" id="current-streak">0</span>
+            <span class="stat-label">Racha</span>
+          </div>
+        </div>
+        
+        <div class="pomodoro-tips">
+          <h3>💡 Consejos Pomodoro</h3>
+          <ul>
+            <li>25 minutos de trabajo + 5 minutos de descanso</li>
+            <li>Después de 4 pomodoros, toma un descanso largo</li>
+            <li>Elimina distracciones durante el tiempo de trabajo</li>
+            <li>Usa el descanso para estirarte y relajarte</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html> 

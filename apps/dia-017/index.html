@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día 17 - Juego del Ahorcado</title>
+    <link rel="stylesheet" href="app.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <a href="../../index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i> Volver
+            </a>
+            <h1><i class="fas fa-user-times"></i> Juego del Ahorcado</h1>
+            <div class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+        </header>
+
+        <div class="game-container">
+            <div class="game-header">
+                <div class="game-info">
+                    <div class="category-display">
+                        <span class="category-label">Categoría:</span>
+                        <span class="category-name" id="categoryName">General</span>
+                    </div>
+                    <div class="lives-display">
+                        <span class="lives-label">Vidas:</span>
+                        <span class="lives-count" id="livesCount">6</span>
+                    </div>
+                </div>
+                <div class="score-display">
+                    <span class="score-label">Puntuación:</span>
+                    <span class="score-value" id="scoreValue">0</span>
+                </div>
+            </div>
+
+            <div class="hangman-drawing">
+                <canvas id="hangmanCanvas" width="300" height="300"></canvas>
+            </div>
+
+            <div class="word-display">
+                <div class="word-container" id="wordContainer">
+                    <!-- Word letters will be displayed here -->
+                </div>
+            </div>
+
+            <div class="game-status">
+                <div class="status-message" id="statusMessage">
+                    ¡Adivina la palabra!
+                </div>
+                <div class="hint-display" id="hintDisplay">
+                    <!-- Hint will be shown here -->
+                </div>
+            </div>
+
+            <div class="keyboard-container">
+                <div class="keyboard" id="keyboard">
+                    <!-- Keyboard will be generated here -->
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button class="btn btn-primary" id="newGameBtn">
+                    <i class="fas fa-play"></i> Nueva Palabra
+                </button>
+                <button class="btn btn-secondary" id="hintBtn">
+                    <i class="fas fa-lightbulb"></i> Pista
+                </button>
+                <button class="btn btn-secondary" id="resetBtn">
+                    <i class="fas fa-redo"></i> Reiniciar
+                </button>
+            </div>
+
+            <div class="game-stats">
+                <div class="stat-card">
+                    <h4>Victorias</h4>
+                    <span class="stat-value" id="winsCount">0</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Derrotas</h4>
+                    <span class="stat-value" id="lossesCount">0</span>
+                </div>
+                <div class="stat-card">
+                    <h4>Palabras</h4>
+                    <span class="stat-value" id="wordsCount">0</span>
+                </div>
+            </div>
+
+            <div class="word-history">
+                <h3>Palabras Jugadas</h3>
+                <div class="history-list" id="historyList">
+                    <!-- Word history will be added here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Over Modal -->
+        <div class="modal" id="gameOverModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">¡Juego Terminado!</h3>
+                    <button class="close-btn" id="closeModalBtn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="result-display" id="modalResult">
+                        <!-- Result will be shown here -->
+                    </div>
+                    <div class="word-reveal" id="wordReveal">
+                        <!-- Word reveal will be shown here -->
+                    </div>
+                    <div class="score-update" id="scoreUpdate">
+                        <!-- Score update will be shown here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="playAgainBtn">
+                        <i class="fas fa-play"></i> Jugar Otra Vez
+                    </button>
+                    <button class="btn btn-secondary" id="closeModalBtn2">
+                        <i class="fas fa-times"></i> Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Selection Modal -->
+        <div class="modal" id="categoryModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Seleccionar Categoría</h3>
+                    <button class="close-btn" id="closeCategoryBtn">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="category-grid" id="categoryGrid">
+                        <!-- Categories will be added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="category-btn" id="categoryBtn">
+            <i class="fas fa-tags"></i> Categorías
+        </button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-Tac-Toe | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Tic-Tac-Toe</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="game-app">
+        <div class="game-info">
+          <div class="player-info">
+            <div class="player" id="playerX">
+              <span class="player-symbol">X</span>
+              <span class="player-name">Jugador X</span>
+              <span class="player-score" id="scoreX">0</span>
+            </div>
+            <div class="player" id="playerO">
+              <span class="player-symbol">O</span>
+              <span class="player-name">Jugador O</span>
+              <span class="player-score" id="scoreO">0</span>
+            </div>
+          </div>
+          
+          <div class="game-status" id="gameStatus">
+            Turno de X
+          </div>
+        </div>
+        
+        <div class="game-board" id="gameBoard">
+          <div class="cell" data-index="0"></div>
+          <div class="cell" data-index="1"></div>
+          <div class="cell" data-index="2"></div>
+          <div class="cell" data-index="3"></div>
+          <div class="cell" data-index="4"></div>
+          <div class="cell" data-index="5"></div>
+          <div class="cell" data-index="6"></div>
+          <div class="cell" data-index="7"></div>
+          <div class="cell" data-index="8"></div>
+        </div>
+        
+        <div class="game-controls">
+          <button id="newGameBtn" class="control-btn">Nuevo Juego</button>
+          <button id="resetBtn" class="control-btn">Reiniciar</button>
+          <button id="changeModeBtn" class="control-btn">Cambiar Modo</button>
+        </div>
+        
+        <div class="game-stats">
+          <div class="stat-card">
+            <h4>Estadísticas</h4>
+            <div class="stats-content" id="statsContent">
+              <p>Juegos jugados: <span id="gamesPlayed">0</span></p>
+              <p>Empates: <span id="draws">0</span></p>
+              <p>Victoria más rápida: <span id="fastestWin">-</span></p>
+            </div>
+          </div>
+          
+          <div class="history-card">
+            <h4>Historial</h4>
+            <div class="history-list" id="historyList">
+              <!-- Game history will be added here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html> 

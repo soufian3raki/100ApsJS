@@ -1,0 +1,409 @@
+/* Generador de CV en PDF - Día 44 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.cv-builder {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.form-section {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 3px solid #4ecdc4;
+    padding-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #4ecdc4;
+    box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+.experience-item,
+.education-item,
+.project-item,
+.language-item {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    position: relative;
+}
+
+.experience-item h3,
+.education-item h3,
+.project-item h3,
+.language-item h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: linear-gradient(145deg, #4ecdc4, #44a08d);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(145deg, #26a69a, #00695c);
+}
+
+.btn-secondary {
+    background: linear-gradient(145deg, #6c757d, #5a6268);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(145deg, #5a6268, #495057);
+}
+
+.btn-success {
+    background: linear-gradient(145deg, #28a745, #1e7e34);
+    color: white;
+}
+
+.btn-success:hover {
+    background: linear-gradient(145deg, #1e7e34, #155724);
+}
+
+.btn-info {
+    background: linear-gradient(145deg, #17a2b8, #138496);
+    color: white;
+}
+
+.btn-info:hover {
+    background: linear-gradient(145deg, #138496, #0c5460);
+}
+
+.btn-warning {
+    background: linear-gradient(145deg, #ffc107, #e0a800);
+    color: #212529;
+}
+
+.btn-warning:hover {
+    background: linear-gradient(145deg, #e0a800, #d39e00);
+}
+
+.btn-danger {
+    background: linear-gradient(145deg, #dc3545, #c82333);
+    color: white;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(145deg, #c82333, #bd2130);
+}
+
+.actions {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.preview-section {
+    grid-column: 1 / -1;
+    margin-top: 30px;
+}
+
+.cv-preview {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    font-family: "Times New Roman", serif;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cv-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #4ecdc4;
+    padding-bottom: 20px;
+}
+
+.cv-name {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.cv-contact {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.cv-section {
+    margin-bottom: 25px;
+}
+
+.cv-section h3 {
+    color: #4ecdc4;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+.cv-item {
+    margin-bottom: 15px;
+}
+
+.cv-item-title {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 1.1rem;
+}
+
+.cv-item-company {
+    color: #666;
+    font-style: italic;
+}
+
+.cv-item-date {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.cv-item-description {
+    margin-top: 5px;
+    color: #555;
+}
+
+.cv-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.cv-skill {
+    background: #4ecdc4;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.cv-project {
+    margin-bottom: 15px;
+}
+
+.cv-project-name {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.cv-project-tech {
+    color: #666;
+    font-style: italic;
+    margin-top: 2px;
+}
+
+.cv-language {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.cv-language-name {
+    font-weight: bold;
+}
+
+.cv-language-level {
+    color: #666;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .cv-builder {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .cv-preview {
+        padding: 20px;
+    }
+    
+    .cv-name {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .form-section {
+        padding: 15px;
+    }
+    
+    .cv-preview {
+        padding: 15px;
+    }
+    
+    .cv-name {
+        font-size: 1.8rem;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.form-section {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.cv-preview {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Scrollbar personalizado */
+.cv-preview::-webkit-scrollbar {
+    width: 8px;
+}
+
+.cv-preview::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.cv-preview::-webkit-scrollbar-thumb {
+    background: #4ecdc4;
+    border-radius: 4px;
+}
+
+.cv-preview::-webkit-scrollbar-thumb:hover {
+    background: #26a69a;
+}

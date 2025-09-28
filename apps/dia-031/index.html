@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Offline con Bots | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Chat Offline con Bots</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="chat-app">
+        <div class="chat-header">
+          <h2>Chat con Bots</h2>
+          <div class="bot-selector">
+            <select id="botSelect">
+              <option value="assistant">Asistente General</option>
+              <option value="weather">Bot del Clima</option>
+              <option value="joke">Bot de Chistes</option>
+              <option value="math">Bot Matemático</option>
+              <option value="quote">Bot de Frases</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+          <div class="message bot-message">
+            <div class="message-avatar">🤖</div>
+            <div class="message-content">
+              <div class="message-text">¡Hola! Soy tu asistente virtual. ¿En qué puedo ayudarte?</div>
+              <div class="message-time">Ahora</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="chat-input">
+          <input type="text" id="messageInput" placeholder="Escribe tu mensaje...">
+          <button id="sendBtn">Enviar</button>
+        </div>
+        
+        <div class="chat-actions">
+          <button id="clearBtn" class="action-btn">🗑️ Limpiar Chat</button>
+          <button id="exportBtn" class="action-btn">📤 Exportar</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

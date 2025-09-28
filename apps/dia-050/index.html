@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizador de Contraseñas | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Organizador de Contraseñas</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="app-content">
+        <div class="password-generator">
+          <h2>Generador de Contraseñas</h2>
+          <div class="generator-controls">
+            <div class="control-group">
+              <label for="passwordLength">Longitud:</label>
+              <input type="range" id="passwordLength" min="8" max="50" value="16">
+              <span id="lengthValue">16</span>
+            </div>
+            <div class="control-group">
+              <label>
+                <input type="checkbox" id="includeUppercase" checked> Mayúsculas
+              </label>
+            </div>
+            <div class="control-group">
+              <label>
+                <input type="checkbox" id="includeLowercase" checked> Minúsculas
+              </label>
+            </div>
+            <div class="control-group">
+              <label>
+                <input type="checkbox" id="includeNumbers" checked> Números
+              </label>
+            </div>
+            <div class="control-group">
+              <label>
+                <input type="checkbox" id="includeSymbols" checked> Símbolos
+              </label>
+            </div>
+            <div class="control-group">
+              <label>
+                <input type="checkbox" id="excludeSimilar"> Excluir similares (0O1lI)
+              </label>
+            </div>
+          </div>
+          <div class="generated-password">
+            <input type="text" id="generatedPassword" readonly>
+            <button id="copyPassword" class="btn">📋</button>
+            <button id="generateNew" class="btn">🔄</button>
+          </div>
+          <div class="password-strength" id="passwordStrength">
+            <div class="strength-bar">
+              <div class="strength-fill" id="strengthFill"></div>
+            </div>
+            <span id="strengthText">Fuerza de la contraseña</span>
+          </div>
+        </div>
+        
+        <div class="password-manager">
+          <div class="manager-header">
+            <h2>Mis Contraseñas</h2>
+            <div class="search-container">
+              <input type="text" id="searchPasswords" placeholder="Buscar contraseñas...">
+              <button id="searchBtn">🔍</button>
+            </div>
+            <button id="addPassword" class="btn">+ Agregar</button>
+          </div>
+          
+          <div class="passwords-grid" id="passwordsGrid">
+            <!-- Las contraseñas se mostrarán aquí -->
+          </div>
+          
+          <div class="no-passwords" id="noPasswords" style="display: none;">
+            <p>No hay contraseñas guardadas</p>
+            <button class="btn" onclick="passwordManager.showAddForm()">Agregar primera contraseña</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Modal para agregar/editar contraseñas -->
+  <div class="modal" id="passwordModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Agregar Contraseña</h2>
+        <button class="close-btn" id="closeModal">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="serviceName">Servicio/Sitio:</label>
+          <input type="text" id="serviceName" placeholder="ej: Gmail, Facebook, Netflix">
+        </div>
+        <div class="form-group">
+          <label for="username">Usuario/Email:</label>
+          <input type="text" id="username" placeholder="usuario@email.com">
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña:</label>
+          <div class="password-input-group">
+            <input type="password" id="password" placeholder="Contraseña">
+            <button type="button" id="togglePassword" class="btn-secondary">👁️</button>
+            <button type="button" id="generateForForm" class="btn-secondary">🎲</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="website">Sitio web (opcional):</label>
+          <input type="url" id="website" placeholder="https://ejemplo.com">
+        </div>
+        <div class="form-group">
+          <label for="notes">Notas (opcional):</label>
+          <textarea id="notes" placeholder="Notas adicionales..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="category">Categoría:</label>
+          <select id="category">
+            <option value="personal">Personal</option>
+            <option value="work">Trabajo</option>
+            <option value="social">Redes Sociales</option>
+            <option value="finance">Finanzas</option>
+            <option value="entertainment">Entretenimiento</option>
+            <option value="other">Otro</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelPassword">Cancelar</button>
+        <button class="btn" id="savePassword">Guardar</button>
+        <button class="btn btn-danger" id="deletePassword" style="display: none;">Eliminar</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

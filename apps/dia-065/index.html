@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Día 65 - Sistema de Gestión de Proyectos</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../app-styles.css">
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>📋 Sistema de Gestión de Proyectos</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="project-dashboard">
+                <!-- Navegación por pestañas -->
+                <div class="tabs-navigation">
+                    <button class="tab-btn active" data-tab="projects">📋 Proyectos</button>
+                    <button class="tab-btn" data-tab="tasks">✅ Tareas</button>
+                    <button class="tab-btn" data-tab="team">👥 Equipo</button>
+                    <button class="tab-btn" data-tab="reports">📊 Reportes</button>
+                </div>
+
+                <!-- Pestaña de Proyectos -->
+                <div id="projects-tab" class="tab-content active">
+                    <div class="filters-section">
+                        <div class="search-controls">
+                            <div class="search-box">
+                                <input type="text" id="projectSearch" placeholder="Buscar proyectos..." class="search-input">
+                                <button id="projectSearchBtn" class="search-btn">🔍</button>
+                            </div>
+                            <div class="filter-controls">
+                        <select id="statusFilter" class="filter-select" title="Filtrar por estado de proyecto">
+                            <option value="">Todos los estados</option>
+                                    <option value="Planificación">Planificación</option>
+                                    <option value="En Progreso">En Progreso</option>
+                                    <option value="En Revisión">En Revisión</option>
+                                    <option value="Completado">Completado</option>
+                                    <option value="Cancelado">Cancelado</option>
+                                </select>
+                        <select id="priorityFilter" class="filter-select" title="Filtrar por prioridad de proyecto">
+                            <option value="">Todas las prioridades</option>
+                                    <option value="Baja">Baja</option>
+                                    <option value="Media">Media</option>
+                                    <option value="Alta">Alta</option>
+                                    <option value="Crítica">Crítica</option>
+                                </select>
+                                <button id="clearProjectFilters" class="btn btn-outline">Limpiar</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="projects-section">
+                        <div class="section-header">
+                            <h2>Proyectos</h2>
+                            <div class="project-stats">
+                                <span class="stat-item">Activos: <strong id="activeProjects">0</strong></span>
+                                <span class="stat-item">Completados: <strong id="completedProjects">0</strong></span>
+                                <span class="stat-item">En Progreso: <strong id="inProgressProjects">0</strong></span>
+                            </div>
+                        </div>
+                        <div id="projectsContainer" class="projects-container">
+                            <!-- Los proyectos se cargarán aquí -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pestaña de Tareas -->
+                <div id="tasks-tab" class="tab-content">
+                    <div class="filters-section">
+                        <div class="search-controls">
+                            <div class="search-box">
+                                <input type="text" id="taskSearch" placeholder="Buscar tareas..." class="search-input">
+                                <button id="taskSearchBtn" class="search-btn">🔍</button>
+                            </div>
+                            <div class="filter-controls">
+                        <select id="taskStatusFilter" class="filter-select" title="Filtrar por estado de tarea">
+                            <option value="">Todos los estados</option>
+                                    <option value="Pendiente">Pendiente</option>
+                                    <option value="En Progreso">En Progreso</option>
+                                    <option value="Completada">Completada</option>
+                                    <option value="Bloqueada">Bloqueada</option>
+                                </select>
+                        <select id="taskProjectFilter" class="filter-select" title="Filtrar por proyecto">
+                            <option value="">Todos los proyectos</option>
+                                </select>
+                                <button id="addTask" class="btn btn-primary">+ Nueva Tarea</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tasks-section">
+                        <div class="section-header">
+                            <h2>Tareas</h2>
+                            <div class="task-stats">
+                                <span class="stat-item">Pendientes: <strong id="pendingTasks">0</strong></span>
+                                <span class="stat-item">En Progreso: <strong id="inProgressTasks">0</strong></span>
+                                <span class="stat-item">Completadas: <strong id="completedTasks">0</strong></span>
+                            </div>
+                        </div>
+                        <div id="tasksContainer" class="tasks-container">
+                            <!-- Las tareas se cargarán aquí -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pestaña de Equipo -->
+                <div id="team-tab" class="tab-content">
+                    <div class="filters-section">
+                        <div class="search-controls">
+                            <div class="search-box">
+                                <input type="text" id="teamSearch" placeholder="Buscar miembros..." class="search-input">
+                                <button id="teamSearchBtn" class="search-btn">🔍</button>
+                            </div>
+                            <div class="filter-controls">
+                        <select id="roleFilter" class="filter-select" title="Filtrar por rol del miembro">
+                            <option value="">Todos los roles</option>
+                                    <option value="Desarrollador">Desarrollador</option>
+                                    <option value="Diseñador">Diseñador</option>
+                                    <option value="Product Manager">Product Manager</option>
+                                    <option value="QA">QA</option>
+                                    <option value="DevOps">DevOps</option>
+                                </select>
+                                <button id="addMember" class="btn btn-primary">+ Nuevo Miembro</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-section">
+                        <div class="section-header">
+                            <h2>Equipo</h2>
+                        </div>
+                        <div id="teamContainer" class="team-container">
+                            <!-- Los miembros del equipo se cargarán aquí -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pestaña de Reportes -->
+                <div id="reports-tab" class="tab-content">
+                    <div class="reports-section">
+                        <div class="section-header">
+                            <h2>Reportes del Proyecto</h2>
+                        </div>
+                        <div class="reports-grid">
+                            <div class="report-card">
+                                <h3>Progreso General</h3>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="overallProgress"></div>
+                                </div>
+                                <div class="progress-text" id="overallProgressText">0%</div>
+                            </div>
+                            <div class="report-card">
+                                <h3>Tareas por Estado</h3>
+                                <div id="taskStatusChart" class="chart-container">
+                                    <!-- Gráfico de tareas por estado -->
+                                </div>
+                            </div>
+                            <div class="report-card">
+                                <h3>Productividad del Equipo</h3>
+                                <div id="teamProductivity" class="team-productivity">
+                                    <!-- Productividad del equipo -->
+                                </div>
+                            </div>
+                            <div class="report-card">
+                                <h3>Proyectos por Prioridad</h3>
+                                <div id="priorityChart" class="chart-container">
+                                    <!-- Gráfico de proyectos por prioridad -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para nuevo/editar proyecto -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="projectModalTitle">Nuevo Proyecto</h2>
+                <button class="close-btn" id="closeProjectModal">&times;</button>
+            </div>
+            <form id="projectForm" class="project-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="projectName">Nombre del Proyecto *</label>
+                        <input type="text" id="projectName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectStatus">Estado *</label>
+                        <select id="projectStatus" required>
+                            <option value="">Seleccionar estado</option>
+                            <option value="Planificación">Planificación</option>
+                            <option value="En Progreso">En Progreso</option>
+                            <option value="En Revisión">En Revisión</option>
+                            <option value="Completado">Completado</option>
+                            <option value="Cancelado">Cancelado</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="projectPriority">Prioridad *</label>
+                        <select id="projectPriority" required>
+                            <option value="">Seleccionar prioridad</option>
+                            <option value="Baja">Baja</option>
+                            <option value="Media">Media</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Crítica">Crítica</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectManager">Gerente del Proyecto</label>
+                        <select id="projectManager">
+                            <option value="">Seleccionar gerente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="projectStartDate">Fecha de Inicio</label>
+                        <input type="date" id="projectStartDate">
+                    </div>
+                    <div class="form-group">
+                        <label for="projectEndDate">Fecha de Fin</label>
+                        <input type="date" id="projectEndDate">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="projectDescription">Descripción</label>
+                    <textarea id="projectDescription" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancelProjectBtn" class="btn btn-outline">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para nueva/editar tarea -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="taskModalTitle">Nueva Tarea</h2>
+                <button class="close-btn" id="closeTaskModal">&times;</button>
+            </div>
+            <form id="taskForm" class="task-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskTitle">Título de la Tarea *</label>
+                        <input type="text" id="taskTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskProject">Proyecto *</label>
+                        <select id="taskProject" required>
+                            <option value="">Seleccionar proyecto</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskAssignee">Asignado a</label>
+                        <select id="taskAssignee">
+                            <option value="">Seleccionar asignado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskStatus">Estado *</label>
+                        <select id="taskStatus" required>
+                            <option value="">Seleccionar estado</option>
+                            <option value="Pendiente">Pendiente</option>
+                            <option value="En Progreso">En Progreso</option>
+                            <option value="Completada">Completada</option>
+                            <option value="Bloqueada">Bloqueada</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="taskPriority">Prioridad</label>
+                        <select id="taskPriority">
+                            <option value="Baja">Baja</option>
+                            <option value="Media" selected>Media</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Crítica">Crítica</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskDueDate">Fecha de Vencimiento</label>
+                        <input type="date" id="taskDueDate">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="taskDescription">Descripción</label>
+                    <textarea id="taskDescription" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancelTaskBtn" class="btn btn-outline">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para nuevo/editar miembro del equipo -->
+    <div id="memberModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="memberModalTitle">Nuevo Miembro</h2>
+                <button class="close-btn" id="closeMemberModal">&times;</button>
+            </div>
+            <form id="memberForm" class="member-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="memberName">Nombre Completo *</label>
+                        <input type="text" id="memberName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="memberEmail">Email *</label>
+                        <input type="email" id="memberEmail" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="memberRole">Rol *</label>
+                        <select id="memberRole" required>
+                            <option value="">Seleccionar rol</option>
+                            <option value="Desarrollador">Desarrollador</option>
+                            <option value="Diseñador">Diseñador</option>
+                            <option value="Product Manager">Product Manager</option>
+                            <option value="QA">QA</option>
+                            <option value="DevOps">DevOps</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="memberPhone">Teléfono</label>
+                        <input type="tel" id="memberPhone">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="memberSkills">Habilidades</label>
+                    <textarea id="memberSkills" rows="2" placeholder="Habilidades separadas por comas"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancelMemberBtn" class="btn btn-outline">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </main>  <script src="../../common.js"></script>`
+
+  <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lector de Código QR | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Lector de Código QR</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="qr-reader">
+        <div class="reader-header">
+          <h2>Escáner de Códigos QR</h2>
+          <div class="reader-controls">
+            <button id="startScanBtn" class="btn primary">📷 Iniciar Escaneo</button>
+            <button id="stopScanBtn" class="btn secondary" disabled>⏹️ Detener</button>
+            <button id="uploadBtn" class="btn secondary">📁 Subir Imagen</button>
+          </div>
+        </div>
+        
+        <div class="reader-container">
+          <div class="camera-container">
+            <video id="video" autoplay muted playsinline></video>
+            <canvas id="canvas" style="display: none;"></canvas>
+            <div class="scan-overlay">
+              <div class="scan-frame"></div>
+              <div class="scan-line"></div>
+            </div>
+            <div class="camera-placeholder" id="cameraPlaceholder">
+              <div class="placeholder-content">
+                <div class="placeholder-icon">📷</div>
+                <h3>Inicia el escaneo para comenzar</h3>
+                <p>Coloca el código QR dentro del marco</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="results-panel">
+            <h3>Resultados del Escaneo</h3>
+            <div class="scan-results" id="scanResults">
+              <div class="no-results">
+                <div class="no-results-icon">🔍</div>
+                <p>No se han detectado códigos QR</p>
+                <p>Inicia el escaneo o sube una imagen</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="reader-info">
+          <div class="info-item">
+            <span class="info-label">Estado:</span>
+            <span class="info-value" id="scanStatus">Inactivo</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Códigos detectados:</span>
+            <span class="info-value" id="detectedCount">0</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Último escaneo:</span>
+            <span class="info-value" id="lastScan">-</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal para subir archivos -->
+  <div id="uploadModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Subir Imagen</h3>
+        <button id="closeUploadModal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="file" id="fileInput" accept="image/*">
+        <div class="upload-preview" id="uploadPreview">
+          <p>Selecciona una imagen para escanear</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="scanImageBtn" class="btn primary" disabled>Escanear Imagen</button>
+        <button id="cancelUploadBtn" class="btn secondary">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

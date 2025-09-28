@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor de Imágenes Avanzado | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Editor de Imágenes Avanzado</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="app-content">
+        <div class="toolbar">
+          <div class="toolbar-section">
+            <button id="openFile" class="btn">📁 Abrir</button>
+            <button id="saveImage" class="btn">💾 Guardar</button>
+            <button id="newImage" class="btn">🆕 Nueva</button>
+            <button id="undo" class="btn" disabled>↶ Deshacer</button>
+            <button id="redo" class="btn" disabled>↷ Rehacer</button>
+          </div>
+          
+          <div class="toolbar-section">
+            <button id="cropTool" class="btn">✂️ Recortar</button>
+            <button id="selectTool" class="btn">🔲 Seleccionar</button>
+            <button id="brushTool" class="btn">🖌️ Pincel</button>
+            <button id="textTool" class="btn">📝 Texto</button>
+            <button id="shapesTool" class="btn">🔷 Formas</button>
+          </div>
+          
+          <div class="toolbar-section">
+            <button id="layersToggle" class="btn">📚 Capas</button>
+            <button id="historyToggle" class="btn">📜 Historial</button>
+            <button id="settingsToggle" class="btn">⚙️ Configuración</button>
+            <button id="fullscreen" class="btn">⛶ Pantalla Completa</button>
+          </div>
+        </div>
+        
+        <div class="main-workspace">
+          <div class="sidebar-left">
+            <div class="panel">
+              <h3>Herramientas</h3>
+              <div class="tool-options" id="toolOptions">
+                <!-- Las opciones de herramientas se mostrarán aquí -->
+              </div>
+            </div>
+            
+            <div class="panel">
+              <h3>Capas</h3>
+              <div class="layers-panel" id="layersPanel">
+                <div class="layer-item active">
+                  <span class="layer-name">Fondo</span>
+                  <div class="layer-controls">
+                    <button class="layer-visibility">👁️</button>
+                    <button class="layer-lock">🔒</button>
+                  </div>
+                </div>
+              </div>
+              <button id="addLayer" class="btn btn-secondary">+ Nueva Capa</button>
+            </div>
+            
+            <div class="panel">
+              <h3>Historial</h3>
+              <div class="history-panel" id="historyPanel">
+                <div class="history-item active">Imagen original</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="canvas-container">
+            <div class="canvas-wrapper">
+              <canvas id="mainCanvas" width="800" height="600"></canvas>
+              <div class="canvas-overlay" id="canvasOverlay"></div>
+            </div>
+            
+            <div class="canvas-controls">
+              <div class="zoom-controls">
+                <button id="zoomOut">🔍-</button>
+                <span id="zoomLevel">100%</span>
+                <button id="zoomIn">🔍+</button>
+                <button id="fitToScreen">Ajustar</button>
+              </div>
+              
+              <div class="canvas-info">
+                <span id="canvasSize">800 x 600</span>
+                <span id="mousePosition">0, 0</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="sidebar-right">
+            <div class="panel">
+              <h3>Propiedades</h3>
+              <div class="properties-panel" id="propertiesPanel">
+                <div class="property-group">
+                  <label for="opacitySlider">Opacidad:</label>
+                  <input type="range" id="opacitySlider" min="0" max="100" value="100" title="Control de opacidad">
+                  <span id="opacityValue">100%</span>
+                </div>
+                
+                <div class="property-group">
+                  <label for="blendMode">Modo de Fusión:</label>
+                  <select id="blendMode" title="Seleccionar modo de fusión">
+                    <option value="normal">Normal</option>
+                    <option value="multiply">Multiplicar</option>
+                    <option value="screen">Pantalla</option>
+                    <option value="overlay">Superponer</option>
+                    <option value="soft-light">Luz Suave</option>
+                    <option value="hard-light">Luz Fuerte</option>
+                    <option value="color-dodge">Subexponer Color</option>
+                    <option value="color-burn">Sobreexponer Color</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel">
+              <h3>Filtros</h3>
+              <div class="filters-panel" id="filtersPanel">
+                <div class="filter-group">
+                  <label for="brightnessSlider">Brillo:</label>
+                  <input type="range" id="brightnessSlider" min="0" max="200" value="100" title="Control de brillo">
+                  <span id="brightnessValue">100%</span>
+                </div>
+                
+                <div class="filter-group">
+                  <label for="contrastSlider">Contraste:</label>
+                  <input type="range" id="contrastSlider" min="0" max="200" value="100" title="Control de contraste">
+                  <span id="contrastValue">100%</span>
+                </div>
+                
+                <div class="filter-group">
+                  <label for="saturationSlider">Saturación:</label>
+                  <input type="range" id="saturationSlider" min="0" max="200" value="100" title="Control de saturación">
+                  <span id="saturationValue">100%</span>
+                </div>
+                
+                <div class="filter-group">
+                  <label for="hueSlider">Matiz:</label>
+                  <input type="range" id="hueSlider" min="0" max="360" value="0" title="Control de matiz">
+                  <span id="hueValue">0°</span>
+                </div>
+                
+                <div class="filter-group">
+                  <label for="blurSlider">Desenfoque:</label>
+                  <input type="range" id="blurSlider" min="0" max="20" value="0" title="Control de desenfoque">
+                  <span id="blurValue">0px</span>
+                </div>
+                
+                <div class="filter-group">
+                  <label for="sharpenSlider">Nitidez:</label>
+                  <input type="range" id="sharpenSlider" min="0" max="100" value="0" title="Control de nitidez">
+                  <span id="sharpenValue">0%</span>
+                </div>
+                
+                <div class="filter-actions">
+                  <button id="applyFilters" class="btn">Aplicar Filtros</button>
+                  <button id="resetFilters" class="btn btn-secondary">Resetear</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="panel">
+              <h3>Efectos</h3>
+              <div class="effects-panel" id="effectsPanel">
+                <button class="effect-btn" data-effect="grayscale">Escala de Grises</button>
+                <button class="effect-btn" data-effect="sepia">Sépia</button>
+                <button class="effect-btn" data-effect="invert">Invertir</button>
+                <button class="effect-btn" data-effect="vintage">Vintage</button>
+                <button class="effect-btn" data-effect="dramatic">Dramático</button>
+                <button class="effect-btn" data-effect="warm">Cálido</button>
+                <button class="effect-btn" data-effect="cool">Frío</button>
+                <button class="effect-btn" data-effect="blackwhite">B&N</button>
+              </div>
+            </div>
+            
+            <div class="panel">
+              <h3>Transformaciones</h3>
+              <div class="transform-panel" id="transformPanel">
+                <div class="transform-group">
+                  <label for="rotationSlider">Rotación:</label>
+                  <input type="range" id="rotationSlider" min="0" max="360" value="0" title="Control de rotación">
+                  <span id="rotationValue">0°</span>
+                </div>
+                
+                <div class="transform-group">
+                  <label for="scaleXSlider">Escala X:</label>
+                  <input type="range" id="scaleXSlider" min="10" max="300" value="100" title="Control de escala horizontal">
+                  <span id="scaleXValue">100%</span>
+                </div>
+                
+                <div class="transform-group">
+                  <label for="scaleYSlider">Escala Y:</label>
+                  <input type="range" id="scaleYSlider" min="10" max="300" value="100" title="Control de escala vertical">
+                  <span id="scaleYValue">100%</span>
+                </div>
+                
+                <div class="transform-group">
+                  <label for="positionXSlider">Posición X:</label>
+                  <input type="range" id="positionXSlider" min="-500" max="500" value="0" title="Control de posición horizontal">
+                  <span id="positionXValue">0px</span>
+                </div>
+                
+                <div class="transform-group">
+                  <label for="positionYSlider">Posición Y:</label>
+                  <input type="range" id="positionYSlider" min="-500" max="500" value="0" title="Control de posición vertical">
+                  <span id="positionYValue">0px</span>
+                </div>
+                
+                <div class="transform-actions">
+                  <button id="resetTransform" class="btn btn-secondary">Resetear</button>
+                  <button id="flipHorizontal" class="btn">↔️ Voltear H</button>
+                  <button id="flipVertical" class="btn">↕️ Voltear V</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bottom-panel">
+          <div class="color-picker">
+            <h4>Colores</h4>
+            <div class="color-controls">
+              <div class="color-primary">
+                <label for="primaryColor">Primario:</label>
+                <input type="color" id="primaryColor" value="#000000" title="Color primario">
+              </div>
+              <div class="color-secondary">
+                <label for="secondaryColor">Secundario:</label>
+                <input type="color" id="secondaryColor" value="#ffffff" title="Color secundario">
+              </div>
+              <button id="swapColors" class="btn">🔄</button>
+            </div>
+          </div>
+          
+          <div class="brush-settings">
+            <h4>Pincel</h4>
+            <div class="brush-controls">
+              <div class="brush-size">
+                <label for="brushSize">Tamaño:</label>
+                <input type="range" id="brushSize" min="1" max="100" value="10" title="Tamaño del pincel">
+                <span id="brushSizeValue">10px</span>
+              </div>
+              <div class="brush-opacity">
+                <label for="brushOpacity">Opacidad:</label>
+                <input type="range" id="brushOpacity" min="0" max="100" value="100" title="Opacidad del pincel">
+                <span id="brushOpacityValue">100%</span>
+              </div>
+              <div class="brush-hardness">
+                <label for="brushHardness">Dureza:</label>
+                <input type="range" id="brushHardness" min="0" max="100" value="100" title="Dureza del pincel">
+                <span id="brushHardnessValue">100%</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text-settings">
+            <h4>Texto</h4>
+            <div class="text-controls">
+              <input type="text" id="textInput" placeholder="Escribe aquí..." title="Texto a agregar">
+              <select id="fontFamily" title="Seleccionar fuente">
+                <option value="Arial">Arial</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Verdana">Verdana</option>
+              </select>
+              <input type="number" id="fontSize" min="8" max="200" value="24" placeholder="Tamaño" title="Tamaño de fuente">
+              <button id="addText" class="btn">Agregar Texto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <label for="imageFile" class="hidden-file-input">Cargar imagen</label>
+  <input type="file" id="imageFile" accept="image/*" multiple class="hidden-file-input">
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

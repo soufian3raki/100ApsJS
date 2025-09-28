@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador de Tareas | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Administrador de Tareas</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="task-manager">
+        <div class="task-header">
+          <h2>Mis Tareas</h2>
+          <div class="task-controls">
+            <button id="addTaskBtn" class="btn primary">+ Nueva Tarea</button>
+            <button id="clearCompletedBtn" class="btn secondary">Limpiar Completadas</button>
+          </div>
+        </div>
+        
+        <div class="task-filters">
+          <div class="filter-group">
+            <label for="categoryFilter">Categoría:</label>
+            <select id="categoryFilter">
+              <option value="">Todas</option>
+              <option value="trabajo">Trabajo</option>
+              <option value="personal">Personal</option>
+              <option value="estudio">Estudio</option>
+              <option value="salud">Salud</option>
+              <option value="hogar">Hogar</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="priorityFilter">Prioridad:</label>
+            <select id="priorityFilter">
+              <option value="">Todas</option>
+              <option value="alta">Alta</option>
+              <option value="media">Media</option>
+              <option value="baja">Baja</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="statusFilter">Estado:</label>
+            <select id="statusFilter">
+              <option value="">Todas</option>
+              <option value="pendiente">Pendiente</option>
+              <option value="en-progreso">En Progreso</option>
+              <option value="completada">Completada</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="task-stats">
+          <div class="stat-item">
+            <span class="stat-number" id="totalTasks">0</span>
+            <span class="stat-label">Total</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="pendingTasks">0</span>
+            <span class="stat-label">Pendientes</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="completedTasks">0</span>
+            <span class="stat-label">Completadas</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="progressTasks">0</span>
+            <span class="stat-label">En Progreso</span>
+          </div>
+        </div>
+        
+        <div class="task-list" id="taskList">
+          <!-- Las tareas se renderizarán aquí -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal para tareas -->
+  <div id="taskModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Nueva Tarea</h3>
+        <button id="closeModal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="taskForm">
+          <div class="form-group">
+            <label for="taskTitle">Título:</label>
+            <input type="text" id="taskTitle" required>
+          </div>
+          <div class="form-group">
+            <label for="taskDescription">Descripción:</label>
+            <textarea id="taskDescription" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="taskCategory">Categoría:</label>
+            <select id="taskCategory">
+              <option value="trabajo">Trabajo</option>
+              <option value="personal">Personal</option>
+              <option value="estudio">Estudio</option>
+              <option value="salud">Salud</option>
+              <option value="hogar">Hogar</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="taskPriority">Prioridad:</label>
+            <select id="taskPriority">
+              <option value="baja">Baja</option>
+              <option value="media">Media</option>
+              <option value="alta">Alta</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="taskDueDate">Fecha límite:</label>
+            <input type="date" id="taskDueDate">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="saveTask" class="btn primary">Guardar</button>
+        <button id="deleteTask" class="btn danger" style="display: none;">Eliminar</button>
+        <button id="cancelTask" class="btn secondary">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

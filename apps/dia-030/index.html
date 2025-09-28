@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reloj Digital/Analógico | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Reloj Digital/Analógico</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="clock-app">
+        <div class="clock-controls">
+          <button id="toggle-mode-btn" class="mode-btn active">Digital</button>
+          <button id="toggle-format-btn" class="format-btn">24h</button>
+          <button id="toggle-timezone-btn" class="timezone-btn">UTC</button>
+        </div>
+        
+        <div class="clock-display">
+          <div class="digital-clock" id="digital-clock">
+            <div class="time" id="time">00:00:00</div>
+            <div class="date" id="date">Lunes, 1 de Enero 2024</div>
+          </div>
+          
+          <div class="analog-clock" id="analog-clock" style="display: none;">
+            <div class="clock-face">
+              <div class="hand hour-hand" id="hour-hand"></div>
+              <div class="hand minute-hand" id="minute-hand"></div>
+              <div class="hand second-hand" id="second-hand"></div>
+              <div class="center-dot"></div>
+            </div>
+            <div class="analog-time" id="analog-time">12:00:00</div>
+          </div>
+        </div>
+        
+        <div class="world-clocks">
+          <h3>Relojes Mundiales</h3>
+          <div class="world-clocks-grid" id="world-clocks">
+            <!-- Relojes mundiales se generarán dinámicamente -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

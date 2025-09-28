@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Memes | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Generador de Memes</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="meme-generator">
+        <div class="generator-header">
+          <h2>Creador de Memes</h2>
+          <div class="generator-controls">
+            <button id="newMemeBtn" class="btn primary">🎨 Nuevo Meme</button>
+            <button id="downloadBtn" class="btn secondary">💾 Descargar</button>
+            <button id="shareBtn" class="btn secondary">📤 Compartir</button>
+          </div>
+        </div>
+        
+        <div class="generator-container">
+          <div class="meme-editor">
+            <div class="meme-canvas-container">
+              <canvas id="memeCanvas" width="600" height="400"></canvas>
+              <div class="canvas-overlay">
+                <div class="text-overlay" id="topText">Texto Superior</div>
+                <div class="text-overlay" id="bottomText">Texto Inferior</div>
+              </div>
+            </div>
+            
+            <div class="meme-controls">
+              <div class="control-section">
+                <h3>Imagen</h3>
+                <div class="control-group">
+                  <label for="imageUpload">Subir Imagen:</label>
+                  <input type="file" id="imageUpload" accept="image/*">
+                </div>
+                <div class="control-group">
+                  <label for="templateSelect">Plantilla:</label>
+                  <select id="templateSelect">
+                    <option value="">Seleccionar plantilla</option>
+                    <option value="distracted-boyfriend">Distracted Boyfriend</option>
+                    <option value="drake-pointing">Drake Pointing</option>
+                    <option value="woman-yelling-at-cat">Woman Yelling at Cat</option>
+                    <option value="two-buttons">Two Buttons</option>
+                    <option value="change-my-mind">Change My Mind</option>
+                    <option value="this-is-fine">This is Fine</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="control-section">
+                <h3>Texto Superior</h3>
+                <div class="control-group">
+                  <label for="topTextInput">Texto:</label>
+                  <input type="text" id="topTextInput" placeholder="Escribe el texto superior">
+                </div>
+                <div class="control-group">
+                  <label for="topTextSize">Tamaño:</label>
+                  <input type="range" id="topTextSize" min="20" max="80" value="40">
+                  <span id="topTextSizeValue">40px</span>
+                </div>
+                <div class="control-group">
+                  <label for="topTextColor">Color:</label>
+                  <input type="color" id="topTextColor" value="#ffffff">
+                </div>
+                <div class="control-group">
+                  <label for="topTextFont">Fuente:</label>
+                  <select id="topTextFont">
+                    <option value="Impact">Impact</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Comic Sans MS">Comic Sans MS</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Verdana">Verdana</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="control-section">
+                <h3>Texto Inferior</h3>
+                <div class="control-group">
+                  <label for="bottomTextInput">Texto:</label>
+                  <input type="text" id="bottomTextInput" placeholder="Escribe el texto inferior">
+                </div>
+                <div class="control-group">
+                  <label for="bottomTextSize">Tamaño:</label>
+                  <input type="range" id="bottomTextSize" min="20" max="80" value="40">
+                  <span id="bottomTextSizeValue">40px</span>
+                </div>
+                <div class="control-group">
+                  <label for="bottomTextColor">Color:</label>
+                  <input type="color" id="bottomTextColor" value="#ffffff">
+                </div>
+                <div class="control-group">
+                  <label for="bottomTextFont">Fuente:</label>
+                  <select id="bottomTextFont">
+                    <option value="Impact">Impact</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Comic Sans MS">Comic Sans MS</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Verdana">Verdana</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="meme-gallery">
+            <h3>Galería de Memes</h3>
+            <div class="gallery-grid" id="memeGallery">
+              <!-- Los memes guardados se mostrarán aquí -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

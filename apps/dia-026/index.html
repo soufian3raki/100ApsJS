@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Dados | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Juego de Dados</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="dice-game">
+        <div class="controls">
+          <div class="dice-selector">
+            <label for="dice-count">Número de dados:</label>
+            <select id="dice-count">
+              <option value="1">1 dado</option>
+              <option value="2" selected>2 dados</option>
+              <option value="3">3 dados</option>
+              <option value="4">4 dados</option>
+              <option value="5">5 dados</option>
+            </select>
+          </div>
+          
+          <button id="roll-btn" class="roll-button">🎲 Lanzar Dados</button>
+          <button id="clear-btn" class="clear-button">🗑️ Limpiar</button>
+        </div>
+        
+        <div class="dice-container" id="dice-container">
+          <!-- Los dados se generarán dinámicamente -->
+        </div>
+        
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-label">Total:</span>
+            <span class="stat-value" id="total">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Lanzamientos:</span>
+            <span class="stat-value" id="rolls">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Promedio:</span>
+            <span class="stat-value" id="average">0</span>
+          </div>
+        </div>
+        
+        <div class="history">
+          <h3>Historial de Lanzamientos</h3>
+          <div class="history-list" id="history-list">
+            <p class="no-history">Aún no hay lanzamientos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scientific Calculator | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Scientific Calculator</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="calculator-app">
+        <div class="display">
+          <div class="expression" id="expression">0</div>
+          <div class="result" id="result">0</div>
+        </div>
+        
+        <div class="calculator-buttons">
+          <div class="function-buttons">
+            <button class="btn function" data-action="clear">C</button>
+            <button class="btn function" data-action="clearEntry">CE</button>
+            <button class="btn function" data-action="backspace">⌫</button>
+            <button class="btn operator" data-action="divide">÷</button>
+          </div>
+          
+          <div class="function-buttons">
+            <button class="btn function" data-action="sin">sin</button>
+            <button class="btn function" data-action="cos">cos</button>
+            <button class="btn function" data-action="tan">tan</button>
+            <button class="btn operator" data-action="multiply">×</button>
+          </div>
+          
+          <div class="function-buttons">
+            <button class="btn function" data-action="log">log</button>
+            <button class="btn function" data-action="ln">ln</button>
+            <button class="btn function" data-action="sqrt">√</button>
+            <button class="btn operator" data-action="subtract">−</button>
+          </div>
+          
+          <div class="function-buttons">
+            <button class="btn function" data-action="power">x^y</button>
+            <button class="btn function" data-action="factorial">x!</button>
+            <button class="btn function" data-action="pi">π</button>
+            <button class="btn operator" data-action="add">+</button>
+          </div>
+          
+          <div class="number-buttons">
+            <button class="btn number" data-value="7">7</button>
+            <button class="btn number" data-value="8">8</button>
+            <button class="btn number" data-value="9">9</button>
+            <button class="btn number" data-value="4">4</button>
+            <button class="btn number" data-value="5">5</button>
+            <button class="btn number" data-value="6">6</button>
+            <button class="btn number" data-value="1">1</button>
+            <button class="btn number" data-value="2">2</button>
+            <button class="btn number" data-value="3">3</button>
+            <button class="btn number" data-value="0">0</button>
+            <button class="btn number" data-value=".">.</button>
+            <button class="btn equals" data-action="equals">=</button>
+          </div>
+        </div>
+        
+        <div class="calculator-info">
+          <div class="history-card">
+            <h4>Historial</h4>
+            <div class="history-list" id="historyList">
+              <!-- Calculation history will be added here -->
+            </div>
+            <button class="clear-history-btn" id="clearHistoryBtn">
+              Limpiar Historial
+            </button>
+          </div>
+          
+          <div class="info-card">
+            <h4>Información</h4>
+            <div class="info-content">
+              <p>• Usa las funciones trigonométricas en radianes</p>
+              <p>• π = 3.14159265359</p>
+              <p>• El factorial solo funciona para números enteros</p>
+              <p>• La potencia usa el formato x^y</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html> 

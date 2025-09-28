@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote Generator | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Quote Generator</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="quote-app">
+        <div class="quote-card" id="quoteCard">
+          <div class="quote-text" id="quoteText">
+            "La vida es lo que pasa mientras estás ocupado haciendo otros planes."
+          </div>
+          <div class="quote-author" id="quoteAuthor">
+            - John Lennon
+          </div>
+          <div class="quote-category" id="quoteCategory">
+            Motivación
+          </div>
+        </div>
+        
+        <div class="quote-actions">
+          <button id="likeBtn" class="action-btn">❤️</button>
+          <button id="shareBtn" class="action-btn">📤</button>
+          <button id="copyBtn" class="action-btn">📋</button>
+          <button id="saveBtn" class="action-btn">💾</button>
+        </div>
+        
+        <div class="quote-controls">
+          <div class="category-selector">
+            <h3>Seleccionar Categoría</h3>
+            <div class="category-buttons" id="categoryButtons">
+              <button class="category-btn active" data-category="motivation">Motivación</button>
+              <button class="category-btn" data-category="success">Éxito</button>
+              <button class="category-btn" data-category="life">Vida</button>
+              <button class="category-btn" data-category="wisdom">Sabiduría</button>
+              <button class="category-btn" data-category="love">Amor</button>
+              <button class="category-btn" data-category="random">Aleatorio</button>
+            </div>
+          </div>
+          
+          <div class="generation-controls">
+            <button id="generateBtn" class="generate-btn">Generar Frase</button>
+            <button id="autoGenerateBtn" class="auto-btn">Auto-Generar</button>
+          </div>
+        </div>
+        
+        <div class="quote-stats">
+          <div class="stat-card">
+            <h4>Estadísticas</h4>
+            <div class="stats-content" id="statsContent">
+              <p>Frases generadas: <span id="generatedCount">0</span></p>
+              <p>Frases favoritas: <span id="favoritesCount">0</span></p>
+              <p>Categoría favorita: <span id="favoriteCategory">-</span></p>
+            </div>
+          </div>
+          
+          <div class="favorites-card">
+            <h4>Favoritos</h4>
+            <div class="favorites-list" id="favoritesList">
+              <!-- Favorites will be added here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html> 

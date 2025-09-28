@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convertidor de Voz a Texto | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Convertidor de Voz a Texto</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="app-content">
+        <div class="voice-recorder">
+          <h2>Grabación de Voz</h2>
+          <div class="recorder-controls">
+            <button id="startRecording" class="btn btn-record">
+              <span class="icon">🎤</span>
+              Iniciar Grabación
+            </button>
+            <button id="stopRecording" class="btn btn-stop" disabled>
+              <span class="icon">⏹️</span>
+              Detener Grabación
+            </button>
+            <button id="pauseRecording" class="btn btn-pause" disabled>
+              <span class="icon">⏸️</span>
+              Pausar
+            </button>
+          </div>
+          
+          <div class="recording-status" id="recordingStatus">
+            <div class="status-indicator" id="statusIndicator"></div>
+            <span id="statusText">Listo para grabar</span>
+          </div>
+          
+          <div class="recording-timer" id="recordingTimer">
+            <span id="timerDisplay">00:00</span>
+          </div>
+        </div>
+        
+        <div class="voice-settings">
+          <h3>Configuración de Voz</h3>
+          <div class="settings-grid">
+            <div class="setting-group">
+              <label for="language">Idioma:</label>
+              <select id="language">
+                <option value="es-ES">Español (España)</option>
+                <option value="es-MX">Español (México)</option>
+                <option value="es-AR">Español (Argentina)</option>
+                <option value="en-US">Inglés (Estados Unidos)</option>
+                <option value="en-GB">Inglés (Reino Unido)</option>
+                <option value="fr-FR">Francés</option>
+                <option value="de-DE">Alemán</option>
+                <option value="it-IT">Italiano</option>
+                <option value="pt-BR">Portugués (Brasil)</option>
+              </select>
+            </div>
+            
+            <div class="setting-group">
+              <label for="recognitionType">Tipo de Reconocimiento:</label>
+              <select id="recognitionType">
+                <option value="continuous">Continuo</option>
+                <option value="single">Una sola vez</option>
+              </select>
+            </div>
+            
+            <div class="setting-group">
+              <label for="confidence">Umbral de Confianza:</label>
+              <input type="range" id="confidence" min="0" max="1" step="0.1" value="0.7">
+              <span id="confidenceValue">70%</span>
+            </div>
+            
+            <div class="setting-group">
+              <label for="maxAlternatives">Alternativas Máximas:</label>
+              <input type="number" id="maxAlternatives" min="1" max="10" value="3">
+            </div>
+          </div>
+        </div>
+        
+        <div class="transcription-results">
+          <h3>Resultados de Transcripción</h3>
+          <div class="results-controls">
+            <button id="clearResults" class="btn btn-secondary">Limpiar</button>
+            <button id="copyResults" class="btn btn-secondary">Copiar Texto</button>
+            <button id="downloadResults" class="btn btn-secondary">Descargar</button>
+            <button id="playResults" class="btn btn-secondary">Reproducir</button>
+          </div>
+          
+          <div class="transcription-text" id="transcriptionText">
+            <p class="placeholder">Los resultados de la transcripción aparecerán aquí...</p>
+          </div>
+          
+          <div class="alternatives" id="alternatives" style="display: none;">
+            <h4>Alternativas:</h4>
+            <div class="alternatives-list" id="alternativesList"></div>
+          </div>
+        </div>
+        
+        <div class="voice-history">
+          <h3>Historial de Transcripciones</h3>
+          <div class="history-controls">
+            <button id="clearHistory" class="btn btn-secondary">Limpiar Historial</button>
+            <button id="exportHistory" class="btn btn-secondary">Exportar Todo</button>
+          </div>
+          
+          <div class="history-list" id="historyList">
+            <p class="no-history">No hay transcripciones guardadas</p>
+          </div>
+        </div>
+        
+        <div class="voice-commands">
+          <h3>Comandos de Voz</h3>
+          <div class="commands-list">
+            <div class="command-item">
+              <span class="command">"Nueva línea"</span>
+              <span class="description">Inserta un salto de línea</span>
+            </div>
+            <div class="command-item">
+              <span class="command">"Punto"</span>
+              <span class="description">Inserta un punto</span>
+            </div>
+            <div class="command-item">
+              <span class="command">"Coma"</span>
+              <span class="description">Inserta una coma</span>
+            </div>
+            <div class="command-item">
+              <span class="command">"Borrar"</span>
+              <span class="description">Borra la última palabra</span>
+            </div>
+            <div class="command-item">
+              <span class="command">"Mayúscula"</span>
+              <span class="description">Pone en mayúscula la siguiente palabra</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

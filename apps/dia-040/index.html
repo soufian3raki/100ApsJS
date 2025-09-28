@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Snake | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Juego de Snake</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="snake-game">
+        <div class="game-header">
+          <h2>Snake Clásico</h2>
+          <div class="game-controls">
+            <button id="startBtn" class="btn primary">🎮 Iniciar</button>
+            <button id="pauseBtn" class="btn secondary" disabled>⏸️ Pausar</button>
+            <button id="resetBtn" class="btn secondary">🔄 Reiniciar</button>
+          </div>
+        </div>
+        
+        <div class="game-info">
+          <div class="info-item">
+            <span class="info-label">Puntuación:</span>
+            <span class="info-value" id="score">0</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Récord:</span>
+            <span class="info-value" id="highScore">0</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Velocidad:</span>
+            <span class="info-value" id="speed">1</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Longitud:</span>
+            <span class="info-value" id="length">1</span>
+          </div>
+        </div>
+        
+        <div class="game-container">
+          <canvas id="gameCanvas" width="400" height="400"></canvas>
+          <div class="game-overlay" id="gameOverlay">
+            <div class="overlay-content">
+              <h3 id="overlayTitle">¡Bienvenido!</h3>
+              <p id="overlayMessage">Presiona "Iniciar" para comenzar a jugar</p>
+              <div class="overlay-controls">
+                <button id="overlayStartBtn" class="btn primary">🎮 Iniciar Juego</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="game-instructions">
+          <h3>Controles</h3>
+          <div class="controls-grid">
+            <div class="control-item">
+              <span class="control-key">↑</span>
+              <span class="control-desc">Arriba</span>
+            </div>
+            <div class="control-item">
+              <span class="control-key">↓</span>
+              <span class="control-desc">Abajo</span>
+            </div>
+            <div class="control-item">
+              <span class="control-key">←</span>
+              <span class="control-desc">Izquierda</span>
+            </div>
+            <div class="control-item">
+              <span class="control-key">→</span>
+              <span class="control-desc">Derecha</span>
+            </div>
+            <div class="control-item">
+              <span class="control-key">SPACE</span>
+              <span class="control-desc">Pausar</span>
+            </div>
+            <div class="control-item">
+              <span class="control-key">R</span>
+              <span class="control-desc">Reiniciar</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="game-settings">
+          <h3>Configuración</h3>
+          <div class="settings-grid">
+            <div class="setting-item">
+              <label for="difficultySelect">Dificultad:</label>
+              <select id="difficultySelect">
+                <option value="easy">Fácil</option>
+                <option value="medium" selected>Medio</option>
+                <option value="hard">Difícil</option>
+              </select>
+            </div>
+            <div class="setting-item">
+              <label for="gridSizeSelect">Tamaño:</label>
+              <select id="gridSizeSelect">
+                <option value="small">Pequeño (20x20)</option>
+                <option value="medium" selected>Medio (25x25)</option>
+                <option value="large">Grande (30x30)</option>
+              </select>
+            </div>
+            <div class="setting-item">
+              <label for="themeSelect">Tema:</label>
+              <select id="themeSelect">
+                <option value="classic" selected>Clásico</option>
+                <option value="neon">Neón</option>
+                <option value="retro">Retro</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

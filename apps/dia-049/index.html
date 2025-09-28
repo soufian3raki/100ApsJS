@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notas Avanzadas | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Notas Avanzadas</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="app-content">
+        <div class="notes-header">
+          <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar notas...">
+            <button id="searchBtn">🔍</button>
+          </div>
+          <div class="filter-container">
+            <select id="tagFilter">
+              <option value="">Todas las etiquetas</option>
+            </select>
+            <select id="sortBy">
+              <option value="newest">Más recientes</option>
+              <option value="oldest">Más antiguas</option>
+              <option value="title">Por título</option>
+            </select>
+          </div>
+          <button id="newNote" class="btn">+ Nueva Nota</button>
+        </div>
+        
+        <div class="notes-stats">
+          <div class="stat-item">
+            <span class="stat-number" id="totalNotes">0</span>
+            <span class="stat-label">Total</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="taggedNotes">0</span>
+            <span class="stat-label">Con etiquetas</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" id="favoriteNotes">0</span>
+            <span class="stat-label">Favoritas</span>
+          </div>
+        </div>
+        
+        <div class="notes-grid" id="notesGrid">
+          <!-- Las notas se mostrarán aquí -->
+        </div>
+        
+        <div class="no-notes" id="noNotes" style="display: none;">
+          <p>No hay notas disponibles</p>
+          <button class="btn" onclick="notesApp.createNewNote()">Crear primera nota</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Modal para crear/editar notas -->
+  <div class="modal" id="noteModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Nueva Nota</h2>
+        <button class="close-btn" id="closeModal">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="noteTitle">Título:</label>
+          <input type="text" id="noteTitle" placeholder="Título de la nota">
+        </div>
+        <div class="form-group">
+          <label for="noteContent">Contenido:</label>
+          <textarea id="noteContent" placeholder="Escribe tu nota aquí..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="noteTags">Etiquetas (separadas por comas):</label>
+          <input type="text" id="noteTags" placeholder="trabajo, importante, proyecto">
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="noteFavorite"> Marcar como favorita
+          </label>
+        </div>
+        <div class="form-group">
+          <label for="noteColor">Color:</label>
+          <select id="noteColor">
+            <option value="default">Por defecto</option>
+            <option value="red">Rojo</option>
+            <option value="blue">Azul</option>
+            <option value="green">Verde</option>
+            <option value="yellow">Amarillo</option>
+            <option value="purple">Morado</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelNote">Cancelar</button>
+        <button class="btn" id="saveNote">Guardar</button>
+        <button class="btn btn-danger" id="deleteNote" style="display: none;">Eliminar</button>
+      </div>
+    </div>
+  </div>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

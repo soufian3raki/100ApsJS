@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Memes | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Generador de Memes</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="meme-generator">
+        <div class="meme-editor">
+          <div class="meme-canvas-container">
+            <canvas id="meme-canvas" width="600" height="400"></canvas>
+            <div class="canvas-overlay" id="canvas-overlay">
+              <div class="text-overlay top-text" id="top-text" contenteditable="true">TEXTO SUPERIOR</div>
+              <div class="text-overlay bottom-text" id="bottom-text" contenteditable="true">TEXTO INFERIOR</div>
+            </div>
+          </div>
+          
+          <div class="meme-controls">
+            <div class="control-section">
+              <h3>📷 Imagen</h3>
+              <div class="image-controls">
+                <input type="file" id="image-input" accept="image/*" style="display: none;">
+                <button id="upload-btn" class="primary-btn">📁 Subir Imagen</button>
+                <button id="random-meme-btn" class="secondary-btn">🎲 Meme Aleatorio</button>
+              </div>
+            </div>
+            
+            <div class="control-section">
+              <h3>📝 Texto</h3>
+              <div class="text-controls">
+                <div class="text-input-group">
+                  <label for="top-text-input">Texto Superior</label>
+                  <input type="text" id="top-text-input" placeholder="Texto superior..." maxlength="50">
+                </div>
+                
+                <div class="text-input-group">
+                  <label for="bottom-text-input">Texto Inferior</label>
+                  <input type="text" id="bottom-text-input" placeholder="Texto inferior..." maxlength="50">
+                </div>
+                
+                <div class="text-style-controls">
+                  <div class="style-group">
+                    <label for="font-size">Tamaño de fuente</label>
+                    <input type="range" id="font-size" min="20" max="80" value="40">
+                    <span id="font-size-value">40px</span>
+                  </div>
+                  
+                  <div class="style-group">
+                    <label for="font-color">Color</label>
+                    <input type="color" id="font-color" value="#ffffff">
+                  </div>
+                  
+                  <div class="style-group">
+                    <label for="stroke-color">Color del borde</label>
+                    <input type="color" id="stroke-color" value="#000000">
+                  </div>
+                  
+                  <div class="style-group">
+                    <label for="stroke-width">Grosor del borde</label>
+                    <input type="range" id="stroke-width" min="0" max="10" value="3">
+                    <span id="stroke-width-value">3px</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="control-section">
+              <h3>💾 Acciones</h3>
+              <div class="action-controls">
+                <button id="download-btn" class="primary-btn">💾 Descargar</button>
+                <button id="share-btn" class="secondary-btn">📤 Compartir</button>
+                <button id="reset-btn" class="secondary-btn">🔄 Reiniciar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="meme-gallery">
+          <h3>🎭 Galería de Memes</h3>
+          <div class="gallery-grid" id="gallery-grid">
+            <!-- Memes generados se mostrarán aquí -->
+          </div>
+        </div>
+        
+        <div class="meme-tips">
+          <h3>💡 Consejos para Memes</h3>
+          <ul>
+            <li>Usa texto corto y directo para mayor impacto</li>
+            <li>El texto superior suele ser la situación</li>
+            <li>El texto inferior suele ser la reacción</li>
+            <li>Experimenta con diferentes colores y tamaños</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html> 

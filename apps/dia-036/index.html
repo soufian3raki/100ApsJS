@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor de Markdown en Vivo | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Editor de Markdown en Vivo</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="markdown-editor">
+        <div class="editor-header">
+          <h2>Editor de Markdown</h2>
+          <div class="editor-controls">
+            <button id="newDocBtn" class="btn secondary">📄 Nuevo</button>
+            <button id="saveDocBtn" class="btn primary">💾 Guardar</button>
+            <button id="loadDocBtn" class="btn secondary">📂 Cargar</button>
+            <button id="exportBtn" class="btn secondary">📤 Exportar</button>
+          </div>
+        </div>
+        
+        <div class="editor-toolbar">
+          <button class="toolbar-btn" data-command="bold" title="Negrita">B</button>
+          <button class="toolbar-btn" data-command="italic" title="Cursiva">I</button>
+          <button class="toolbar-btn" data-command="underline" title="Subrayado">U</button>
+          <div class="toolbar-separator"></div>
+          <button class="toolbar-btn" data-command="heading1" title="Título 1">H1</button>
+          <button class="toolbar-btn" data-command="heading2" title="Título 2">H2</button>
+          <button class="toolbar-btn" data-command="heading3" title="Título 3">H3</button>
+          <div class="toolbar-separator"></div>
+          <button class="toolbar-btn" data-command="link" title="Enlace">🔗</button>
+          <button class="toolbar-btn" data-command="image" title="Imagen">🖼️</button>
+          <button class="toolbar-btn" data-command="code" title="Código">��</button>
+          <div class="toolbar-separator"></div>
+          <button class="toolbar-btn" data-command="list" title="Lista">📝</button>
+          <button class="toolbar-btn" data-command="quote" title="Cita">💬</button>
+          <button class="toolbar-btn" data-command="table" title="Tabla">📊</button>
+        </div>
+        
+        <div class="editor-container">
+          <div class="editor-panel">
+            <div class="panel-header">
+              <h3>Markdown</h3>
+              <div class="panel-actions">
+                <button id="clearBtn" class="btn-small">🗑️</button>
+                <button id="fullscreenBtn" class="btn-small">⛶</button>
+              </div>
+            </div>
+            <textarea id="markdownInput" placeholder="Escribe tu Markdown aquí..."># Bienvenido al Editor de Markdown
+
+## Características
+- **Negrita** y *cursiva*
+- [Enlaces](https://ejemplo.com)
+- `código inline`
+
+### Lista
+1. Primer elemento
+2. Segundo elemento
+3. Tercer elemento
+
+### Código
+```javascript
+function saludar() {
+  console.log("¡Hola mundo!");
+}
+```
+
+### Tabla
+| Columna 1 | Columna 2 | Columna 3 |
+|-----------|-----------|-----------|
+| Dato 1    | Dato 2    | Dato 3    |
+| Dato 4    | Dato 5    | Dato 6    |
+
+> Esta es una cita de ejemplo
+
+---
+*¡Disfruta editando!*</textarea>
+          </div>
+          
+          <div class="preview-panel">
+            <div class="panel-header">
+              <h3>Vista Previa</h3>
+              <div class="panel-actions">
+                <button id="refreshBtn" class="btn-small">🔄</button>
+                <button id="copyBtn" class="btn-small">📋</button>
+              </div>
+            </div>
+            <div id="markdownPreview" class="preview-content">
+              <!-- El HTML renderizado se mostrará aquí -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="editor-stats">
+          <div class="stat-item">
+            <span class="stat-label">Palabras:</span>
+            <span class="stat-value" id="wordCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Caracteres:</span>
+            <span class="stat-value" id="charCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Líneas:</span>
+            <span class="stat-value" id="lineCount">0</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Tiempo de lectura:</span>
+            <span class="stat-value" id="readTime">0 min</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal para cargar archivos -->
+  <div id="loadModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Cargar Documento</h3>
+        <button id="closeLoadModal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="file" id="fileInput" accept=".md,.txt">
+        <div class="saved-docs" id="savedDocs">
+          <!-- Los documentos guardados se mostrarán aquí -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

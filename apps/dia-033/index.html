@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cronograma Interactivo | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Cronograma Interactivo</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="timeline-app">
+        <div class="timeline-header">
+          <h2>Gestor de Eventos</h2>
+          <div class="timeline-controls">
+            <button id="addEventBtn" class="btn primary">+ Nuevo Evento</button>
+            <button id="viewToggle" class="btn secondary">Vista: Lista</button>
+          </div>
+        </div>
+        
+        <div class="timeline-filters">
+          <div class="filter-group">
+            <label for="categoryFilter">Categoría:</label>
+            <select id="categoryFilter">
+              <option value="">Todas</option>
+              <option value="trabajo">Trabajo</option>
+              <option value="personal">Personal</option>
+              <option value="estudio">Estudio</option>
+              <option value="salud">Salud</option>
+              <option value="ocio">Ocio</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="statusFilter">Estado:</label>
+            <select id="statusFilter">
+              <option value="">Todos</option>
+              <option value="pendiente">Pendiente</option>
+              <option value="en-progreso">En Progreso</option>
+              <option value="completado">Completado</option>
+              <option value="cancelado">Cancelado</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="dateFilter">Fecha:</label>
+            <input type="date" id="dateFilter">
+          </div>
+        </div>
+        
+        <div class="timeline-container">
+          <div class="timeline-view" id="timelineView">
+            <!-- Los eventos se renderizarán aquí -->
+          </div>
+        </div>
+        
+        <div class="timeline-stats">
+          <div class="stat-card">
+            <h3>Total</h3>
+            <span id="totalEvents">0</span>
+          </div>
+          <div class="stat-card">
+            <h3>Pendientes</h3>
+            <span id="pendingEvents">0</span>
+          </div>
+          <div class="stat-card">
+            <h3>Completados</h3>
+            <span id="completedEvents">0</span>
+          </div>
+          <div class="stat-card">
+            <h3>En Progreso</h3>
+            <span id="progressEvents">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal para eventos -->
+  <div id="eventModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle">Nuevo Evento</h3>
+        <button id="closeModal" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="eventForm">
+          <div class="form-group">
+            <label for="eventTitle">Título:</label>
+            <input type="text" id="eventTitle" required>
+          </div>
+          <div class="form-group">
+            <label for="eventDescription">Descripción:</label>
+            <textarea id="eventDescription" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="eventDate">Fecha:</label>
+            <input type="date" id="eventDate" required>
+          </div>
+          <div class="form-group">
+            <label for="eventTime">Hora:</label>
+            <input type="time" id="eventTime">
+          </div>
+          <div class="form-group">
+            <label for="eventCategory">Categoría:</label>
+            <select id="eventCategory">
+              <option value="trabajo">Trabajo</option>
+              <option value="personal">Personal</option>
+              <option value="estudio">Estudio</option>
+              <option value="salud">Salud</option>
+              <option value="ocio">Ocio</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="eventStatus">Estado:</label>
+            <select id="eventStatus">
+              <option value="pendiente">Pendiente</option>
+              <option value="en-progreso">En Progreso</option>
+              <option value="completado">Completado</option>
+              <option value="cancelado">Cancelado</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="eventPriority">Prioridad:</label>
+            <select id="eventPriority">
+              <option value="baja">Baja</option>
+              <option value="media">Media</option>
+              <option value="alta">Alta</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="saveEvent" class="btn primary">Guardar</button>
+        <button id="deleteEvent" class="btn danger" style="display: none;">Eliminar</button>
+        <button id="cancelEvent" class="btn secondary">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

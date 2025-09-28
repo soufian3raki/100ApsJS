@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorteo Aleatorio | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Sorteo Aleatorio</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="random-picker">
+        <div class="input-section">
+          <textarea id="names-input" placeholder="Escribe los nombres, uno por línea..."></textarea>
+          <div class="controls">
+            <button id="add-sample" class="btn-secondary">Agregar Ejemplos</button>
+            <button id="clear-all" class="btn-danger">Limpiar Todo</button>
+          </div>
+        </div>
+        
+        <div class="picker-section">
+          <button id="pick-random" class="pick-button">🎲 Sortear</button>
+          <div class="result-display" id="result-display">
+            <div class="result-text">Haz clic en "Sortear" para comenzar</div>
+          </div>
+        </div>
+        
+        <div class="history-section">
+          <h3>Historial de Sorteos</h3>
+          <div class="history-list" id="history-list">
+            <p class="no-history">Aún no hay sorteos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

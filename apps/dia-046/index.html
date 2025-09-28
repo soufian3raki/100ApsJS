@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca Personal | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Biblioteca Personal</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="app-content">
+        <div class="book-form">
+          <h2>Agregar Libro</h2>
+          <form id="bookForm">
+            <input type="text" id="title" placeholder="Título del libro" required>
+            <input type="text" id="author" placeholder="Autor" required>
+            <select id="status">
+              <option value="to-read">Por leer</option>
+              <option value="reading">Leyendo</option>
+              <option value="read">Leído</option>
+            </select>
+            <input type="number" id="rating" placeholder="Calificación (1-5)" min="1" max="5">
+            <textarea id="notes" placeholder="Notas (opcional)"></textarea>
+            <button type="submit">Agregar Libro</button>
+          </form>
+        </div>
+        
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="to-read">Por leer</button>
+          <button class="filter-btn" data-filter="reading">Leyendo</button>
+          <button class="filter-btn" data-filter="read">Leídos</button>
+        </div>
+        
+        <div class="books-grid" id="booksGrid">
+          <!-- Los libros se mostrarán aquí -->
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

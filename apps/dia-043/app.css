@@ -1,0 +1,326 @@
+/* Calculadora Científica - Día 43 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.calculator {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.display {
+    grid-column: 1 / -1;
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.expression {
+    color: #888;
+    font-size: 1.2rem;
+    min-height: 30px;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.result {
+    color: #00ff88;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: right;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-family: "Courier New", monospace;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn.number {
+    background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+    color: #333;
+}
+
+.btn.number:hover {
+    background: linear-gradient(145deg, #e8e8e8, #d8d8d8);
+}
+
+.btn.operator {
+    background: linear-gradient(145deg, #ff6b6b, #ee5a52);
+    color: white;
+}
+
+.btn.operator:hover {
+    background: linear-gradient(145deg, #ff5252, #e53935);
+}
+
+.btn.function {
+    background: linear-gradient(145deg, #4ecdc4, #44a08d);
+    color: white;
+    font-size: 0.9rem;
+}
+
+.btn.function:hover {
+    background: linear-gradient(145deg, #26a69a, #00695c);
+}
+
+.btn.memory {
+    background: linear-gradient(145deg, #ffd93d, #ffb300);
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.btn.memory:hover {
+    background: linear-gradient(145deg, #ffc107, #ff8f00);
+}
+
+.btn.history {
+    background: linear-gradient(145deg, #9c27b0, #7b1fa2);
+    color: white;
+    font-size: 0.9rem;
+}
+
+.btn.history:hover {
+    background: linear-gradient(145deg, #8e24aa, #6a1b9a);
+}
+
+.memory-section, .history-section {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.memory-section h3, .history-section h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+.memory-buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.memory-display {
+    background: #1a1a1a;
+    color: #00ff88;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-family: "Courier New", monospace;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.history {
+    max-height: 200px;
+    overflow-y: auto;
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+
+.history-item {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    font-family: "Courier New", monospace;
+    font-size: 0.9rem;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-expression {
+    color: #666;
+    margin-bottom: 2px;
+}
+
+.history-result {
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.info {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-size: 1.3rem;
+}
+
+.functions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.function-item {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.function-item strong {
+    color: #4ecdc4;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .calculator {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .buttons {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .btn {
+        padding: 12px;
+        font-size: 1rem;
+        min-height: 50px;
+    }
+    
+    .result {
+        font-size: 2rem;
+    }
+    
+    .memory-buttons {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .functions-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .buttons {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .btn {
+        padding: 10px;
+        font-size: 0.9rem;
+        min-height: 45px;
+    }
+    
+    .result {
+        font-size: 1.8rem;
+    }
+}
+
+/* Animaciones */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.btn:active {
+    animation: pulse 0.1s ease;
+}
+
+/* Scrollbar personalizado */
+.history::-webkit-scrollbar {
+    width: 6px;
+}
+
+.history::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.history::-webkit-scrollbar-thumb {
+    background: #4ecdc4;
+    border-radius: 3px;
+}
+
+.history::-webkit-scrollbar-thumb:hover {
+    background: #26a69a;
+}

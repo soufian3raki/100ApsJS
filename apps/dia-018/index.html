@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Converter | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Unit Converter</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="converter-app">
+        <div class="category-selector">
+          <h3>Seleccionar Categoría</h3>
+          <div class="category-buttons" id="categoryButtons">
+            <button class="category-btn active" data-category="length">Longitud</button>
+            <button class="category-btn" data-category="weight">Peso</button>
+            <button class="category-btn" data-category="temperature">Temperatura</button>
+            <button class="category-btn" data-category="area">Área</button>
+            <button class="category-btn" data-category="volume">Volumen</button>
+            <button class="category-btn" data-category="speed">Velocidad</button>
+            <button class="category-btn" data-category="time">Tiempo</button>
+            <button class="category-btn" data-category="digital">Digital</button>
+          </div>
+        </div>
+
+        <div class="converter-panel">
+          <div class="converter-inputs">
+            <div class="input-group">
+              <label for="fromUnit">Desde:</label>
+              <select id="fromUnit" class="unit-select">
+                <!-- Units will be populated here -->
+              </select>
+              <input type="number" id="fromValue" class="value-input" placeholder="0" step="any">
+            </div>
+
+            <button class="swap-button" id="swapBtn">⇄</button>
+
+            <div class="input-group">
+              <label for="toUnit">A:</label>
+              <select id="toUnit" class="unit-select">
+                <!-- Units will be populated here -->
+              </select>
+              <input type="number" id="toValue" class="value-input" placeholder="0" step="any" readonly>
+            </div>
+          </div>
+
+          <div class="conversion-history">
+            <h3>Historial de Conversiones</h3>
+            <div class="history-list" id="historyList">
+              <!-- Conversion history will be added here -->
+            </div>
+            <button class="clear-history-btn" id="clearHistoryBtn">
+              Limpiar Historial
+            </button>
+          </div>
+        </div>
+
+        <div class="converter-info">
+          <div class="info-card">
+            <h4>Información</h4>
+            <div class="info-content" id="infoContent">
+              <!-- Unit information will be displayed here -->
+            </div>
+          </div>
+
+          <div class="favorites-card">
+            <h4>Conversiones Favoritas</h4>
+            <div class="favorites-list" id="favoritesList">
+              <!-- Favorites will be added here -->
+            </div>
+            <button class="add-favorite-btn" id="addFavoriteBtn">
+              Agregar a Favoritos
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="app.js"></script>
+</body>
+</html> 

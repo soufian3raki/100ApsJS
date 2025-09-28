@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Préstamos | 100 Apps JS</title>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../app-styles.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <button id="back" aria-label="Volver">← Volver</button>
+      <h1>Simulador de Préstamos</h1>
+      <button id="toggle-mode" aria-label="Cambiar modo">🌙</button>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="app-content">
+        <div class="loan-calculator">
+          <h2>Calculadora de Préstamos</h2>
+          <div class="calculator-form">
+            <div class="form-group">
+              <label for="loanAmount">Monto del préstamo:</label>
+              <input type="number" id="loanAmount" placeholder="100000" min="1000" step="1000">
+              <span class="currency">$</span>
+            </div>
+            
+            <div class="form-group">
+              <label for="interestRate">Tasa de interés anual:</label>
+              <input type="number" id="interestRate" placeholder="5.5" min="0.1" max="50" step="0.1">
+              <span class="percentage">%</span>
+            </div>
+            
+            <div class="form-group">
+              <label for="loanTerm">Plazo del préstamo:</label>
+              <input type="number" id="loanTerm" placeholder="30" min="1" max="50" step="1">
+              <span class="years">años</span>
+            </div>
+            
+            <div class="form-group">
+              <label for="paymentFrequency">Frecuencia de pago:</label>
+              <select id="paymentFrequency">
+                <option value="monthly">Mensual</option>
+                <option value="biweekly">Quincenal</option>
+                <option value="weekly">Semanal</option>
+              </select>
+            </div>
+            
+            <button id="calculateLoan" class="btn">Calcular Préstamo</button>
+          </div>
+        </div>
+        
+        <div class="loan-results" id="loanResults" style="display: none;">
+          <h3>Resultados del Préstamo</h3>
+          <div class="results-grid">
+            <div class="result-card">
+              <div class="result-label">Pago Mensual</div>
+              <div class="result-value" id="monthlyPayment">$0</div>
+            </div>
+            <div class="result-card">
+              <div class="result-label">Total de Pagos</div>
+              <div class="result-value" id="totalPayments">$0</div>
+            </div>
+            <div class="result-card">
+              <div class="result-label">Intereses Totales</div>
+              <div class="result-value" id="totalInterest">$0</div>
+            </div>
+            <div class="result-card">
+              <div class="result-label">Número de Pagos</div>
+              <div class="result-value" id="numberOfPayments">0</div>
+            </div>
+          </div>
+          
+          <div class="amortization-section">
+            <h4>Tabla de Amortización</h4>
+            <div class="amortization-controls">
+              <button id="showAmortization" class="btn btn-secondary">Ver Tabla Completa</button>
+              <button id="exportResults" class="btn btn-secondary">Exportar PDF</button>
+            </div>
+            <div class="amortization-table" id="amortizationTable" style="display: none;">
+              <!-- La tabla se generará aquí -->
+            </div>
+          </div>
+        </div>
+        
+        <div class="loan-comparison">
+          <h3>Comparación de Escenarios</h3>
+          <div class="comparison-controls">
+            <button id="addScenario" class="btn">Agregar Escenario</button>
+            <button id="clearScenarios" class="btn btn-secondary">Limpiar Todo</button>
+          </div>
+          <div class="scenarios-list" id="scenariosList">
+            <!-- Los escenarios se mostrarán aquí -->
+          </div>
+        </div>
+        
+        <div class="loan-charts">
+          <h3>Visualización de Datos</h3>
+          <div class="chart-container">
+            <canvas id="paymentChart" width="400" height="200"></canvas>
+          </div>
+          <div class="chart-controls">
+            <button id="showPaymentChart" class="btn btn-secondary">Gráfico de Pagos</button>
+            <button id="showInterestChart" class="btn btn-secondary">Gráfico de Intereses</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script src="../../common.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
