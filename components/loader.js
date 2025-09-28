@@ -8,7 +8,11 @@ function loadHeader() {
   headerPlaceholder.id = 'header-placeholder';
   document.body.prepend(headerPlaceholder);
 
+<<<<<<< HEAD
   fetch('/components/header.html')
+=======
+  fetch('/100ApsJS/components/header.html')
+>>>>>>> 87e02ec123e21b060844fd8e113475bb5b9538ac
     .then(response => response.text())
     .then(data => {
       headerPlaceholder.innerHTML = data;
@@ -52,7 +56,11 @@ function loadFooter() {
   footerPlaceholder.id = 'footer-placeholder';
   document.body.append(footerPlaceholder);
 
+<<<<<<< HEAD
   fetch('/components/footer.html')
+=======
+  fetch('/100ApsJS/components/footer.html')
+>>>>>>> 87e02ec123e21b060844fd8e113475bb5b9538ac
     .then(response => response.text())
     .then(data => {
       footerPlaceholder.innerHTML = data;
